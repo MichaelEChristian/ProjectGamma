@@ -4,7 +4,7 @@ import Nav from './Nav';
 import Main from './Page Bodies/Main';
 import Themes from './Page Bodies/Themes';
 import Invites from './Page Bodies/Invites';
-
+import ParentInvite from './Page Bodies/ParentInvite';
 
 function App() {
   return (
@@ -16,6 +16,7 @@ function App() {
           <Route path="/" element={<Main/>}/>
           <Route path="/themes/" element={<Themes/>}/>
           <Route path="/invites/" element={<Invites/>}/>
+          <Route path="/invites/creation/" element={<ParentInvite/>}/>
         </Routes>
       </div>
       </BrowserRouter>

@@ -13,7 +13,8 @@ const breakPoints = [
 ]
 
 
-function Themes() {
+function Themes(props) {
+
   return (
     <div>
         <h1 style={{textAlign: "center"}}>Most Popular Themes</h1>
