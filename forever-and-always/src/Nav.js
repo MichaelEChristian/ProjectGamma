@@ -3,119 +3,49 @@ import {NavLink} from 'react-router-dom'
 
 function Nav() {
   return (
-    // <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-    // <div>
-    // <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    //       <span className="navbar-toggler-icon"></span>
-    //     </button>
-
-    //   NavBar Component
-    //     <NavLink to="/"/>
-    //     <NavLink to ="/Signup/"/>
-    // </div>
-    // </nav>
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div className="container-fluid">
-        <NavLink className="navbar-brand" to="/">E & J Authorized Jeep Dealer</NavLink>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-
-
-            <li className="nav-item">
-              <NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
+    <nav className="navbar navbar-expand-lg navbar-light bg-secondary" id="navbar">
+    <div className="collapse navbar-collapse" id="navbarNavDropdown">
+        <NavLink className="navbar-brand" id="home-links" to="/">Home</NavLink>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+            </button>
+        <ul className="navbar-nav">
+            <li className="nav-item active">
+                <a className="nav-link" id="home-links" href="/destinations/">Destinations<span className="sr-only"></span></a>
             </li>
-
+            <li className="nav-item active">
+                <a className="nav-link" id="home-links" href="/themes/">Themes<span className="sr-only"></span></a>
+            </li>
+            <li className="nav-item active">
+                <a className="nav-link" id="home-links" href="/invites/creation/">Invitations<span className="sr-only"></span></a>
+            </li>
+            <li className="nav-item active">
+                <a className="nav-link" id="home-links" href="/catering/">Catering<span className="sr-only"></span></a>
+            </li>
+            <li className="nav-item active">
+                <a className="nav-link" id="home-links" href="/hotels/">Hotels<span className="sr-only"></span></a>
+            </li>
+            <li className="nav-item active">
+                <a className="nav-link" id="home-links" href="/venues/">Venues<span className="sr-only"></span></a>
+            </li>
+            <li className="nav-item active">
+                <a className="nav-link" id="home-links" href="/login/">Login<span className="sr-only"></span></a>
+            </li>
             <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Inventory
-          </a>
-          <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <li className="nav-item">
-              <NavLink className="dropdown-item" to="/list/models/">Models List</NavLink>
-            </li>
-          <li className="nav-item">
-              <NavLink className="dropdown-item" to="/list/manufacturer/">Manufacturers List</NavLink>
-            </li>
-          <li className="nav-item">
-              <NavLink className="dropdown-item" to="/list/automobiles/">Automobiles List</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="dropdown-item" to="/create/model/">New Vehicle Models</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="dropdown-item" to="/create/manufacturer/">New Manufacturer</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="dropdown-item" to="/create/automobile/">New Automobile</NavLink>
+                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Profile
+                </a>
+                <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <NavLink className="dropdown-item" to="/dashboard/">My plans</NavLink>
+                    <a className="dropdown-item" href="/guests/">Guest List</a>
+                    <a className="dropdown-item" href="/billing/">Billing</a>
+                    <a className="dropdown-item" href="/registry/">Registry</a>
+                </div>
             </li>
 
-          </ul>
-        </li>
-
-            <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Sales
-          </a>
-          <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li className="nav-item">
-              <NavLink className="dropdown-item" to="/list/sales/">Sale Records</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="dropdown-item" to="/list/individual/">Individual Records</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="dropdown-item" to="/create/customer/">New Customer</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="dropdown-item" to="/create/sale-person/">New Sale Person</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="dropdown-item" to="/create/sale-record/">New Sale Record</NavLink>
-            </li>
-          </ul>
-        </li>
-
-        <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Service
-          </a>
-          <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <li>
-              <NavLink className="dropdown-item" to="/list/services/">Services</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="dropdown-item" to="/list/service-history/">Service History</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="dropdown-item" to="/create/service/">New Service</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="dropdown-item" to="/create/technician/">New Technician</NavLink>
-            </li>
-          </ul>
-        </li>
-        <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Accounts
-          </a>
-          <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li>
-              <NavLink className="dropdown-item" to="/accounts/">Employees</NavLink>
-            </li>
-            <li>
-              <NavLink className="dropdown-item" to="/accounts/new/">New Employee</NavLink>
-            </li>
-          </ul>
-        </li>
         </ul>
-        <img src="https://www.pngplay.com/wp-content/uploads/13/Jeep-Transparent-Images.png" width="70" height="55"/>
-        </div>
-      </div>
-    </nav>
-    
+    </div>
+</nav>
   )
 }
 
