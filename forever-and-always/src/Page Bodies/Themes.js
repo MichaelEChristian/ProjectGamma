@@ -13,10 +13,11 @@ const breakPoints = [
 ]
 
 
-function Themes() {
+function Themes(props) {
+
   return (
     <div>
-        <h1 style={{textAlign: "center"}}>Most Popular Themes</h1>
+        <h1 className="most-popular-themes" style={{textAlign: "center"}}>Most Popular Themes</h1>
         <div className="App">
             <Carousel breakPoints={breakPoints}>
                 <ThemeCards></ThemeCards>
