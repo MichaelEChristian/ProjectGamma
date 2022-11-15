@@ -1,6 +1,9 @@
 import React, {useState, useRef} from 'react'
 
-function CardText() {
+function CardText(props) {
+
+  console.log("props inside card text.js:", props)
+
   const blankForm = {
     name: "",
     spouse_name: "",

@@ -41,10 +41,19 @@
   padding: 20px;
 }
 
+#home-links, #navbarDropdownMenuLink{
+  color: #FCFFF4;
+  font-size: x-large;
+  padding-right: 80px;
+}
 
 .navbar {
-  background-color: pink;
+  display: flex;
+  justify-content: space-between;
+  background-color: pink !important;
   color: white;
+  font-weight: bold;
+  font-style: italic;
   padding: 20px;
   border: solid 5px hotpink;
 }
@@ -117,7 +126,7 @@
 .big-card{
   width: 40%;
   padding-right: 50px;
-  margin-top: 1%;
+  margin-top: 3%;
 }
 
 .invite-name-container{
@@ -152,12 +161,12 @@
 .login-form {
   color: white;
   position: absolute;
-  top: 30%;
-  left: 3%;
+  top: 35%;
+  left: 6%;
   height: auto;
-  width: 42%;
+  width: 45%;
   background-color: pink;
-  padding-left: 20px;
+  padding-left: 30px;
   margin-right: 20px;
   padding-right: 20px;
   margin-top: 12%;
