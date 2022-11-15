@@ -22,7 +22,7 @@ function Destination() {
     <div class="carousel-item active">
       <img src="https://hctg-images.imgix.net/images/venues/the-oaks-at-boerne/WD20200924OaksAtBoerneThe08.jpg?auto=format%2Ccompress&crop=focalpoint&dpr=3&fit=min&fm=jpg&fp-x=0.5&fp-y=0.5&w=400&s=c9e1f2034ff35fe588a388ac09154a89" class="d-block w-100" alt="..."/>
       <div class="carousel-caption d-none d-md-block">
-        <h5>The Oaks at Boerne</h5>
+        <h5>The Oaks at Boerne </h5>
         <h6>Boerne, TX</h6>
         <p>110 acres of Hill Country perfection with gently rolling meadows graced by hundreds of its namesake ancient oaks • large, cheerful barn with roll-up sides and plenty of shabby-chic touches • endless photo ops—a romantic “room for two” tree swing, vintage farm equipment and furniture, and even some photogenic longhorn cattle</p>
       </div>
