@@ -41,7 +41,7 @@ function CardText(props) {
               <input defaultValue={inputText.location} onChange={e => setInputText({...inputText, location: e.target.value})} className="input" placeholder="...terrace on the park 1111 East 12th Street, Chicago IL..." type="text"></input>
             <label className="label">Any additional information</label>
               <input defaultValue={inputText.extra} onChange={e => setInputText({...inputText, extra: e.target.value})} className="input" placeholder="...dinner will be served! See you there!..." type="text"></input>
-            <button type="button" className="btn btn-lg btn-primary">Preview</button>
+            <button type="button" id="bton" className="btn btn-lg btn-primary">Preview</button>
         </div>
     </form>
   )
