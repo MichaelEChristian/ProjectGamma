@@ -7,6 +7,7 @@ import Invites from './Page Bodies/Invites';
 import ParentInvite from './Page Bodies/ParentInvite';
 import CardText from './Form Components/CardText';
 import Text from './Demo/Text';
+import Destination from './Page Bodies/Destination';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="destination" element={<Destination/>}/> */}
           <Route path="/" element={<Main/>}/>
           <Route path="/themes/" element={<Themes/>}/>
+          <Route path="/destinations/" element={<Destination/>}/>
           <Route path="/invites/" element={<Invites/>}/>
           <Route path="/invites/forms/" element={<CardText/>}/>
           <Route path="/invites/creation/" element={<ParentInvite/>}/>
