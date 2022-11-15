@@ -2,7 +2,7 @@ import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Nav from './Nav';
 import Main from './Page Bodies/Main';
-import Hotel from './Form Components/Hotel';
+
 
 function App() {
   return (
@@ -11,8 +11,9 @@ function App() {
       <Nav/>
       <div>
         <Routes>
+        {/* <Route path="login" element={<Login/>}/>
+          <Route path="destination" element={<Destination/>}/> */}
           <Route path="/" element={<Main/>}/>
-          <Route path='/Hotel'/>
         </Routes>
       </div>
       <div>
