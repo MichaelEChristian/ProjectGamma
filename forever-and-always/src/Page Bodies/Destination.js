@@ -20,7 +20,7 @@ function Destination() {
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="https://hctg-images.imgix.net/images/venues/the-oaks-at-boerne/WD20200924OaksAtBoerneThe08.jpg?auto=format%2Ccompress&crop=focalpoint&dpr=3&fit=min&fm=jpg&fp-x=0.5&fp-y=0.5&w=400&s=c9e1f2034ff35fe588a388ac09154a89" class="d-block w-100" alt="..."/>
+      <img id="destination-pics" src="https://hctg-images.imgix.net/images/venues/the-oaks-at-boerne/WD20200924OaksAtBoerneThe08.jpg?auto=format%2Ccompress&crop=focalpoint&dpr=3&fit=min&fm=jpg&fp-x=0.5&fp-y=0.5&w=400&s=c9e1f2034ff35fe588a388ac09154a89" class="d-block w-100" alt="..."/>
       <div class="carousel-caption d-none d-md-block">
         <h5>The Oaks at Boerne</h5>
         <h6>Boerne, TX</h6>
@@ -28,7 +28,7 @@ function Destination() {
       </div>
     </div>
     <div class="carousel-item">
-      <img src="https://hctg-images.imgix.net/images/articles/CharlestonLane02.jpg?auto=format%2Ccompress&crop=focalpoint&dpr=3&fit=min&fm=jpg&fp-x=0.5&fp-y=0.5&w=400&s=0386a1f365f6690d2ad427ae84157e4f" class="d-block w-100" alt="..."/>
+      <img id="destination-pics" src="https://hctg-images.imgix.net/images/articles/CharlestonLane02.jpg?auto=format%2Ccompress&crop=focalpoint&dpr=3&fit=min&fm=jpg&fp-x=0.5&fp-y=0.5&w=400&s=0386a1f365f6690d2ad427ae84157e4f" class="d-block w-100" alt="..."/>
       <div class="carousel-caption d-none d-md-block">
       <h5>Charleston Lane</h5>
         <h6>Willis, TX</h6>
@@ -36,7 +36,7 @@ function Destination() {
       </div>
     </div>
     <div class="carousel-item">
-      <img src="https://hctg-images.imgix.net/images/venues/elmwood-gardens-by-provence/WD20220629Elmwood-Gardens22.jpg?auto=format%2Ccompress&crop=focalpoint&dpr=3&fit=min&fm=jpg&fp-x=0.5&fp-y=0.5&w=400&s=782ca7b9cd3c74d18155a2f298690e1d" class="d-block w-100" alt="..."/>
+      <img id="destination-pics" src="https://hctg-images.imgix.net/images/venues/elmwood-gardens-by-provence/WD20220629Elmwood-Gardens22.jpg?auto=format%2Ccompress&crop=focalpoint&dpr=3&fit=min&fm=jpg&fp-x=0.5&fp-y=0.5&w=400&s=782ca7b9cd3c74d18155a2f298690e1d" class="d-block w-100" alt="..."/>
       <div class="carousel-caption d-none d-md-block">
       <h5>Elmwood Gardens by Provence</h5>
         <h6>Palestine, TX</h6>
