@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import Carousel from 'react-elastic-carousel';
 import '../App.css';
@@ -16,8 +16,10 @@ import Garden2 from '../images/Garden2.jpg'
 import Beach from '../images/Beach.jpeg'
 import Beach2 from '../images/Beach2.png'
 import Beach3 from '../images/Beach3.jpg'
+import Modal from 'react-modal'
 
-const themes = [Winter, Winter2, Winter3, Goth, Goth2, Goth3, Garden, Garden2, Beach, Beach2, Beach3]
+const themes = [Winter2, Goth, Garden, Beach]
+const themeNames = ["Winter Wonderland", "Gothic Grunge", "Garden Glades", "Boho Beach"]
 
 const breakPoints = [
     {width: 1, itemsToShow: 1},
@@ -26,30 +28,37 @@ const breakPoints = [
     {width: 1200, itemsToShow: 4},
 ]
 
-
 function Themes(props) {
+
+  const [modalOpen, setModalOpen] = useState(false)
 
   return (
     <div>
         <h1 className="most-popular-themes" style={{textAlign: "center"}}>Most Popular Themes</h1>
         <div className="App">
             <Carousel breakPoints={breakPoints}>
-            {themes.map(img => {
+            {themes.map((img, index) => {
               return (
-                <Card className="carousel-card" style={{ width: '18rem' }}>
+                <Card className="carousel-card" style={{ width: '22rem' }}>
                   <div>{console.log(img)}</div>
                   <Card.Img variant="top" src={img} />
                   <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
+
+                    <Card.Title>{themeNames[index]}</Card.Title>
+
                     <Card.Text>
                       Some quick example text to build on the card title and talk about key
                       features of the theme e.g. Winter Wonderland, etc.
                     </Card.Text>
-                    <Button variant="primary">Learn More</Button>
+                    <Button id={index} onClick={() => setModalOpen(true)} variant="primary">Learn More</Button>
+                    <Modal isOpen={modalOpen}>
+
+                    </Modal>
                   </Card.Body>
                 </Card>
               );
             })}
+            <ThemeCards/>
             </Carousel>
         </div>
     </div>
