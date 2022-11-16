@@ -9,7 +9,7 @@ services:
     volumes:
       - postgres-data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_MULTIPLE_DATABASES=accounts, destinations, invitations, venues, flights
+      - POSTGRES_MULTIPLE_DATABASES=accounts
       - POSTGRES_PASSWORD=test-databases
     ports:
       - 15432:5432
