@@ -1,0 +1,12 @@
+Week 1
+Journal destinations, sign-in page, testing sky scanner api 
+
+
+Week 2 11-14-22
+Found a database on data.world. The database is open-source with every airport, heliport, etc. in the US. 
+The goal with this is to use the data as input information for the Priceline API I found on Rapidapi.com
+Work on the destination page to have all the required input fields.
+
+Week 2 11-15-22
+Worked on destination page, I had to remove the carousel image from page. It was conflicting due to set classes being used, switched that with a image collage.
+Bing api tested and it works.
