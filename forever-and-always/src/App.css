@@ -178,3 +178,19 @@
 .w-description{
   font-size: x-large;
 }
+/* Login pg */
+
+.login,
+.image {
+  min-height: 100vh;
+}
+.bg-image {
+  background-image: url("https://images.pexels.com/photos/5022353/pexels-photo-5022353.jpeg");
+  background-size: cover;
+  background-position: center center;
+}
+
+/* Destination page */
+/* .img-container{
+  display: flex;
+} */
