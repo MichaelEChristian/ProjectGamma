@@ -1,6 +1,6 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
- 
+
 function Nav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-secondary" id="navbar">
@@ -36,7 +36,7 @@ function Nav() {
                     Profile
                 </a>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <NavLink className="dropdown-item" to="/dashboard/">My plans</NavLink>
+                    <NavLink className="dropdown-item" to="/profile/dashboard/">My plans</NavLink>
                     <a className="dropdown-item" href="/guests/">Guest List</a>
                     <a className="dropdown-item" href="/billing/">Billing</a>
                     <a className="dropdown-item" href="/registry/">Registry</a>
