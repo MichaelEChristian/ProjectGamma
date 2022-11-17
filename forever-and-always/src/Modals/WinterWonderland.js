@@ -6,7 +6,7 @@ import snowflake from '../images/Snowflake.webp'
 
 function WinterWonderland() {
   return (
-    <div>
+    <div className="theme-modal">
         <img className="snowflake" src={snowflake}></img>
         <img className="snowflake-2" src={snowflake}></img>
         <h1 className="winter-h1">Winter Wonderland</h1>

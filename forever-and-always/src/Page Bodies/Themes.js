@@ -18,7 +18,7 @@ import GardenGlades from '../Modals/GardenGlades';
 
 const themes = [Winter2, Goth, Garden, Beach]
 const themeNames = ["Winter Wonderland", "Gothic Grunge", "Garden Glades", "Boho Beach"]
-const components = [<WinterWonderland/>, <GothicGrunge/>]
+const components = [<WinterWonderland/>, <GothicGrunge/>, <GardenGlades/>, <BohoBeach/>]
 
 const breakPoints = [
     {width: 1, itemsToShow: 1},
