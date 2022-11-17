@@ -6,8 +6,10 @@ import Themes from './Page Bodies/Themes';
 import Invites from './Page Bodies/Invites';
 import ParentInvite from './Page Bodies/ParentInvite';
 import CardText from './Form Components/CardText';
+import Login from './Form Components/Login';
 import Text from './Demo/Text';
-
+import Destination from './Page Bodies/Destination';
+import Dashboard from './Page Bodies/Dashboard';
 
 
 function App() {
@@ -17,14 +19,16 @@ function App() {
       <Nav/>
       <div>
         <Routes>
-        {/* <Route path="login" element={<Login/>}/>
-          <Route path="destination" element={<Destination/>}/> */}
+          <Route path="login" element={<Login/>}/>
+          <Route path="destinations" element={<Destination/>}/>
           <Route path="/" element={<Main/>}/>
           <Route path="/themes/" element={<Themes/>}/>
+          <Route path="/destinations/" element={<Destination/>}/>
           <Route path="/invites/" element={<Invites/>}/>
           <Route path="/invites/forms/" element={<CardText/>}/>
           <Route path="/invites/creation/" element={<ParentInvite/>}/>
           <Route path="/invites/test/" element={<Text/>}/>
+          <Route path="/profile/dashboard/" element={<Dashboard/>}/>
         </Routes>
       </div>
       <div>

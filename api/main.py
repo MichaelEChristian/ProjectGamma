@@ -1,21 +1,13 @@
-import uvicorn
 from fastapi import FastAPI
-from app.auth.model import RestaurantSchema
-# from routers import users
 
-app = FastAPI()
-
-# app.include_router(users.router)
-restaurants = {
+data = {
     1: {
-        "name:": "Torchys",
-        "price_point:": "$"
+        "hello": "world"
     }
 }
 
+app = FastAPI()
 
-#@router.get('/api/users')
-
-@app.get("/", tags = ["yelp restaurants"])
-def get_restaurants():
-    return restaurants
+@app.get("/hello-world/")
+def get_hello_world():
+    return data
