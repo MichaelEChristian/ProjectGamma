@@ -23,9 +23,6 @@ function Nav() {
                 <a className="nav-link" id="home-links" href="/catering/">Catering<span className="sr-only"></span></a>
             </li>
             <li className="nav-item active">
-                <a className="nav-link" id="home-links" href="/hotels/">Hotels<span className="sr-only"></span></a>
-            </li>
-            <li className="nav-item active">
                 <a className="nav-link" id="home-links" href="/venues/">Venues<span className="sr-only"></span></a>
             </li>
             <li className="nav-item active">
