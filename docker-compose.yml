@@ -1,15 +1,21 @@
-volumes:
-    postgres-data:
-        external: true
+version: "4.1"
 services:
-  postgres:
-    build:
-      context: ./relational-data
-      dockerfile: ./Dockerfile.dev
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_MULTIPLE_DATABASES=accounts
-      - POSTGRES_PASSWORD=test-databases
+  fastapi:
+    build: ./api
     ports:
-      - 15432:5432
+      - "3001:3001"
+    environment:
+      DATABASE_URL: postgresql://weddings:weddings@db/weddings
+  db:
+    image: postgres
+    ports:
+      - "15432:5432"
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: bossmode
+      POSTGRES_USER: bossmode
+      POSTGRES_DB: bossmode
+    volumes:
+      - weddings-data:/var/lib/postgresql/data
+volumes:
+  weddings-data:
