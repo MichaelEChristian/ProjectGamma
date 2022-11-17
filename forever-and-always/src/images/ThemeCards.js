@@ -17,11 +17,9 @@ import Beach3 from '../images/Beach3.jpg'
 const themes = [Winter, Winter2, Winter3, Goth, Goth2, Goth3, Garden, Garden2, Beach, Beach2, Beach3]
 
 function ThemeCards() {
-  console.log("themes:", themes)
   {themes.map(img => {
     return (
       <Card className="carousel-card" style={{ width: '18rem' }}>
-        <div>{console.log(img)}</div>
         <Card.Img variant="top" src={img} />
         <Card.Body>
           <Card.Title>Card Title</Card.Title>

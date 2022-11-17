@@ -22,14 +22,14 @@ services:
 volumes:
   weddings-data:
     external: true
-    pgadmin:
-        image: dpage/pgadmin4
-        environment:
-            - PGADMIN_DEFAULT_EMAIL=bossmode@pgadmin.org
-            - PGADMIN_DEFAULT_PASSWORD=bossmode
-        ports:
-            - '5050:80'
-        restart: always
-        volumes:
-            - pgadmin:/root/.pgadmin
-            - pgadmin
+    # pgadmin:
+    #     image: dpage/pgadmin4
+    #     environment:
+    #         - PGADMIN_DEFAULT_EMAIL=bossmode@pgadmin.org
+    #         - PGADMIN_DEFAULT_PASSWORD=bossmode
+    #     ports:
+    #         - '5050:80'
+    #     restart: always
+    #     volumes:
+    #         - pgadmin:/root/.pgadmin
+    #         - weddings-data-admin

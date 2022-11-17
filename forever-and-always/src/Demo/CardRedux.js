@@ -38,8 +38,7 @@ const reducer = (state=initialState, action) => {
 }
 
 // remember: reducer function has INITIAL STATE in it via the params
-const store = createStore(reducer);
-console.log('initial state', store.getState());
-const unsubscribe = store.subscribe( () => console.log('Updated state is now:', store.getState()));
-store.dispatch(createCard());
-unsubscribe();
+// const store = createStore(reducer);
+// const unsubscribe = store.subscribe( () => console.log('Updated state is now:', store.getState()));
+// store.dispatch(createCard());
+// unsubscribe();

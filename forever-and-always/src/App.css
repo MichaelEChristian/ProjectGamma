@@ -177,6 +177,12 @@
 
 .w-description{
   font-size: x-large;
+  width: 50%;
+  position: absolute;
+  right: 0%;
+  top: 16%;
+  font-style: italic;
+  font-weight: bold;
 }
 /* Login pg */
 
@@ -190,7 +196,35 @@
   background-position: center center;
 }
 
-/* Destination page */
-/* .img-container{
+.snowflake {
+  transform: rotate(45deg);
+  position: absolute;
+  margin-left: -13%;
+  margin-top: 12%;
+}
+
+.snowflake-2 {
+  transform: rotate(45deg);
+  position: absolute;
+  margin-left: -13%;
+  margin-top: 50%;
+}
+
+.themes-img-container{
   display: flex;
-} */
+  flex-direction: column;
+  margin-top: 2%;
+  width: 40%;
+  margin-left: 5%;
+}
+
+.winter-theme-imgs{
+  padding-bottom: 5%;
+}
+
+.winter-h1{
+  margin-left: 6%;
+  margin-top: 2%;
+  font-style: italic;
+  font-weight: bold;
+}

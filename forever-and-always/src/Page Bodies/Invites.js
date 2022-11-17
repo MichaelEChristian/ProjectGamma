@@ -35,7 +35,6 @@ function Invites(props) {
   }
 
   const handleClick = (e, img) => {
-    console.log("inside handleclick function, image is:", img)
     props.setParentImage(img);
   }
 
