@@ -5,9 +5,11 @@ services:
     ports:
       - "3001:3001"
     environment:
-      DATABASE_URL: postgresql://weddings:weddings@db/weddings
+      DATABASE_URL: postgresql://bossmode:bossmode@db/bossmode
   db:
-    image: postgres
+    build:
+      context: ./data
+      dockerfile: Dockerfile
     ports:
       - "15432:5432"
     restart: always
@@ -19,3 +21,4 @@ services:
       - weddings-data:/var/lib/postgresql/data
 volumes:
   weddings-data:
+    external: true
