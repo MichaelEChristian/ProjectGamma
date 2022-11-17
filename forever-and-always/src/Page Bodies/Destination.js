@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 
-import new_collage from "../images/new_collage.jpg"
+import sunset_wedding_photo from "../images/sunset_wedding_photo.jpg"
 
 function Destination() {
   return (
     <div>
       <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
-          <button type="button" class="btn btn-light">Plan Your Flight</button>
+          {/* <a class="navbar-brand" href="#">Navbar</a> */}
+          <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="Modal">Plan Your Flight</button>
           <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
             <option>Choose your city</option>
           </select>
         </div>
       </nav>
       <div class="card bg-dark text-white">
-        <img src={new_collage} id="wedding-new_collage" class="card-img" alt="..." />
+        <img src={sunset_wedding_photo} id="wedding-sunset_wedding_photo" class="card-img" alt="..." width='100%' height="450px"/>
         <div class="card-img-overlay">
           <h1 class="card-title">Where </h1>
         </div>
