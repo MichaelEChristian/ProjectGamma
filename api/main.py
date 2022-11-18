@@ -1,13 +1,36 @@
 from fastapi import FastAPI
+import uvicorn
+from model import PostSchema
 
-data = {
-    1: {
-        "hello": "world"
-    }
-}
+posts = [
+    {
+        "id": 1,
+        "title": "Hello",
+        "content": "World"
+    },
+    {
+        "id": 2,
+        "title": "No",
+        "content": "Thanks",
+    },
+    {
+        "id": 3,
+        "title": "Happy",
+        "content": "Friday"
+    },
+]
 
 app = FastAPI()
 
-@app.get("/hello-world/")
-def get_hello_world():
-    return data
+
+#1 for testing
+@app.get("/", tags=["test"])
+def greet():
+    return {"Hello":"World"}
+
+#2 get posts
+@app.get("/posts", tags=["posts"])
+def get_all_posts():
+    return {"data": posts}
+
+#3 get post by id
