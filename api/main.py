@@ -5,6 +5,7 @@ from schemas import AuthDetails
 users = []
 
 auth_handler = AuthHandler()
+
 app = FastAPI()
 
 
