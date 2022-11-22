@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 
 
-
 function Catering(props) {
 
   const [foodItems, setFoodItems] = useState([]);

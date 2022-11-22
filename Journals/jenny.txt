@@ -1,0 +1,31 @@
+## November 15, 2022
+
+Today, I worked on:
+
+* Touching up the themes component and trying to make it dynamic/less DRY.
+
+We all talked about our goals and visions for MVP. We're going to try and cut out a lot
+of things and store them as stretch goals.
+
+Today, I discovered you can't import components of cards inside carousels, you must
+generate the cards within the carousel.
+
+Finished making the NavBar and all its routes.
+
+Currently working on learning modals for detail views of the theme cards.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+## November 15, 2022
+
+Today, I worked on:
+
+* Writing scripts for the docker-compose.yml file so database and tables build automatically
+=======
+>>>>>>> main
+=======
+>>>>>>> main
+>>>>>>> jennys-branch
