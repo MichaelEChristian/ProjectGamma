@@ -4,10 +4,11 @@ from schemas import AuthDetails
 
 users = []
 
+# isolate the difference functions, use routes -- separation of concerns
+
 auth_handler = AuthHandler()
 
 app = FastAPI()
-
 
 @app.post('/register', status_code=201)
 def register(auth_details: AuthDetails):

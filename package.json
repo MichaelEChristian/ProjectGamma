@@ -18,6 +18,11 @@
   },
   "homepage": "https://gitlab.com/jennyzfire/forever-and-always#readme",
   "dependencies": {
+    "pg": "^8.8.0",
+    "postgres-pool": "^6.0.6",
     "redux": "^4.2.0"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
   }
 }

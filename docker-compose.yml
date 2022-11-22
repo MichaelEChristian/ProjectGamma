@@ -12,7 +12,7 @@ services:
       context: ./data
       dockerfile: Dockerfile
     ports:
-      - "15432:5432"
+      - "5432:5432"
     restart: always
     environment:
       POSTGRES_PASSWORD: bossmode
@@ -22,26 +22,30 @@ services:
       - weddings-data:/var/lib/postgresql/data
   pgadmin:
     image: dpage/pgadmin4
-    environment: 
+    environment:
       - PGADMIN_DEFAULT_EMAIL=bossmode@pgadmin.org
       - PGADMIN_DEFAULT_PASSWORD=bossmode
     ports:
       - '5050:80'
     restart: always
-    volumes: 
+    volumes:
         - pgadmin:/root/.pgadmin
-  # react-frontend:
-  #   image: node:lts-bullseye
-  #   command: npm start
-  #   working_dir: /forever-and-always
-  #   volumes: 
-  #     - ./forever-and-always:/forever-and-always
-  #   environment:
-  #     - HOST=0.0.0.0
-  #     - PORT=3100
-  #     - NODE_ENV=development
-  #   ports:
-  #     - "3100:3100"
+  react-frontend:
+    image: node:lts-bullseye
+    command: npm start
+    working_dir: /forever-and-always
+    volumes:
+      - ./forever-and-always:/forever-and-always
+    environment:
+      # look into environment variables to connect front end to backend api
+      # environment variable is a reference to something you can use in the frontend
+      # give the route to the back end e.g. http:localhost stuff
+      # in the front end, reference it either ^ manually or via variable
+      # - HOST="0.0.0.0"
+      # - PORT=3100
+      # - NODE_ENV=development
+    ports:
+      - "3100:3100"
 volumes:
     weddings-data:
     pgadmin:

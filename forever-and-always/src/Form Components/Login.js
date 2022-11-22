@@ -1,16 +1,31 @@
 import React from 'react'
+import {Pool, Client} from 'postgres-pool'
 
 function Login() {
+
+    const pool = new Pool({
+        connectionString: 'postgresql://bossmode:bossmode@db/bossmode'
+    })
+
+    async function clientSide(){
+        const client = new Client('postgresql://bossmode:bossmode@db/bossmode')
+        await client.connect();
+        const now = await client.query("SELECT NOW()");
+        await client.end();
+
+        return now
+    }
+
   return (
        <div className="maincontainer">
         <div class="container-fluid">
             <div class="row no-gutter">
-               
+
                 <div class="col-md-6 d-none d-md-flex bg-image"></div>
-                
+
                 <div class="col-md-6 bg-light">
                     <div class="login d-flex align-items-center py-5">
-                       
+
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-10 col-xl-7 mx-auto">
@@ -31,7 +46,7 @@ function Login() {
                                         <div class="d-grid gap-2 mt-2">
                                         <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Login in</button>
                                         </div>
-                                        
+
                                         <div class="text-center">
                                         <p> Welcome</p>
                                         </div>
