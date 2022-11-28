@@ -41,9 +41,10 @@ services:
       # environment variable is a reference to something you can use in the frontend
       # give the route to the back end e.g. http:localhost stuff
       # in the front end, reference it either ^ manually or via variable
-      # - HOST="0.0.0.0"
-      # - PORT=3100
-      # - NODE_ENV=development
+      - HOST="0.0.0.0"
+      - PORT=3100
+      - NODE_ENV=development
+      - DATABASE_URL="postgresql://bossmode:bossmode@db/bossmode"
     ports:
       - "3100:3100"
 volumes:

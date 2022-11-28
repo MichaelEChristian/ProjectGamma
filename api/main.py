@@ -1,14 +1,42 @@
+import psycopg2
 from fastapi import FastAPI, Depends, HTTPException
+from config import config
+from router import users, invitations, checklist, dashboard, menu, guestlist
 from auth import AuthHandler
 from schemas import AuthDetails
 
-users = []
 
+def connect():
+    connection = None
+    try:
+        params = config()
+        print('connecting to postgresql db')
+        connection = psycopg2.connect(**params)
+        # create a cursor
+        cursor = connection.cursor()
+        print('postgresql db version: ')
+        cursor.execute('SELECT version()')
+        db_version = cursor.fetchone()
+        print(db_version)
+        cursor.close()
+    except(Exception, psycopg2.DatabaseError) as error:
+        print(error)
+    finally:
+        if connection is not None:
+            connection.close()
+            print("db connection terminated")
 # isolate the difference functions, use routes -- separation of concerns
 
 auth_handler = AuthHandler()
 
 app = FastAPI()
+
+app.include_router(users.router)
+app.include_router(invitations.router)
+app.include_router(checklist.router)
+app.include_router(menu.router)
+app.include_router(dashboard.router)
+app.include_router(guestlist.router)
 
 @app.post('/register', status_code=201)
 def register(auth_details: AuthDetails):

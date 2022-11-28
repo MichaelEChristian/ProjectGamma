@@ -1,5 +1,6 @@
 from pydantic import BaseModel, Field, EmailStr
+import datetime
 
 class AuthDetails(BaseModel):
-    username: str
+    email: str
     password: str
