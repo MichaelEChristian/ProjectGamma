@@ -20,13 +20,18 @@ function Nav() {
                 <a className="nav-link" id="home-links" href="/invites/creation/">Invitations<span className="sr-only"></span></a>
             </li>
             <li className="nav-item active">
-                <a className="nav-link" id="home-links" href="/catering/">Catering<span className="sr-only"></span></a>
-            </li>
-            <li className="nav-item active">
-                <a className="nav-link" id="home-links" href="/hotels/">Hotels<span className="sr-only"></span></a>
-            </li>
-            <li className="nav-item active">
                 <a className="nav-link" id="home-links" href="/venues/">Venues<span className="sr-only"></span></a>
+            </li>
+            <li className="nav-item dropdown">
+                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Menu Design
+                </a>
+                <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a className="dropdown-item" href="/menu/all/">All</a>
+                    <a className="dropdown-item" href="/guests/">Vegan</a>
+                    <a className="dropdown-item" href="/billing/">Vegetarian</a>
+                    <a className="dropdown-item" href="/registry/">Dairy</a>
+                </div>
             </li>
             <li className="nav-item active">
                 <a className="nav-link" id="home-links" href="/login/">Login<span className="sr-only"></span></a>

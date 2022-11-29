@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-// import sunset_wedding_photo from "../images/sunset_wedding_photo.jpg"
+import sunset_wedding_photo from "../images/sunset_wedding_photo.jpg"
 
 function Destination() {
   return (
@@ -15,7 +15,7 @@ function Destination() {
         </div>
       </nav>
       <div class="card bg-dark text-white">
-        {/* <img src={sunset_wedding_photo} id="wedding-sunset_wedding_photo" class="card-img" alt="..." width='100%' height="450px"/> */}
+        <img src={sunset_wedding_photo} id="wedding-sunset_wedding_photo" class="card-img" alt="..." width='100%' height="450px"/>
         <div class="card-img-overlay">
           <h1 class="card-title">Where </h1>
         </div>
