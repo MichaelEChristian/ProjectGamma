@@ -11,6 +11,7 @@ import Text from './Demo/Text';
 import Destination from './Page Bodies/Destination';
 import Dashboard from './Page Bodies/Dashboard';
 import MenuAll from './Page Bodies/MenuAll';
+import Catering from './Page Bodies/Catering';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="destinations" element={<Destination/>}/>
           <Route path="/" element={<Main/>}/>
           <Route path="/themes/" element={<Themes/>}/>
+          <Route path="/catering/" element={<Catering/>}/>
           <Route path="/destinations/" element={<Destination/>}/>
           <Route path="/invites/" element={<Invites/>}/>
           <Route path="/invites/forms/" element={<CardText/>}/>

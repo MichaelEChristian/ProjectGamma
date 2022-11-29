@@ -14,6 +14,8 @@ Finished making the NavBar and all its routes.
 
 Currently working on learning modals for detail views of the theme cards.
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -26,3 +28,4 @@ Today, I worked on:
 >>>>>>> main
 =======
 >>>>>>> main
+>>>>>>> jennys-branch
