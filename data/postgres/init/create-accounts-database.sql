@@ -1,0 +1,3 @@
+CREATE USER bossmode WITH LOGIN PASSWORD 'bossmode' SUPERUSER;
+
+CREATE DATABASE accounts WITH OWNER bossmode;
