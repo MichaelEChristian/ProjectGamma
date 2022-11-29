@@ -1,104 +1,197 @@
-import React, { useState } from "react";
-
+import { useState } from "react";
 import sunset_wedding_photo from "../images/sunset_wedding_photo.jpg"
+// import APIKEY from "../.env"
+// import arizona from "../images/sunset_wedding_photo.jpg"
 
-function Destination() {
+
+
+
+function Destination(props) {
+
+  // const UsStates = [
+  //   'Alabama',
+  //   'Alaska',
+  //   'Arizona',
+  //   'Arkansas',
+  //   'California',
+  //   'Colorado',
+  //   'Connecticut',
+  //   'Delaware',
+  //   'Florida',
+  //   'Georgia',
+  //   'Hawaii',
+  //   'Idaho',
+  //   'Illinois',
+  //   'Indiana',
+  //   'Iowa',
+  //   'Kansas',
+  //   'Kentucky',
+  //   'Louisiana',
+  //   'Maine',
+  //   'Maryland',
+  //   'Massachusetts',
+  //   'Michigan',
+  //   'Minnesota',
+  //   'Mississippi',
+  //   'Missouri',
+  //   'Montana',
+  //   'Nebraska',
+  //   'Nevada',
+  //   'New Hampshire',
+  //   'New Jersey',
+  //   'New Mexico',
+  //   'New York',
+  //   'North Carolina',
+  //   'North Dakota',
+  //   'Ohio',
+  //   'Oklahoma',
+  //   'Oregon',
+  //   'Pennsylvania',
+  //   'Rhode Island',
+  //   'South Carolina',
+  //   'South Dakota',
+  //   'Tennessee',
+  //   'Texas',
+  //   'Utah',
+  //   'Vermont',
+  //   'Virginia',
+  //   'Washington',
+  //   'West Virginia',
+  //   'Wisconsin',
+  //   'Wyoming'
+  // ]
+
+
+  // const [usStates, setUsStates] = useState([]);
+  const [images, setimages] = useState([]);
+  const [searchInput, setSearchInput] = useState('');
+
+  // useEffect (() => {
+  //   const options = {
+  //     method: 'GET',
+  //     headers: {
+  //       'X-RapidAPI-Key': '25332117b9mshc4a79d828ebc717p1cbd02jsn5ff2c737e061',
+  //       'X-RapidAPI-Host': 'bing-image-search1.p.rapidapi.com'
+  //     }
+  //   };
+
+  //   async function getStateImage(){
+  //     const imageUrl = "https://bing-image-search1.p.rapidapi.com/images/search?q=wedding&count=9"
+  //     const imageResponse = await fetch (imageUrl, options);
+  //     if (imageResponse.ok){
+  //       const data = await imageResponse.json();
+  //       setimages(data.value)
+  //       // console.log("test---->", imageResponse)
+  //       console.log("image-test---->", imageResponse)
+  //     }
+  //   }
+  //   getStateImage();
+  // }, [])
+  // console.log("test---->", images)
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    console.log('here')
+
+    const options = {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': '25332117b9mshc4a79d828ebc717p1cbd02jsn5ff2c737e061',
+        'X-RapidAPI-Host': 'bing-image-search1.p.rapidapi.com'
+      }
+    };
+
+    async function getStateImage() {
+      const imageUrl = `https://bing-image-search1.p.rapidapi.com/images/search?q=wedding%venue%${searchInput}&count=9`
+      const imageResponse = await fetch(imageUrl, options);
+      if (imageResponse.ok) {
+        const data = await imageResponse.json();
+        setimages(data.value)
+        // console.log("test---->", imageResponse)
+        console.log("image-test---->", imageResponse)
+      }
+    }
+    getStateImage();
+    console.log(images)
+  }
+
   return (
     <div>
-      <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-          {/* <a class="navbar-brand" href="#">Navbar</a> */}
-          <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="Modal">Plan Your Flight</button>
-          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-            <option>Choose your city</option>
-          </select>
-        </div>
-      </nav>
       <div class="card bg-dark text-white">
-        <img src={sunset_wedding_photo} id="wedding-sunset_wedding_photo" class="card-img" alt="..." width='100%' height="450px"/>
+        <img src={sunset_wedding_photo} id="wedding-sunset_wedding_photo" class="card-img" alt="..." width='100%' height="450px" />
         <div class="card-img-overlay">
           <h1 class="card-title">Where </h1>
         </div>
       </div>
+      <section>
+        <form onSubmit={(e) => { onSubmit(e) }}>
+          <label htmlFor="search">Input a destination!</label>
+          <input onChange={e => setSearchInput(e.target.value)} value={searchInput} placeholder="Input State" required type="text" name="user_submit" id="user_submit" className="form-control"  ></input>
+          <input type="submit" />
+        </form>
+      </section>
+
       <div>
-        <section class="img-container">
-          <br />
-          <h2>Name of city dynamically changes </h2>
-
-          <div class="container py-4">
-            <div class="card">
-              <div class="row ">
-                <div class="col-md-5">
-                  <img class="d-block w-100" src="https://cdn.britannica.com/29/118429-050-C00CA1C8/Skyline-Cincinnati-Ohio.jpg" alt="" />
-                </div>
-
-                <div class="col-md-7 px-3">
-                  <div class="card-block px-6">
-                    <h4 class="card-title">title of placeholder (this is where it will go)</h4>
-                    <p class="card-text">
-                      This is display PRICE
-                    </p>
-                    <p class="card-text">Summary of venue, I hope</p>
-                    <br />
-                    <a href="#" class="mt-auto btn btn-primary">Read More</a>
-                  </div>
-                </div>
-
-              </div>
-            </div>
+        {/* <section> */}
+        {/* <nav>
+            <p>This is where the select will go</p>
+          </nav> */}
+        <div class="card">
+          <div class="card-body">
+            This is some text within a card body.
           </div>
-          <div class="container py-4">
-            <div class="card">
-              <div class="row ">
-                <div class="col-md-5">
-                  <img class="d-block w-100" src="https://cdn.britannica.com/29/118429-050-C00CA1C8/Skyline-Cincinnati-Ohio.jpg" alt="" />
-                </div>
+        </div>
+        {/* </section> */}
 
-                <div class="col-md-7 px-3">
-                  <div class="card-block px-6">
-                    <h4 class="card-title">title of placeholder (this is where it will go)</h4>
-                    <p class="card-text">
-                      This is display PRICE
-                    </p>
-                    <p class="card-text">Text/ paragraph of place </p>
-                    <br />
-                    <a href="#" class="mt-auto btn btn-primary">Read More</a>
+
+        <section class="img-container">
+          <div class="container">
+            {images.map((imageInfo, index) => {
+              if (index % 3 !== 0) {
+                return null
+              } else {
+                return (
+                  <div class="row row-cols-3">
+                    <div class="col">
+                      <div class="card">
+                        <img src={images[index].contentUrl} class="card-img-top" alt="test" />
+                        <div class="card-body">
+                          <h5 class="card-title">{images[index].name}</h5>
+                          <a href={images[index].hostPageUrl} class="btn btn-primary">Take me There!</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card">
+                        <img src={images[index + 1].contentUrl} class="card-img-top" alt="test" />
+                        <div class="card-body">
+                          <h5 class="card-title">{images[index + 1].name}</h5>
+                          <a href={images[index + 1].hostPageUrl} class="btn btn-primary">Take me There!</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card">
+                        <img src={images[index + 2].contentUrl} class="card-img-top" alt="test" />
+                        <div class="card-body">
+                          <h5 class="card-title">{images[index + 2].name}</h5>
+                          <a href={images[index + 2].hostPageUrl} class="btn btn-primary">Take me There!</a>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
 
-              </div>
-            </div>
+                )
+              }
+            }
+            )
+
+            }
+
           </div>
         </section>
       </div>
-
-      <p>stuff</p>
-      {/* <form>
-        <div>
-          <div class="req_input">
-            <select>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-            </select>
-            <input type="date" id="start" name="trip-start"/>
-            <input type="date" id="end" name="trip-end" />
-          </div>
-          <div>
-            <select>
-              <option>mapped data airports in texas, From</option>
-            </select>
-            <select>
-              <option>mapped data airports in texas, To</option>
-            </select>
-          </div>
-        </div>
-      </form> */}
     </div>
   );
 }
