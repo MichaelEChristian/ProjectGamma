@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react';
 
-
-function Catering(props) {
+function Catering2(props) {
 
   const [foodItems, setFoodItems] = useState([]);
   const [foodSummaries, setFoodSummaries] = useState([]);
-  // const [foodImages, setFoodImages] = useState([]);
   const [selectedCuisines, setSelectedCuisines] = useState([]);
 
   const cuisineOptions = [
@@ -28,7 +26,8 @@ function Catering(props) {
 
   useEffect(() => {
     async function getFoodItemNames() {
-      const foodNameUrl = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${selectedCuisines.join(',')}&number=5&apiKey=4fd057b6fd424713b12753bc59f4b35b`;
+      const filteredChoices = selectedCuisines.join(',')
+      const foodNameUrl = `http://localhost:8000/catering?selectedCuisines=${filteredChoices}`;
       const foodNameResponse = await fetch(foodNameUrl);
       if (foodNameResponse.ok) {
         const data = await foodNameResponse.json();
@@ -36,7 +35,7 @@ function Catering(props) {
       }
     }
     async function getFoodSummaries() {
-      const foodSummaryUrl = `https://api.spoonacular.com/recipes/${foodItems.id}/information?includeNutrition=false&&apiKey=4fd057b6fd424713b12753bc59f4b35b`
+      const foodSummaryUrl = `https://api.spoonacular.com/recipes/${foodItems.id}/information?includeNutrition=false`
       const foodSummaryReponse = await fetch(foodSummaryUrl);
       if (foodSummaryReponse.ok) {
         const data = await foodSummaryReponse.json();
@@ -49,17 +48,11 @@ function Catering(props) {
   }, [selectedCuisines]
   )
 
-  console.log(foodItems)
-  // console.log('test-------> SUMMARY', foodSummaries)
-
   return (
-    <>
-      <div className='container'>
-        <div className='row row-cols-2'>
-          <div className='col-50-auto'>
-          
-            <div className='container'>
-              <div class="form-check" id="cuisine-container">
+    <div>
+        <div className="cuisine-flexbox">
+            <div id='choice-container'>
+              <div id="cuisine-container">
                 {cuisineOptions.map((cuisine) => {
                   return (
                     <div class="indiv-options">
@@ -78,14 +71,11 @@ function Catering(props) {
                     </div>
                   )
                 })}
-              </div>
             </div>
-          </div>
-          <section>
-            <div class="col-50">
-              <div class="container">
+        </div>
+            <div className="body-container">
                 <h1>Build your Menu</h1>
-                <table class="table">
+                <table className="table">
                   <thead>
                     <tr>
                       <th>Cuisine</th>
@@ -103,13 +93,9 @@ function Catering(props) {
                     })}
                   </tbody>
                 </table>
-              </div>
             </div>
-          </section>
         </div>
-      </div>
-    </>
+    </div>
   )
 };
-
-export default Catering
+  export default Catering2

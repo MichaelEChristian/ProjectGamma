@@ -164,3 +164,5 @@ cython_debug/
 
 # node js
 node_modules
+
+backend/accounts/api/routers/keys.py

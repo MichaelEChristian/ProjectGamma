@@ -13,19 +13,4 @@ generate the cards within the carousel.
 Finished making the NavBar and all its routes.
 
 Currently working on learning modals for detail views of the theme cards.
-<<<<<<< HEAD
 =======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-## November 15, 2022
-
-Today, I worked on:
-
-* Writing scripts for the docker-compose.yml file so database and tables build automatically
-=======
->>>>>>> main
-=======
->>>>>>> main
->>>>>>> jennys-branch
