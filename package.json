@@ -18,6 +18,7 @@
   },
   "homepage": "https://gitlab.com/jennyzfire/forever-and-always#readme",
   "dependencies": {
+    "bootstrap": "^5.2.3",
     "redux": "^4.2.0"
   }
 }
