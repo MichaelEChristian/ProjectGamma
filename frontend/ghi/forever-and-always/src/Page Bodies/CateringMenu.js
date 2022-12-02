@@ -23,7 +23,7 @@ function Catering(props) {
     'Mexican',
     'Spanish',
     'Thai',
-    'Vietnamese',
+    'Vietnamese', 
   ]
 
   useEffect(() => {

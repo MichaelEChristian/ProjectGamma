@@ -11,6 +11,9 @@ import Text from './Demo/Text';
 import Destination from './Page Bodies/Destination';
 import Dashboard from './Page Bodies/Dashboard';
 import MenuAll from './Page Bodies/MenuAll';
+import SignUpForm from './Form Components/Signup';
+import Catering from './Page Bodies/CateringMenu';
+
 
 function App() {
   return (
@@ -20,6 +23,8 @@ function App() {
       <div>
         <Routes>
           <Route path="login" element={<Login/>}/>
+          <Route path="signup" element={<SignUpForm/>}/>
+          <Route path="catering" element={<Catering/>}/>
           <Route path="destinations" element={<Destination/>}/>
           <Route path="/" element={<Main/>}/>
           <Route path="/themes/" element={<Themes/>}/>

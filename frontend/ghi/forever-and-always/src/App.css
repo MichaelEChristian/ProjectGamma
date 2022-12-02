@@ -185,6 +185,44 @@
   font-weight: bold;
 }
 
+
+/* destination pg */
+
+#destination-container {
+  background: #D9D9D6;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+#destination-img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 1000px;
+  height: auto;
+  align-content: center;
+  box-shadow: 8px 6px
+}
+
+.destination-headings{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.destination-border{
+  border-style: solid;
+  /* border-bottom: pink; */
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-width: 3px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+
 /* Login pg */
 .login,
 .image {
@@ -276,7 +314,7 @@ body {
 /* a {
   text-decoration: none;
 } */
-
+/* 
 .food-card {
   background: #fff;
   border-radius: 5px;
@@ -426,4 +464,4 @@ body {
       -o-object-fit: cover;
       object-fit: cover;
   }
-}
+} */
