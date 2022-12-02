@@ -268,32 +268,6 @@
   font-weight: bold;
 }
 
-/* catering pg */
-
-/* #catering-container{
-  width: 1100px;
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-#catering-row{
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-#catering-card{
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-} */
-
-/* #cuisine-container{
-  display: flex;
-  order: 3;
-  flex-direction: column;
-} */
-
 .indiv-options{
   display: flex;
   order: 3;
@@ -447,7 +421,7 @@ body {
   border-width: 3px;
   -webkit-box-shadow: none;
   box-shadow: none;
-} 
+}
 
 @media (min-width: 992px) {
   .food-card--vertical {
@@ -465,3 +439,27 @@ body {
       object-fit: cover;
   }
 } */
+
+#choice-container {
+  max-width: 15%;
+  max-height: 450px;
+  padding: 2%;
+  margin-left: 15%;
+  margin-top: 7%;
+  border: solid 5px black;
+}
+
+.form-check-label{
+  text-align: left;
+}
+
+.body-container{
+  padding-right: 30%;
+  padding-top: 2%;
+}
+
+.cuisine-flexbox{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
