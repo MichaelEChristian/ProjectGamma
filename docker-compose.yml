@@ -19,6 +19,7 @@ services:
       NODE_ENV: development
       HOST: "0.0.0.0"
       REACT_APP_ACCOUNTS_HOST: http://localhost:8010
+      WATCHPACK_POLLING: true
   pg-admin:
     image: dpage/pgadmin4
     volumes:
