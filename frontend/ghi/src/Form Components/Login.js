@@ -1,6 +1,5 @@
 import React from 'react'
 import SignUpModal from '../Modals/SignUpModal'
-// import {Pool, Client} from 'postgres-pool'
 
 function Login() {
   return (
@@ -25,19 +24,12 @@ function Login() {
                                         <div className="mb-3">
                                             <input id="inputPassword" type="password" placeholder="Password" required="" className="form-control rounded-pill border-0 shadow-sm px-4 text-primary" />
                                         </div>
-
                                         <br></br>
-                                        {/* <div className="form-check">
-                                            <input id="customCheck1" type="checkbox" checked className="form-check-input" />
-                                            <label for="customCheck1" className="form-check-label">Remember password</label>
-                                        </div> */}
                                         <div className="d-grid gap-2 mt-2">
                                         <button type="submit" className="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm col-md-8 offset-md-2">Log In</button>
                                         </div>
                                         </form>
                                         <SignUpModal/>
-
-
                                 </div>
                             </div>
                         </div>
