@@ -1,51 +1,58 @@
-version: "4.1"
+volumes:
+  weddings-data:
+    external: true
+  pg-admin:
+    external: true
+
 services:
-  fastapi:
-    build: ./api
-    ports:
-      - "3001:3001"
-    environment:
-      DATABASE_URL: postgresql://bossmode:bossmode@db/bossmode
-      SIGNING_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
-  db:
-    build:
-      context: ./data
-      dockerfile: Dockerfile
-    ports:
-      - "15432:5432"
-    restart: always
-    environment:
-      POSTGRES_PASSWORD: bossmode
-      POSTGRES_USER: bossmode
-      POSTGRES_DB: bossmode
+
+  frontend:
+    image: node:lts-bullseye
+    command: bash -c "npm install --legacy-peer-deps && npm start"
+    working_dir: /app
     volumes:
-      - weddings-data:/var/lib/postgresql/data
-  pgadmin:
-    image: dpage/pgadmin4
-    environment: 
-      - PGADMIN_DEFAULT_EMAIL=bossmode@pgadmin.org
-      - PGADMIN_DEFAULT_PASSWORD=bossmode
-    ports:
-      - '5050:80'
-    restart: always
-    volumes: 
-        - pgadmin:/root/.pgadmin
-  react-frontend:
-    build: 
-      context: forever-and-always
-      dockerfile: Dockerfile.dev
-    volumes: 
-      - react-frontend:/app/node_modules
-      - ./forever-and-always:/forever-and-always
+      - ./frontend/ghi/forever-and-always:/app
     ports:
       - "3000:3000"
     environment:
-      REACT_APP_API_HOST: http://localhost:8000
-      REACT_APP_WS_HOST: ws://localhost:8000
-      WAIT_HOSTS: api:3001
-      WAIT_BEFORE: 5
-      WAIT_TIMEOUT: 60
-volumes:
-    weddings-data:
-    pgadmin:
-    react-frontend:
+      HOST_OS: ${OS}
+      NODE_ENV: development
+      HOST: "0.0.0.0"
+      REACT_APP_ACCOUNTS_HOST: http://localhost:8010
+  pg-admin:
+    image: dpage/pgadmin4
+    volumes:
+      - pg-admin:/var/lib/pgadmin
+    ports:
+      - 8050:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: bossmode@pgadmin.org
+      PGADMIN_DEFAULT_PASSWORD: bossmode
+  postgres:
+    image: postgres:14.2-bullseye
+    volumes:
+      # this helps run initialization scripts
+      - ./data/postgres/init:/docker-entrypoint-initdb.d
+      # this will hold the data stored by postgres
+      - weddings-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=bossmode
+    ports:
+      - 15432:5432
+  accounts:
+    build:
+      context: ./backend/accounts
+      dockerfile: ./Dockerfile.dev
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/accounts:/app
+    depends_on:
+      - postgres
+    environment:
+      SECRET_KEY: db0a49ab25db171089e1a3950f31f3288df643c7c33ede3f38d6bf7788569e24
+      PGHOST: postgres
+      DATABASE_URL: postgresql://bossmode:bossmode@postgres:5432/accounts
+      PGDATABASE: accounts
+      PGUSER: bossmode
+      PGPASSWORD: bossmode
