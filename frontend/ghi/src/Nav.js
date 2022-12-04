@@ -36,18 +36,7 @@ function Nav() {
             <li className="nav-item active">
                 <a className="nav-link" id="home-links" href="/login/">Login<span className="sr-only"></span></a>
             </li>
-            <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Profile
-                </a>
-                <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <NavLink className="dropdown-item" to="/profile/dashboard/">My plans</NavLink>
-                    <a className="dropdown-item" href="/guests/">Guest List</a>
-                    <a className="dropdown-item" href="/billing/">Billing</a>
-                    <a className="dropdown-item" href="/registry/">Registry</a>
-                </div>
-            </li>
-
+            <a className="nav-link" id="home-links" href="/profile/">Profile</a>
         </ul>
     </div>
 </nav>
