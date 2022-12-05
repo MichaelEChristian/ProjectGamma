@@ -7,17 +7,19 @@ import snowflake from '../images/Snowflake.webp'
 function WinterWonderland() {
   return (
     <div className="theme-modal">
-        <img className="snowflake" src={snowflake}></img>
-        <img className="snowflake-2" src={snowflake}></img>
-        <h1 className="winter-h1">Winter Wonderland</h1>
-            <p className="w-description">
-            Enthrall your guests with a luxuriously enchanting and whimsical portrayal of a snowcapped, icicle wonderland. Think glistening whites and blue hues in drapes, linings and warm white lighting.
-            </p>
-            <div className="themes-img-container">
-              <img className="winter-theme-imgs" src={Winter}></img>
-              <img className="winter-theme-imgs" src={Winter2}></img>
-              <img className="winter-theme-imgs" src={Winter3}></img>
-            </div>
+      <img className="snowflake" src={snowflake}></img>
+      <img className="snowflake-2" src={snowflake}></img>
+      <h1 className="winter-h1">Winter Wonderland</h1>
+      <p className="w-description">
+        Enthrall your guests with a luxuriously enchanting and whimsical
+        portrayal of a snowcapped, icicle wonderland. Think glistening whites
+        and blue hues in drapes, linings and warm white lighting.
+      </p>
+      <div className="themes-img-container">
+        <img className="winter-theme-imgs" src={Winter}></img>
+        <img className="winter-theme-imgs" src={Winter2}></img>
+        <img className="winter-theme-imgs" src={Winter3}></img>
+      </div>
     </div>
   )
 }

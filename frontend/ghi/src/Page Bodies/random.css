@@ -1,18 +1,18 @@
 .App {
     text-align: center;
   }
-  
+
   .App-logo {
     height: 40vmin;
     pointer-events: none;
   }
-  
+
   @media (prefers-reduced-motion: no-preference) {
     .App-logo {
       animation: App-logo-spin infinite 20s linear;
     }
   }
-  
+
   .App-header {
     background-color: #282c34;
     min-height: 100vh;
@@ -23,11 +23,11 @@
     font-size: calc(10px + 2vmin);
     color: white;
   }
-  
+
   .App-link {
     color: #61dafb;
   }
-  
+
   @keyframes App-logo-spin {
     from {
       transform: rotate(0deg);
@@ -36,7 +36,7 @@
       transform: rotate(360deg);
     }
   }
-  
+
   .login,
   .image {
     min-height: 100vh;
@@ -46,15 +46,15 @@
     background-size: cover;
     background-position: center center;
   }
-  
+
   /* start of destination CSS */
-  
+
   /* .carousel-item {
     height: 300px;
   } */
-  
+
   /* start of destination CSS */
-  
+
   body, ul, li, p, a, label, input, div {
     font-family: 'Roboto', sans-serif;
     font-size: 18px !important;
@@ -99,7 +99,7 @@
   #templatemo_main_nav a { color: #212934;}
   #templatemo_main_nav a:hover { color: #69bb7e;}
   #templatemo_main_nav .navbar .nav-icon { margin-right: 20px;}
-  
+
   /* Hero Carousel */
   #template-mo-jassa-hero-carousel { background: #efefef !important;}
   /* Accordion */
@@ -192,16 +192,16 @@
     width: 6px;
     height: 6px;
   }
-  
+
   @media (min-width: 576px) {
     .tempaltemo-carousel .h1 { font-size: 1em !important;}
   }
-  
+
   /*// Medium devices (tablets, 768px and up)*/
   @media (min-width: 768px) {
     #templatemo_main_nav .navbar-nav {max-width: 450px;}
    }
-  
+
   /* Large devices (desktops, 992px and up)*/
   @media (min-width: 992px) {
     #templatemo_main_nav .navbar-nav {max-width: 550px;}
@@ -212,7 +212,6 @@
       height: 12px;
     }
   }
-  
+
   /* Extra large devices (large desktops, 1200px and up)*/
   @media (min-width: 1200px) {}
-  
