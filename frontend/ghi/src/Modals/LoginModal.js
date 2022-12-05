@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
-import { login_token } from '../lib/api'
+import { getAuthorizationToken } from '../library/api'
+import { login } from '../library/auth'
 
 function LoginInput({ type, placeholder, value, onChange }) {
   return (
@@ -26,7 +27,7 @@ function LoginModal() {
   const handleShow = () => setShow(true)
   const handleSubmit = async () => {
     try {
-      const token = await login_token({ username, password })
+      await login(username, password)
       handleClose()
       setUsername(null)
       setPassword(null)

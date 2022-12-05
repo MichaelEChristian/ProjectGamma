@@ -50,6 +50,10 @@ class Username(BaseModel):
     class Config:
         orm_mode = True
 
+class LogInCredentials(BaseModel):
+    username: str
+    password: str
+
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
@@ -109,15 +113,11 @@ async def get_current_active_user(
 
 
 @router.post("/token")
-async def login_for_access_token(
-    response: Response,
-    request: Request,
-    form_data: OAuth2PasswordRequestForm = Depends(),
+async def get_access_token(
+    login_credentials: LogInCredentials,
     repo: AccountsQueries = Depends(),
 ):
-    print(form_data.username)
-    print(form_data.password)
-    user = authenticate_user(repo, form_data.username, form_data.password)
+    user = authenticate_user(repo, login_credentials.username, login_credentials.password)
     if not user:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
@@ -133,29 +133,7 @@ async def login_for_access_token(
             "lastname": user["lastname"],
         },
     )
-    token = {"access_token": access_token, "token_type": "bearer"}
-    headers = request.headers
-    samesite = "none"
-    secure = True
-    if "origin" in headers and "localhost" in headers["origin"]:
-        samesite = "lax"
-        secure = False
-        response.set_cookie(
-        key=COOKIE_NAME,
-        value=access_token,
-        httponly=True,
-        samesite=samesite,
-        secure=secure,
-    )
-    return token
-
-
-@router.get("/token", response_model=AccessToken)
-async def get_token(request: Request, response: Response):
-    if COOKIE_NAME in request.cookies:
-        return {"token": request.cookies[COOKIE_NAME]}
-    else:
-        response.status_code = status.HTTP_204_NO_CONTENT
+    return {"Authorization": f"Bearer {access_token}"}
 
 ###########################################################################
 #begin user functions
@@ -190,9 +168,6 @@ async def signup(
     },
 )
 
-async def read_users_active(current_user: User = Depends(get_current_active_user)):
-    return current_user
-
 @router.post("/token/validate")
 async def validate_token(access_token: AccessToken, response: Response):
     try:
@@ -200,20 +175,6 @@ async def validate_token(access_token: AccessToken, response: Response):
     except:
         response_status_code = status.HTTP_422_UNPROCESSABLE_ENTITY
         return {"detail": "token not valid"}
-
-@router.delete("/token")
-async def logout(request: Request, response: Response):
-    samesite = "none"
-    secure = True
-    if ("origin" in request.headers and "localhost" in request.headers["origin"]):
-        samesite = "lax"
-        secure = False
-    response.delete_cookie(
-        key=COOKIE_NAME,
-        httponly = True,
-        samesite = samesite,
-        secure = secure
-        )
 
 @router.get("/users",
     response_model=Username,
