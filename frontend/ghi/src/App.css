@@ -409,7 +409,7 @@ body {
   border-width: 3px;
   -webkit-box-shadow: none;
   box-shadow: none;
-} 
+}
 
 @media (min-width: 992px) {
   .food-card--vertical {
@@ -426,4 +426,10 @@ body {
       -o-object-fit: cover;
       object-fit: cover;
   }
+}
+
+.profile-logout-flexbox{
+  display: flex;
+  flex-direction: row;
+  border: solid 10px red;
 }

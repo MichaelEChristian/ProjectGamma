@@ -1,11 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { isLoggedIn, logout } from './library/auth'
 
 function Nav() {
   return (
     <nav
       className="navbar navbar-expand-lg navbar-light bg-secondary"
-      id="navbar"
+      id="home-links"
     >
       <div className="collapse navbar-collapse" id="navbarNavDropdown">
         <NavLink className="navbar-brand" id="home-links" to="/">
@@ -23,27 +24,27 @@ function Nav() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <ul className="navbar-nav">
-          <li className="nav-item active">
+          <li className="nav-item navbar-brand active">
             <a className="nav-link" id="home-links" href="/destinations/">
               Destinations<span className="sr-only"></span>
             </a>
           </li>
-          <li className="nav-item active">
+          <li className="nav-item navbar-brand active">
             <a className="nav-link" id="home-links" href="/themes/">
               Themes<span className="sr-only"></span>
             </a>
           </li>
-          <li className="nav-item active">
+          <li className="nav-item navbar-brand active">
             <a className="nav-link" id="home-links" href="/invites/creation/">
               Invitations<span className="sr-only"></span>
             </a>
           </li>
-          <li className="nav-item active">
+          <li className="nav-item navbar-brand active">
             <a className="nav-link" id="home-links" href="/venues/">
               Venues<span className="sr-only"></span>
             </a>
           </li>
-          <li className="nav-item dropdown">
+          <li className="nav-item navbar-brand dropdown">
             <a
               className="nav-link dropdown-toggle"
               href="#"
@@ -73,14 +74,23 @@ function Nav() {
               </a>
             </div>
           </li>
-          <li className="nav-item active">
+          <li className="nav-item navbar-brand active">
             <a className="nav-link" id="home-links" href="/login/">
               Login<span className="sr-only"></span>
             </a>
           </li>
-          <a className="nav-link" id="home-links" href="/profile/">
-            Profile
-          </a>
+          <div>
+            {isLoggedIn() ? (
+              <div className="profile-logout-flexbox">
+                <a className="nav-link" id="home-links" href="/profile/">
+                  Profile
+                </a>
+                <button onClick={logout} className="nav-link" id="home-links">
+                  Logout
+                </button>
+              </div>
+            ) : null}
+          </div>
         </ul>
       </div>
     </nav>

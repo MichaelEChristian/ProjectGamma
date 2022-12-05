@@ -38,8 +38,7 @@ class ErrorMessage(BaseModel):
 
 from profile_db import ProfileQueries
 
-@router.post("/api/profile/new", response_model = ProfileOut, responses={500: {"model": ErrorMessage},},)
-
+@router.post("/api/profile", response_model = ProfileOut, responses={500: {"model": ErrorMessage},},)
 def profile_post(
     profile: ProfileIn,
     response: Response,
