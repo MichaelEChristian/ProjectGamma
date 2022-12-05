@@ -23,14 +23,13 @@ function LoginModal() {
     // const [showError, setShowError] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const handleSubmit = () => {
-        const token =
-        login_token({username, password})
-            .then(()=> handleClose())
-            .then(()=> setUsername(null))
-            .then(()=> setPassword(null))
+    const handleSubmit = async () => {
+    const token = login_token({username, password})
+    handleClose()
+    setUsername(null)
+    setPassword(null)
             // .catch(()=> setShowError(true))
-        const user_data = validate_token(token["token"]);
+    const user_data = validate_token(token["token"]);
     }
 
     return (
