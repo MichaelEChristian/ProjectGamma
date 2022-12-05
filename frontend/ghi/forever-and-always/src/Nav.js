@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom'
 
 function Nav() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-secondary" id="navbar">
+    <nav className="navbar navbar-expand-lg" id="navbar">
     <div className="collapse navbar-collapse" id="navbarNavDropdown">
         <NavLink className="navbar-brand" id="home-links" to="/">Home</NavLink>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
