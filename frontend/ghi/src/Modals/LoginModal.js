@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
+<<<<<<< HEAD
 import { getAuthorizationToken } from '../library/api'
 import { login } from '../library/auth'
+=======
+import { login_token } from '../lib/api'
+>>>>>>> e9070de4439de0e0d67749f993aa33fb0c8409e2
 
 function LoginInput({ type, placeholder, value, onChange }) {
   return (
