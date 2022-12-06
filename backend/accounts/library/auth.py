@@ -7,11 +7,12 @@ from pydantic import BaseModel
 from typing import List, Optional
 import os
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token", auto_error=False)
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/auth/signin", auto_error=False)
 
 SECRET_KEY = os.environ["SECRET_KEY"]
 ALGORITHM = "HS256"
 COOKIE_NAME = "fastapi_access_token"
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 class AccessToken(BaseModel):
     token: str
@@ -27,7 +28,8 @@ class LogInCredentials(BaseModel):
     username: str
     password: str
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+def decode_token(token):
+    return jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
 
 def hash_password(password):
   return pwd_context.hash(password)
@@ -52,10 +54,7 @@ def create_access_token(data: dict):
 
 
 async def get_current_user(
-    bearer_token: Optional[str] = Depends(oauth2_scheme),
-    cookie_token: Optional[str] | None = (
-        Cookie(default=None, alias=COOKIE_NAME)
-    ),
+    token: str = Depends(oauth2_scheme),
     repo: AccountsQueries = Depends(),
 ):
     credentials_exception = HTTPException(
@@ -63,17 +62,11 @@ async def get_current_user(
         detail="Invalid authentication credentials",
         headers={"WWW-Authenticate": "Bearer"},
     )
-    token = bearer_token
-    if not token and cookie_token:
-        token = cookie_token
     try:
-        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        username = payload.get("username")
-        if username is None:
-            raise credentials_exception
-    except (JWTError, AttributeError):
+        decoded_token = decode_token(token)
+        current_user = repo.get_user(decoded_token["username"])
+        if not current_user:
+            raise
+        return current_user
+    except:
         raise credentials_exception
-    user = repo.get_user(username)
-    if user is None:
-        raise credentials_exception
-    return user
