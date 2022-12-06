@@ -37,10 +37,15 @@
 .most-popular-themes{
   margin-top: 2%;
 }
-#home-links, #navbarDropdownMenuLink{
+#menu-design-dropdown {
   color: #FCFFF4;
   font-size: x-large;
   padding-right: 80px;
+}
+.navbar-nav .home-link {
+  color: #FCFFF4 !important;
+  font-size: x-large !important;
+  padding-right: 80px !important;
 }
 .navbar {
   display: flex;
