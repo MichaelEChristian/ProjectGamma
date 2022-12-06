@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 
 function Catering2(props) {
   const [foodItems, setFoodItems] = useState([]);
-  // const [foodSummaries, setFoodSummaries] = useState([]);
   const [selectedCuisines, setSelectedCuisines] = useState(["American"]);
   const [newSelectedCuisines, setNewSelectedCuisines] = useState([]);
 
@@ -24,37 +23,19 @@ function Catering2(props) {
     'Vietnamese',
   ]
 
+  
   useEffect(() => {
     async function getFoodItemNames() {
-      // const filteredChoices = selectedCuisines.join(',')
-
-      // if (filteredChoices === "") {
-      //   setSelectedCuisines(["American"]);
-      //   console.log("inside if:", selectedCuisines)
-      // }
-      // setSelectedCuisines(filteredChoices);
-      console.log("outside if:", selectedCuisines)
       const foodNameUrl = `http://localhost:8000/menu/all/?selectedCuisines=${selectedCuisines.join(',')}`;
-      // console.log("food url",  foodNameUrl)
       const foodNameResponse = await fetch(foodNameUrl);
       if (foodNameResponse.ok) {
         const data = await foodNameResponse.json();
         setFoodItems(data.results);
       }
     }
-    // async function getFoodSummaries() {
-    //   const foodSummaryUrl = `https://localhost:8000/recipes/${foodItems.id}/information?includeNutrition=false`
-    //   const foodSummaryReponse = await fetch(foodSummaryUrl);
-    //   if (foodSummaryReponse.ok) {
-    //     const data = await foodSummaryReponse.json();
-    //     setFoodSummaries(data)
-    //   }
-    // }
     getFoodItemNames();
-    // getFoodSummaries();
   }, [selectedCuisines]
   )
-
 
 
   return (
@@ -74,8 +55,8 @@ function Catering2(props) {
                       }
                       else {
                         setSelectedCuisines(newSelectedCuisines.filter((selectedCuisine) => cuisine !== selectedCuisine))
-                        }
-                  }} id="flexCheckDefault" />
+                      }
+                    }} id="flexCheckDefault" />
                   <label className="form-check-label" htmlFor="flexCheckDefault"> {cuisine} </label>
                 </div>
               )
@@ -109,12 +90,3 @@ function Catering2(props) {
 };
 
 export default Catering2
-
-                      // if (selectedCuisines.includes(cuisine)) {
-                    //   const newSelectedCuisines = selectedCuisines.filter((selectedCuisine) => cuisine !== selectedCuisine);
-                    //   setSelectedCuisines(newSelectedCuisines)
-                    //   console.log(newSelectedCuisines)
-                    // }
-                    // else {
-                    //   setSelectedCuisines([...selectedCuisines, e.target.value])
-                    // }
