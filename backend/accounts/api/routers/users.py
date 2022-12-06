@@ -110,34 +110,6 @@ async def get_current_active_user(
     #     raise HTTPException(status_code=400, detail="Inactive user")
     return current_user
 
-
-
-@router.post("/api/token")
-async def get_access_token(
-    login_credentials: LogInCredentials,
-    repo: AccountsQueries = Depends(),
-):
-    user = authenticate_user(repo, login_credentials.username, login_credentials.password)
-    if not user:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid authentication credentials",
-            headers={"WWW-Authenticate": "Bearer"},
-        )
-    access_token = create_access_token(
-        data={
-            "sub": user["password"],
-            "userid": user["id"],
-            "username": user["username"],
-            "firstname": user["firstname"],
-            "lastname": user["lastname"],
-        },
-    )
-    return {"Authorization": f"Bearer {access_token}"}
-
-###########################################################################
-#begin user functions
-
 @router.post("/api/users")
 async def signup(
     user: UserSignUp, response: Response, repo: AccountsQueries = Depends()
