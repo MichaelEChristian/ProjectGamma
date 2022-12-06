@@ -427,9 +427,3 @@ body {
       object-fit: cover;
   }
 }
-
-.profile-logout-flexbox{
-  display: flex;
-  flex-direction: row;
-  border: solid 10px red;
-}

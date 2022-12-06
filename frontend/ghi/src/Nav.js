@@ -74,22 +74,30 @@ function Nav() {
               </a>
             </div>
           </li>
-          <li className="nav-item navbar-brand active">
-            <a className="nav-link" id="home-links" href="/login/">
-              Login<span className="sr-only"></span>
-            </a>
-          </li>
+          {!isLoggedIn() && (
+            <div>
+              <li className="nav-item navbar-brand active">
+                <a className="nav-link" id="home-links" href="/login/">
+                  Login<span className="sr-only"></span>
+                </a>
+              </li>
+            </div>
+          )}
           <div>
-            {isLoggedIn() ? (
+            {isLoggedIn() && (
               <div className="profile-logout-flexbox">
                 <a className="nav-link" id="home-links" href="/profile/">
                   Profile
                 </a>
-                <button onClick={logout} className="nav-link" id="home-links">
+                <button
+                  onClick={logout}
+                  className="nav-link btn"
+                  id="home-links logout"
+                >
                   Logout
                 </button>
               </div>
-            ) : null}
+            )}
           </div>
         </ul>
       </div>
