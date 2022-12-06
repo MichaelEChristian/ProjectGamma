@@ -101,3 +101,8 @@ def profile_list(
     # return row
     print(current_user)
     return {"a": "a"}
+
+# TODO: REMOVE THIS BEFORE DEPLOYMENT
+@router.get("/api/profile/test-auth")
+def test_auth(current_user = Depends(auth.get_current_user)):
+    return current_user

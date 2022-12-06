@@ -1,21 +1,16 @@
 from db.user_db import AccountsQueries
-from fastapi import (Depends, HTTPException, status, Cookie)
+from fastapi import (Depends, HTTPException, status)
 from fastapi.security import OAuth2PasswordBearer
-from jose import JWTError, jwt
+from jose import jwt
 from passlib.context import CryptContext
 from pydantic import BaseModel
-from typing import List, Optional
 import os
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/auth/signin", auto_error=False)
 
 SECRET_KEY = os.environ["SECRET_KEY"]
 ALGORITHM = "HS256"
-COOKIE_NAME = "fastapi_access_token"
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-
-class AccessToken(BaseModel):
-    token: str
 
 class UserSignUp(BaseModel):
     username: str
