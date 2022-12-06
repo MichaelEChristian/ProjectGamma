@@ -18,3 +18,13 @@ export function getAuthorizationToken({ username, password }) {
     body: JSON.stringify({ username, password }),
   }).then((response) => response.json())
 }
+
+export function getUserProfile() {
+  return fetch(apiURL + '/profile', {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: sessionStorage.getItem('Authorization'),
+    },
+  })
+}

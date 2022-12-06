@@ -2,8 +2,8 @@ from fastapi import APIRouter, Response, status, Depends
 from psycopg.errors import UniqueViolation
 from pydantic import BaseModel
 from jose import jwt
-from user_db import pool
-from profile_db import ProfileQueries
+from db.user_db import pool
+from db.profile_db import ProfileQueries
 from library import auth
 
 router = APIRouter()
@@ -21,8 +21,6 @@ class ProfileOut(BaseModel):
 
 class ErrorMessage(BaseModel):
     message: str
-
-from profile_db import ProfileQueries
 
 @router.post("/api/profile", response_model = ProfileOut, responses={500: {"model": ErrorMessage},},)
 def profile_post(
@@ -80,7 +78,7 @@ def profile_post(
             return record
 
 @router.get(
-    "/api/profile/",
+    "/api/profile",
     response_model = ProfileOut,
     responses = {
         200: {"model": ProfileOut},

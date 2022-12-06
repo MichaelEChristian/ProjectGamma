@@ -1,4 +1,4 @@
-from user_db import AccountsQueries
+from db.user_db import AccountsQueries
 from fastapi import (Depends, HTTPException, status, Response, Cookie, APIRouter, Request)
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import JWTError, jwt, jws, JWSError

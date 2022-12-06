@@ -1,4 +1,4 @@
-from user_db import pool
+from db.user_db import pool
 
 
 class ProfileQueries:
