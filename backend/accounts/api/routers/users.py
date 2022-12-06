@@ -112,7 +112,7 @@ async def get_current_active_user(
 
 
 
-@router.post("/token")
+@router.post("/api/token")
 async def get_access_token(
     login_credentials: LogInCredentials,
     repo: AccountsQueries = Depends(),
@@ -159,7 +159,7 @@ async def signup(
         response.status_code = status.HTTP_409_CONFLICT
         return { "detail": "this account already exists"}
 
-@router.get("/users/active",
+@router.get("/api/users/active",
     response_model = User,
     responses = {
         200: { "model": User },
@@ -168,7 +168,7 @@ async def signup(
     },
 )
 
-@router.post("/token/validate")
+@router.post("/api/token/validate")
 async def validate_token(access_token: AccessToken, response: Response):
     try:
         return jws.verify(access_token.token, SECRET_KEY, algorithms=ALGORITHM)
@@ -176,7 +176,7 @@ async def validate_token(access_token: AccessToken, response: Response):
         response_status_code = status.HTTP_422_UNPROCESSABLE_ENTITY
         return {"detail": "token not valid"}
 
-@router.get("/users",
+@router.get("/api/users",
     response_model=Username,
     responses={
         404: {"model": ErrorMessage},
