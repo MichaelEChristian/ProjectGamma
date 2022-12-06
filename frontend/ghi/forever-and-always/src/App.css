@@ -38,19 +38,30 @@
   margin-top: 2%;
 }
 #home-links, #navbarDropdownMenuLink{
-  color: #FCFFF4;
+  color: white;
   font-size: x-large;
   padding-right: 80px;
 }
 .navbar {
   display: flex;
   justify-content: space-between;
-  background-color: pink !important;
-  color: white;
+  background-color: rgb(130, 185, 194) !important;
+  color: black;
   font-weight: bold;
   font-style: italic;
-  border: solid 5px hotpink;
+  border: solid 3px whitesmoke;
 }
+
+.navbar li{
+  float: left;
+  padding: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  width: 18%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
+  text-align: center;
+}
+
 .slide img {
   width: 100%;
   height: 50%;
@@ -430,17 +441,38 @@ body {
 
 .main-pg-container {
   display: flex;
+  background-color: white;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+/* welcome page container */
+
+.welcome-pg-container {
+  background-color: white;
+  margin: 69px;
+}
+
+.welcome-page-container {
+  margin-left: 100px;
+}
+
 /* header image styling */
+
 
 .wedding-img {
   height: 600px;
   width: 1100px;
   margin-bottom: 25px;
+}
+
+
+/* about us container */
+
+.about-us-profile-img {
+  height: 300px;
+  width: 525px;
 }
 
 /* for main page styling */
@@ -480,8 +512,33 @@ body {
 
 /* styling for cards on main page */
 
+.roadmap {
+  background-color: white;
+}
+
+.rdmap-name {
+  margin-top: 169px;
+}
+
+.top-rdmap {
+  margin-top: 75px;
+}
+
+.meet-the-team-container {
+  background-color: white;
+}
+.team-p {
+  margin-bottom: 18px;
+  border-style: double;
+  border-color: rgb(144, 193, 201);
+  background-color: white;
+  font: white;
+}
+
 .member-cards-container {
+  background-color: white;
   display: flex;
+  margin-left: 190px;
 }
 
 .member-card {
@@ -489,10 +546,11 @@ body {
   flex-direction: column;
   width: 220px;
   margin-right: 15px;
+  margin-left: 80px;
 }
 
 .member-img {
-  border-radius: 15px;
+  border-radius: 20px;
 }
 
 .member-name {
@@ -502,5 +560,190 @@ body {
 .main-pg-footer {
   width: 100%;
   background-color: black;
+  color: rgb(144, 193, 201);
+  ;
+}
+
+.page-section {
+  padding: 6rem 0;
+}
+.page-section h2.section-heading, .page-section .section-heading.h2 {
+  font-size: 2.5rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+.page-section h3.section-subheading, .page-section .section-subheading.h3 {
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: italic;
+  /* font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
+  margin-bottom: 4rem;
+}
+.timeline {
+  position: relative;
+  padding: 0;
+  list-style: none;
+}
+.timeline:before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 40px;
+  width: 2px;
+  margin-left: -1.5px;
+  content: "";
+  background-color: rgb(144, 193, 201);
+}
+.timeline > li {
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 50px;
+  height: 10px;
+}
+.timeline > li:after, .timeline > li:before {
+  display: table;
+  content: " ";
+}
+.timeline > li:after {
+  clear: both;
+}
+.timeline > li .timeline-panel {
+  position: relative;
+  float: right;
+  width: 100%;
+  padding: 0 20px 0 100px;
+  text-align: left;
+}
+.timeline > li .timeline-panel:before {
+  right: auto;
+  left: -15px;
+  border-right-width: 15px;
+  border-left-width: 0;
+}
+.timeline > li .timeline-panel:after {
+  right: auto;
+  left: -14px;
+  border-right-width: 14px;
+  border-left-width: 0;
+}
+.timeline > li .timeline-image {
+  position: absolute;
+  z-index: 100;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  margin-left: 0;
+  text-align: center;
   color: white;
+  border: 7px solid whitesmoke;
+  border-radius: 100%;
+  background-color: rgb(144, 193, 201);
+}
+.timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
+  font-size: 10px;
+  line-height: 14px;
+  margin-top: 12px;
+}
+.timeline > li.timeline-inverted > .timeline-panel {
+  float: right;
+  padding: 0 20px 0 100px;
+  text-align: left;
+}
+.timeline > li.timeline-inverted > .timeline-panel:before {
+  right: auto;
+  left: -15px;
+  border-right-width: 15px;
+  border-left-width: 0;
+}
+.timeline > li.timeline-inverted > .timeline-panel:after {
+  right: auto;
+  left: -14px;
+  border-right-width: 14px;
+  border-left-width: 0;
+}
+.timeline > li:last-child {
+  margin-bottom: 0;
+}
+.timeline .timeline-heading h4, .timeline .timeline-heading .h4 {
+  margin-top: 0;
+  color: inherit;
+}
+.timeline .timeline-heading h4.subheading, .timeline .timeline-heading .subheading.h4 {
+  text-transform: none;
+}
+.timeline .timeline-body > ul,
+.timeline .timeline-body > p {
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .timeline:before {
+    left: 50%;
+  }
+  .timeline > li {
+    min-height: 100px;
+    margin-bottom: 100px;
+  }
+  .timeline > li .timeline-panel {
+    float: left;
+    width: 41%;
+    padding: 0 20px 20px 30px;
+    text-align: right;
+  }
+  .timeline > li .timeline-image {
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    margin-left: -50px;
+  }
+  .timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
+    font-size: 13px;
+    line-height: 18px;
+    margin-top: 16px;
+  }
+  .timeline > li.timeline-inverted > .timeline-panel {
+    float: right;
+    padding: 0 30px 20px 20px;
+    text-align: left;
+  }
+}
+@media (min-width: 992px) {
+  .timeline > li {
+    min-height: 150px;
+  }
+  .timeline > li .timeline-panel {
+    padding: 0 20px 20px;
+  }
+  .timeline > li .timeline-image {
+    width: 150px;
+    height: 150px;
+    margin-left: -75px;
+  }
+  .timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
+    font-size: 18px;
+    line-height: 26px;
+    margin-top: 30px;
+  }
+  .timeline > li.timeline-inverted > .timeline-panel {
+    padding: 0 20px 20px;
+  }
+}
+@media (min-width: 1200px) {
+  .timeline > li {
+    min-height: 170px;
+  }
+  .timeline > li .timeline-panel {
+    padding: 0 20px 20px 100px;
+  }
+  .timeline > li .timeline-image {
+    width: 170px;
+    height: 170px;
+    margin-left: -85px;
+  }
+  .timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
+    margin-top: 40px;
+  }
+  .timeline > li.timeline-inverted > .timeline-panel {
+    padding: 0 100px 20px 20px;
+  }
 }
