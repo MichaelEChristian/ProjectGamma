@@ -1,26 +1,12 @@
-from fastapi import APIRouter, Response, status, Depends, HTTPException
+from fastapi import APIRouter, Response, status, Depends
 from psycopg.errors import UniqueViolation
-from datetime import datetime
 from pydantic import BaseModel
-from fastapi.security import OAuth2PasswordBearer
-import os
 from jose import jwt
-from user_db import pool
-from .users import User
-from profile_db import ProfileQueries
+from db.user_db import pool
+from db.profile_db import ProfileQueries
+from library import auth
 
-
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token", auto_error=False)
 router = APIRouter()
-SECRET_KEY = os.environ["SECRET_KEY"]
-ALGORITHM = "HS256"
-
-credentials_exception = HTTPException(
-    status_code=status.HTTP_401_UNAUTHORIZED,
-    detail="Invalid authentication credentials",
-    headers={"WWW-Authenticate": "Bearer"},
-)
-
 
 class ProfileIn(BaseModel):
     budget: int
@@ -36,23 +22,20 @@ class ProfileOut(BaseModel):
 class ErrorMessage(BaseModel):
     message: str
 
-from profile_db import ProfileQueries
-
-@router.post("/api/profile/new", response_model = ProfileOut, responses={500: {"model": ErrorMessage},},)
-
+@router.post("/api/profile", response_model = ProfileOut, responses={500: {"model": ErrorMessage},},)
 def profile_post(
     profile: ProfileIn,
     response: Response,
-    bearer_token: str = Depends(oauth2_scheme),
+    bearer_token: str = Depends(auth.oauth2_scheme),
 ):
     if bearer_token is None:
-        raise credentials_exception
+        raise auth.credentials_exception
     print(bearer_token)
 
 
     ## decode returns a dictionary (ie. payload is a dictionary dictionary)
 
-    payload = jwt.decode(bearer_token, SECRET_KEY, algorithms=[ALGORITHM])
+    payload = auth.decode_token(bearer_token)
     print(payload)
     password = payload.get("sub"),
     print(password)
@@ -95,7 +78,7 @@ def profile_post(
             return record
 
 @router.get(
-    "/api/profile/",
+    "/api/profile",
     response_model = ProfileOut,
     responses = {
         200: {"model": ProfileOut},
@@ -104,16 +87,22 @@ def profile_post(
 )
 def profile_list(
     response: Response,
-    query=Depends(ProfileQueries),
-    bearer_token: str = Depends(oauth2_scheme),
+    current_user = Depends(auth.get_current_user),
 ):
-    if bearer_token is None:
-        raise credentials_exception
-    payload = jwt.decode(bearer_token, SECRET_KEY, algorithms=[ALGORITHM])
-    user = payload.get("username")
-    id = payload.get("userid")
-    row = query.get_profile(id)
-    if row is None:
-        response.status_code = status.HTTP_404_NOT_FOUND
-        return {"message": "profile not found"}
-    return row
+    # if bearer_token is None:
+    #     raise auth.credentials_exception
+    # payload = auth.decode_token(bearer_token)
+    # user = payload.get("username")
+    # id = payload.get("userid")
+    # row = query.get_profile(id)
+    # if row is None:
+    #     response.status_code = status.HTTP_404_NOT_FOUND
+    #     return {"message": "profile not found"}
+    # return row
+    print(current_user)
+    return {"a": "a"}
+
+# TODO: REMOVE THIS BEFORE DEPLOYMENT
+@router.get("/api/profile/test-auth")
+def test_auth(current_user = Depends(auth.get_current_user)):
+    return current_user

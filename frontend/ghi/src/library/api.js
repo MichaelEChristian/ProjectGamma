@@ -1,38 +1,30 @@
-import { response } from "express"
-
-const apiURL = 'http://localhost:8000'
+const apiURL = 'http://localhost:8000/api'
 
 export function signup({ username, password, email, firstname, lastname }) {
-    return fetch(apiURL + '/api/users', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ username, password, email, firstname, lastname })
-    })
+  return fetch(apiURL + '/auth/signup', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ username, password, email, firstname, lastname }),
+  })
 }
 
-export function login_token({username, password}) {
-    const token = fetch(apiURL + '/token', {
-        method: 'POST',
-        headers: {
-            Accept: "application/json, text/plain, */*",
-            "Content-Type": "application/json",
-          },
-        body: JSON.stringify({username: username, password: password})
-    })
-
-    console.log("username:", username, "password:", password, "token:", response)
-
-    return token
+export function getAuthorizationToken({ username, password }) {
+  return fetch(apiURL + '/auth/signin', {
+    method: 'POST',
+    headers: {
+      accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ username, password }),
+  }).then((response) => response.json())
 }
 
-export function validate_token(token) {
-    const user_data = fetch(apiURL + '/token/validate', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({token})
-    })
-
-    console.log("user data:", user_data)
-
-    return user_data
+export function getUserProfile() {
+  return fetch(apiURL + '/profile', {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: sessionStorage.getItem('Authorization'),
+    },
+  })
 }

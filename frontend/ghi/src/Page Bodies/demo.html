@@ -1,425 +1,637 @@
 <div className="app">
-   
-    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-          <div class="w-100 pt-1 mb-5 text-right">
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <form action="" method="get" class="modal-content modal-body border-0 p-0">
-              <div class="input-group mb-2">
-                  <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ..." />
-                  <button type="submit" class="input-group-text bg-success text-light">
-                      <i class="fa fa-fw fa-search text-white"></i>
-                  </button>
-              </div>
-          </form>
+  <div
+    class="modal fade bg-white"
+    id="templatemo_search"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="w-100 pt-1 mb-5 text-right">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
+      <form
+        action=""
+        method="get"
+        class="modal-content modal-body border-0 p-0"
+      >
+        <div class="input-group mb-2">
+          <input
+            type="text"
+            class="form-control"
+            id="inputModalSearch"
+            name="q"
+            placeholder="Search ..."
+          />
+          <button type="submit" class="input-group-text bg-success text-light">
+            <i class="fa fa-fw fa-search text-white"></i>
+          </button>
+        </div>
+      </form>
     </div>
-  
-    <div id="template-mo-jassa-hero-carousel" class="carousel slide" data-bs-ride="carousel">
-      <ol class="carousel-indicators">
-          <li data-bs-target="#template-mo-jassa-hero-carousel" data-bs-slide-to="0" class="active"></li>
-          <li data-bs-target="#template-mo-jassa-hero-carousel" data-bs-slide-to="1"></li>
-          <li data-bs-target="#template-mo-jassa-hero-carousel" data-bs-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner">
-          <div class="carousel-item active">
-              <div class="container">
-                  <div class="row p-5">
-                      <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                          <img class="img-fluid" src="https://hctg-images.imgix.net/images/articles/WD20191115-GranbyRanch-01.jpeg?auto=format%2Ccompress&crop=focalpoint&dpr=3&fit=min&fm=jpg&fp-x=0.5&fp-y=0.5&w=400&s=ecb2c15d1bfaefe1674964c785696b7a" alt="" />
-                      </div>
-                      <div class="col-lg-6 mb-0 d-flex align-items-center">
-                          <div class="text-align-left align-self-center">
-                              <h1 class="h1">Granby Ranch</h1>
-                              <h3 class="h2">Granby, Colorado</h3>
-                              <p>
-                              Ceremonies overlooking alpine fields and majestic cliffs • picturesque reception room with lots of windows and a stone hearth • sprawling lawn perfect for lawn games, a tented reception, s'mores at the fire pit, or stargazing
-                              </p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="carousel-item">
-              <div class="container">
-                  <div class="row p-5">
-                      <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                          <img class="img-fluid" src="https://hctg-images.imgix.net/images/venues/seafair-naples/WD20220608Seafair-Naples01.jpg?auto=format%2Ccompress&fit=clamp&h=430&s=5e1ba6c8df2dfb5c27369c7dc8750e1c" alt="" />
-                      </div>
-                      <div class="col-lg-6 mb-0 d-flex align-items-center">
-                          <div class="text-align-left">
-                              <h1 class="h1">Seafair Naples</h1>
-                              <h3 class="h2">Naples, Florida</h3>
-                              <p>
-                              Seafair Yachts - groundbreaking in scale and ingenuity, Seafair is the first mega yacht venue designed for corporate and private events.
-                              </p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="carousel-item">
-              <div class="container">
-                  <div class="row p-5">
-                      <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                          <img class="img-fluid" src="https://lapkovsky.com/wp-content/uploads/2019/09/hudson-valley-wedding-venues-01.jpg" alt="" />
-                      </div>
-                      <div class="col-lg-6 mb-0 d-flex align-items-center">
-                          <div class="text-align-left">
-                              <h1 class="h1">Hayfield</h1>
-                              <h3 class="h2">Maplecrest, New York</h3>
-                              <p>
-                              Wild grasses, sweeping expanses, and ancient trees are just a few details that this Catskill State Park venue has to offer when creating a storybook setting for your wedding ceremony and reception. Say your vows in the actual hay field, followed by a dinner outside or in the barn, a rustic and renovated English Frame Barn and Prairie Barn with a grand 35ft ceiling.
-                              </p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-
-      </div>
-      <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-jassa-hero-carousel" role="button" data-bs-slide="prev">
-          <i class="fas fa-chevron-left"></i>
-      </a>
-      <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-jassa-hero-carousel" role="button" data-bs-slide="next">
-          <i class="fas fa-chevron-right"></i>
-      </a>
-    </div>
-    
-    {/* <section class="container py-5">
-    
-      <div class="row text-center pt-3">
-          <div class="col-lg-6 m-auto">
-              <h1 class="h1">Categories of The Month</h1>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-              </p>
-          </div>
-      </div>
-      <div class="row">
-          <div class="col-12 col-md-4 p-5 mt-3">
-              <a href="#"><img src="https://therichpost.com/wp-content/uploads/2021/05/category_img_01.jpg" class="rounded-circle img-fluid border" /></a>
-              <h5 class="text-center mt-3 mb-3">Watches</h5>
-              <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
-          </div>
-          <div class="col-12 col-md-4 p-5 mt-3">
-              <a href="#"><img src="https://therichpost.com/wp-content/uploads/2021/05/category_img_02.jpg" class="rounded-circle img-fluid border" /></a>
-              <h2 class="h5 text-center mt-3 mb-3">Shoes</h2>
-              <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
-          </div>
-          <div class="col-12 col-md-4 p-5 mt-3">
-              <a href="#"><img src="https://therichpost.com/wp-content/uploads/2021/05/category_img_03.jpg" class="rounded-circle img-fluid border" /></a>
-              <h2 class="h5 text-center mt-3 mb-3">Accessories</h2>
-              <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
-          </div>
-      </div>
-    </section> */}
-    {/* <section>
-        
-    </section> */}
-
-{/* full background coverage with text
-    <div class="card bg-dark text-white">
-    <img src="http://t1.gstatic.com/licensed-image?q=tbn:ANd9GcT2flpNZx086BC6BmM-NlHkukeLeHgtDwKFU-4RX0NNegXJIKV8EGvm7Rlt3sgSlckT" class="card-img" alt="..."/>
-  <div class="card-img-overlay">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    <p class="card-text">Last updated 3 mins ago</p>
   </div>
 
-</div> */}
-<section>
-<div class="card">
-
-
-<div class="wrapper bg-white">
-        <form action="#">
-            <div class="form-group border-bottom d-flex align-items-center justify-content-between flex-wrap">
-                <label class="option my-sm-0 my-2">
-                    <input type="radio" name="radio" checked/>Round Trip
-                    <span class="checkmark"></span>
-                </label>
-                <label class="option my-sm-0 my-2">
-                    <input type="radio" name="radio"/>One Way
-                    <span class="checkmark"></span>
-                </label>
-                <div class="d-flex align-items-center my-sm-0 my-2">
-                    <a href="#" class="text-decoration-none">
-                        Multi-city/Stopovers <span class="fas fa-angle-right ps-2 text-primary"></span>
-                    </a>
-                </div>
+  <div
+    id="template-mo-jassa-hero-carousel"
+    class="carousel slide"
+    data-bs-ride="carousel"
+  >
+    <ol class="carousel-indicators">
+      <li
+        data-bs-target="#template-mo-jassa-hero-carousel"
+        data-bs-slide-to="0"
+        class="active"
+      ></li>
+      <li
+        data-bs-target="#template-mo-jassa-hero-carousel"
+        data-bs-slide-to="1"
+      ></li>
+      <li
+        data-bs-target="#template-mo-jassa-hero-carousel"
+        data-bs-slide-to="2"
+      ></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="container">
+          <div class="row p-5">
+            <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+              <img
+                class="img-fluid"
+                src="https://hctg-images.imgix.net/images/articles/WD20191115-GranbyRanch-01.jpeg?auto=format%2Ccompress&crop=focalpoint&dpr=3&fit=min&fm=jpg&fp-x=0.5&fp-y=0.5&w=400&s=ecb2c15d1bfaefe1674964c785696b7a"
+                alt=""
+              />
             </div>
-            <div class="form-group d-sm-flex margin">
-                <div class="d-flex align-items-center flex-fill me-sm-1 my-sm-0 my-4 border-bottom position-relative">
-                    <input type="text" required placeholder="From" class="form-control"/>
-                    <div class="label" id="from"></div>
-                    <span class="fas fa-dot-circle text-muted"></span>
-                </div>
-                <div class="d-flex align-items-center flex-fill ms-sm-1 my-sm-0 my-4 border-bottom position-relative">
-                    <input type="text" required placeholder="To" class="form-control"/>
-                    <div class="label" id="to"></div>
-                    <span class="fas fa-map-marker text-muted"></span>
-                </div>
-            </div>
-            <div class="form-group d-sm-flex margin">
-                <div class="d-flex align-items-center flex-fill me-sm1 my-sm-0 border-bottom position-relative">
-                    <input type="date" required placeholder="Depart Date" class="form-control"/>
-                    <div class="label" id="depart"></div>
-                </div>
-                <div class="d-flex align-items-center flex-fill ms-sm-1 my-sm-0 my-4 border-bottom position-relative">
-                    <input type="date" required placeholder="Return Date" class="form-control"/>
-                    <div class="label" id="return"></div>
-                </div>
-            </div>
-            <div class="form-group border-bottom d-flex align-items-center position-relative">
-                <input type="text" required placeholder="Traveller(s)" class="form-control"/>
-                <div class="label" id="psngr"></div>
-                <span class="fas fa-users text-muted"></span>
-            </div>
-            <div class="form-group my-3">
-                <div class="btn btn-primary rounded-0 d-flex justify-content-center text-center p-3">Search Flights
-                </div>
-            </div>
-        </form>
-
-    </div>
-    </div>
-
-   
-    {/* <nav class="navbar navbar-expand-lg navbar-light shadow">
-      <div class="container d-flex justify-content-between align-items-center">
-          <a class="navbar-brand text-success logo h1 align-self-center" href="#">
-              Jassa
-          </a>
-          <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
-              <div class="flex-fill">
-                  <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-                      <li class="nav-item">
-                          <a class="nav-link" href="#">Home</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="#">About</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="#">Shop</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="#">Contact</a>
-                      </li>
-                  </ul>
+            <div class="col-lg-6 mb-0 d-flex align-items-center">
+              <div class="text-align-left align-self-center">
+                <h1 class="h1">Granby Ranch</h1>
+                <h3 class="h2">Granby, Colorado</h3>
+                <p>
+                  Ceremonies overlooking alpine fields and majestic cliffs •
+                  picturesque reception room with lots of windows and a stone
+                  hearth • sprawling lawn perfect for lawn games, a tented
+                  reception, s'mores at the fire pit, or stargazing
+                </p>
               </div>
-              <div class="navbar align-self-center d-flex">
-                  <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
-                      <div class="input-group">
-                          <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ..." />
-                          <div class="input-group-text">
-                              <i class="fa fa-fw fa-search"></i>
-                          </div>
-                      </div>
-                  </div>
-                  <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
-                      <i class="fa fa-fw fa-search text-dark mr-2"></i>
-                  </a>
-                  <a class="nav-icon position-relative text-decoration-none" href="#">
-                      <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                      <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
-                  </a>
-                  <a class="nav-icon position-relative text-decoration-none" href="#">
-                      <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                      <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
-                  </a>
-              </div>
+            </div>
           </div>
-      </div>
-    </nav> */}
-    
-</section>
-<section class="bg-light">
-
-<div class="container py-3">
-
-<br/>
-  {/* <div class="title h1 text-center">Horizontal cards - Bootstrap 4</div> */}
-
-  <div class="card">
-    <div class="row ">
-    <div class="col-md-5">
-        <img class="d-block w-100" src="https://cdn.britannica.com/29/118429-050-C00CA1C8/Skyline-Cincinnati-Ohio.jpg" alt=""/>
-    </div>
-
-      <div class="col-md-7 px-3">
-        <div class="card-block px-6">
-          <h4 class="card-title">title of placeholder (this is where it will go)</h4>
-          <p class="card-text">
-          This is display PRICE
-          </p>
-          <p class="card-text">Text/ paragraph of place </p>
-          <br/>
-          <a href="#" class="mt-auto btn btn-primary">Read More</a>
         </div>
       </div>
+      <div class="carousel-item">
+        <div class="container">
+          <div class="row p-5">
+            <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+              <img
+                class="img-fluid"
+                src="https://hctg-images.imgix.net/images/venues/seafair-naples/WD20220608Seafair-Naples01.jpg?auto=format%2Ccompress&fit=clamp&h=430&s=5e1ba6c8df2dfb5c27369c7dc8750e1c"
+                alt=""
+              />
+            </div>
+            <div class="col-lg-6 mb-0 d-flex align-items-center">
+              <div class="text-align-left">
+                <h1 class="h1">Seafair Naples</h1>
+                <h3 class="h2">Naples, Florida</h3>
+                <p>
+                  Seafair Yachts - groundbreaking in scale and ingenuity,
+                  Seafair is the first mega yacht venue designed for corporate
+                  and private events.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="container">
+          <div class="row p-5">
+            <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+              <img
+                class="img-fluid"
+                src="https://lapkovsky.com/wp-content/uploads/2019/09/hudson-valley-wedding-venues-01.jpg"
+                alt=""
+              />
+            </div>
+            <div class="col-lg-6 mb-0 d-flex align-items-center">
+              <div class="text-align-left">
+                <h1 class="h1">Hayfield</h1>
+                <h3 class="h2">Maplecrest, New York</h3>
+                <p>
+                  Wild grasses, sweeping expanses, and ancient trees are just a
+                  few details that this Catskill State Park venue has to offer
+                  when creating a storybook setting for your wedding ceremony
+                  and reception. Say your vows in the actual hay field, followed
+                  by a dinner outside or in the barn, a rustic and renovated
+                  English Frame Barn and Prairie Barn with a grand 35ft ceiling.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a
+      class="carousel-control-prev text-decoration-none w-auto ps-3"
+      href="#template-mo-jassa-hero-carousel"
+      role="button"
+      data-bs-slide="prev"
+    >
+      <i class="fas fa-chevron-left"></i>
+    </a>
+    <a
+      class="carousel-control-next text-decoration-none w-auto pe-3"
+      href="#template-mo-jassa-hero-carousel"
+      role="button"
+      data-bs-slide="next"
+    >
+      <i class="fas fa-chevron-right"></i>
+    </a>
+  </div>
 
+  {/*
+  <section class="container py-5">
+    <div class="row text-center pt-3">
+      <div class="col-lg-6 m-auto">
+        <h1 class="h1">Categories of The Month</h1>
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book.
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-4 p-5 mt-3">
+        <a href="#"
+          ><img
+            src="https://therichpost.com/wp-content/uploads/2021/05/category_img_01.jpg"
+            class="rounded-circle img-fluid border"
+        /></a>
+        <h5 class="text-center mt-3 mb-3">Watches</h5>
+        <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
+      </div>
+      <div class="col-12 col-md-4 p-5 mt-3">
+        <a href="#"
+          ><img
+            src="https://therichpost.com/wp-content/uploads/2021/05/category_img_02.jpg"
+            class="rounded-circle img-fluid border"
+        /></a>
+        <h2 class="h5 text-center mt-3 mb-3">Shoes</h2>
+        <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
+      </div>
+      <div class="col-12 col-md-4 p-5 mt-3">
+        <a href="#"
+          ><img
+            src="https://therichpost.com/wp-content/uploads/2021/05/category_img_03.jpg"
+            class="rounded-circle img-fluid border"
+        /></a>
+        <h2 class="h5 text-center mt-3 mb-3">Accessories</h2>
+        <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
+      </div>
+    </div>
+  </section>
+  */} {/*
+  <section></section>
+  */} {/* full background coverage with text
+  <div class="card bg-dark text-white">
+    <img
+      src="http://t1.gstatic.com/licensed-image?q=tbn:ANd9GcT2flpNZx086BC6BmM-NlHkukeLeHgtDwKFU-4RX0NNegXJIKV8EGvm7Rlt3sgSlckT"
+      class="card-img"
+      alt="..."
+    />
+    <div class="card-img-overlay">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">
+        This is a wider card with supporting text below as a natural lead-in to
+        additional content. This content is a little bit longer.
+      </p>
+      <p class="card-text">Last updated 3 mins ago</p>
     </div>
   </div>
-</div>
-</section>
+  */}
+  <section>
+    <div class="card">
+      <div class="wrapper bg-white">
+        <form action="#">
+          <div
+            class="form-group border-bottom d-flex align-items-center justify-content-between flex-wrap"
+          >
+            <label class="option my-sm-0 my-2">
+              <input type="radio" name="radio" checked />Round Trip
+              <span class="checkmark"></span>
+            </label>
+            <label class="option my-sm-0 my-2">
+              <input type="radio" name="radio" />One Way
+              <span class="checkmark"></span>
+            </label>
+            <div class="d-flex align-items-center my-sm-0 my-2">
+              <a href="#" class="text-decoration-none">
+                Multi-city/Stopovers
+                <span class="fas fa-angle-right ps-2 text-primary"></span>
+              </a>
+            </div>
+          </div>
+          <div class="form-group d-sm-flex margin">
+            <div
+              class="d-flex align-items-center flex-fill me-sm-1 my-sm-0 my-4 border-bottom position-relative"
+            >
+              <input
+                type="text"
+                required
+                placeholder="From"
+                class="form-control"
+              />
+              <div class="label" id="from"></div>
+              <span class="fas fa-dot-circle text-muted"></span>
+            </div>
+            <div
+              class="d-flex align-items-center flex-fill ms-sm-1 my-sm-0 my-4 border-bottom position-relative"
+            >
+              <input
+                type="text"
+                required
+                placeholder="To"
+                class="form-control"
+              />
+              <div class="label" id="to"></div>
+              <span class="fas fa-map-marker text-muted"></span>
+            </div>
+          </div>
+          <div class="form-group d-sm-flex margin">
+            <div
+              class="d-flex align-items-center flex-fill me-sm1 my-sm-0 border-bottom position-relative"
+            >
+              <input
+                type="date"
+                required
+                placeholder="Depart Date"
+                class="form-control"
+              />
+              <div class="label" id="depart"></div>
+            </div>
+            <div
+              class="d-flex align-items-center flex-fill ms-sm-1 my-sm-0 my-4 border-bottom position-relative"
+            >
+              <input
+                type="date"
+                required
+                placeholder="Return Date"
+                class="form-control"
+              />
+              <div class="label" id="return"></div>
+            </div>
+          </div>
+          <div
+            class="form-group border-bottom d-flex align-items-center position-relative"
+          >
+            <input
+              type="text"
+              required
+              placeholder="Traveller(s)"
+              class="form-control"
+            />
+            <div class="label" id="psngr"></div>
+            <span class="fas fa-users text-muted"></span>
+          </div>
+          <div class="form-group my-3">
+            <div
+              class="btn btn-primary rounded-0 d-flex justify-content-center text-center p-3"
+            >
+              Search Flights
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
 
-    
-    <section class="bg-primary">
-      <div class="container py-5">
-          <div class="row text-center py-3">
-              <div class="col-lg-6 m-auto">
-                  <h1 class="h1">Featured Product</h1>
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                  </p>
-              </div>
+    {/*
+    <nav class="navbar navbar-expand-lg navbar-light shadow">
+      <div class="container d-flex justify-content-between align-items-center">
+        <a class="navbar-brand text-success logo h1 align-self-center" href="#">
+          Jassa
+        </a>
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#templatemo_main_nav"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="align-self-center collapse navbar-collapse flex-fill d-lg-flex justify-content-lg-between"
+          id="templatemo_main_nav"
+        >
+          <div class="flex-fill">
+            <ul
+              class="nav navbar-nav d-flex justify-content-between mx-lg-auto"
+            >
+              <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Shop</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+            </ul>
           </div>
-          <div class="row">
-              <div class="col-12 col-md-4 mb-4">
-                  <div class="card h-500">
-                      <a href="#">
-                          <img src="https://therichpost.com/wp-content/uploads/2021/05/feature_prod_01.jpg" class="card-img-top" alt="..." />
-                      </a>
-                      <div class="card-body">
-                          <ul class="list-unstyled d-flex justify-content-between">
-                              <li>
-                                  <i class="text-warning fa fa-star"></i>
-                                  <i class="text-warning fa fa-star"></i>
-                                  <i class="text-warning fa fa-star"></i>
-                                  <i class="text-muted fa fa-star"></i>
-                                  <i class="text-muted fa fa-star"></i>
-                              </li>
-                              <li class="text-muted text-right">$240.00</li>
-                          </ul>
-                          <a href="#" class="h2 text-decoration-none text-dark">Lorem Ipsum</a>
-                          <p class="card-text">
-                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt in culpa qui officia deserunt.
-                          </p>
-                          <p class="text-muted">Reviews (24)</p>
-                      </div>
-                  </div>
+          <div class="navbar align-self-center d-flex">
+            <div
+              class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3"
+            >
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputMobileSearch"
+                  placeholder="Search ..."
+                />
+                <div class="input-group-text">
+                  <i class="fa fa-fw fa-search"></i>
+                </div>
               </div>
-              <div class="col-12 col-md-4 mb-4">
-                  <div class="card h-100">
-                      <a href="#">
-                          <img src="https://therichpost.com/wp-content/uploads/2021/05/feature_prod_02.jpg" class="card-img-top" alt="..." />
-                      </a>
-                      <div class="card-body">
-                          <ul class="list-unstyled d-flex justify-content-between">
-                              <li>
-                                  <i class="text-warning fa fa-star"></i>
-                                  <i class="text-warning fa fa-star"></i>
-                                  <i class="text-warning fa fa-star"></i>
-                                  <i class="text-muted fa fa-star"></i>
-                                  <i class="text-muted fa fa-star"></i>
-                              </li>
-                              <li class="text-muted text-right">$480.00</li>
-                          </ul>
-                          <a href="#" class="h2 text-decoration-none text-dark">Lorem Ipsum</a>
-                          <p class="card-text">
-                            Lorem Ipsum Lorem Ipsum Lorem IpsumLorem Ipsum
-                          </p>
-                          <p class="text-muted">Reviews (48)</p>
-                      </div>
-                  </div>
-              </div>
-              
+            </div>
+            <a
+              class="nav-icon d-none d-lg-inline"
+              href="#"
+              data-bs-toggle="modal"
+              data-bs-target="#templatemo_search"
+            >
+              <i class="fa fa-fw fa-search text-dark mr-2"></i>
+            </a>
+            <a class="nav-icon position-relative text-decoration-none" href="#">
+              <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+              <span
+                class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"
+                >7</span
+              >
+            </a>
+            <a class="nav-icon position-relative text-decoration-none" href="#">
+              <i class="fa fa-fw fa-user text-dark mr-3"></i>
+              <span
+                class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"
+                >+99</span
+              >
+            </a>
           </div>
+        </div>
       </div>
-    </section>
-   
-    {/* <footer class="bg-dark" id="tempaltemo_footer">
+    </nav>
+    */}
+  </section>
+  <section class="bg-light">
+    <div class="container py-3">
+      <br />
+      {/*
+      <div class="title h1 text-center">Horizontal cards - Bootstrap 4</div>
+      */}
+
+      <div class="card">
+        <div class="row">
+          <div class="col-md-5">
+            <img
+              class="d-block w-100"
+              src="https://cdn.britannica.com/29/118429-050-C00CA1C8/Skyline-Cincinnati-Ohio.jpg"
+              alt=""
+            />
+          </div>
+
+          <div class="col-md-7 px-3">
+            <div class="card-block px-6">
+              <h4 class="card-title">
+                title of placeholder (this is where it will go)
+              </h4>
+              <p class="card-text">This is display PRICE</p>
+              <p class="card-text">Text/ paragraph of place</p>
+              <br />
+              <a href="#" class="mt-auto btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-primary">
+    <div class="container py-5">
+      <div class="row text-center py-3">
+        <div class="col-lg-6 m-auto">
+          <h1 class="h1">Featured Product</h1>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book.
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4 mb-4">
+          <div class="card h-500">
+            <a href="#">
+              <img
+                src="https://therichpost.com/wp-content/uploads/2021/05/feature_prod_01.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+            </a>
+            <div class="card-body">
+              <ul class="list-unstyled d-flex justify-content-between">
+                <li>
+                  <i class="text-warning fa fa-star"></i>
+                  <i class="text-warning fa fa-star"></i>
+                  <i class="text-warning fa fa-star"></i>
+                  <i class="text-muted fa fa-star"></i>
+                  <i class="text-muted fa fa-star"></i>
+                </li>
+                <li class="text-muted text-right">$240.00</li>
+              </ul>
+              <a href="#" class="h2 text-decoration-none text-dark"
+                >Lorem Ipsum</a
+              >
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt
+                in culpa qui officia deserunt.
+              </p>
+              <p class="text-muted">Reviews (24)</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 mb-4">
+          <div class="card h-100">
+            <a href="#">
+              <img
+                src="https://therichpost.com/wp-content/uploads/2021/05/feature_prod_02.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+            </a>
+            <div class="card-body">
+              <ul class="list-unstyled d-flex justify-content-between">
+                <li>
+                  <i class="text-warning fa fa-star"></i>
+                  <i class="text-warning fa fa-star"></i>
+                  <i class="text-warning fa fa-star"></i>
+                  <i class="text-muted fa fa-star"></i>
+                  <i class="text-muted fa fa-star"></i>
+                </li>
+                <li class="text-muted text-right">$480.00</li>
+              </ul>
+              <a href="#" class="h2 text-decoration-none text-dark"
+                >Lorem Ipsum</a
+              >
+              <p class="card-text">
+                Lorem Ipsum Lorem Ipsum Lorem IpsumLorem Ipsum
+              </p>
+              <p class="text-muted">Reviews (48)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/*
+  <footer class="bg-dark" id="tempaltemo_footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 pt-5">
+          <h2 class="h2 text-success border-bottom pb-3 border-light logo">
+            Jassa Shop
+          </h2>
+          <ul class="list-unstyled text-light footer-link-list">
+            <li>
+              <i class="fas fa-map-marker-alt fa-fw"></i>
+              India
+            </li>
+            <li>
+              <i class="fa fa-phone fa-fw"></i>
+              <a class="text-decoration-none" href="#">000-000-0000</a>
+            </li>
+            <li>
+              <i class="fa fa-envelope fa-fw"></i>
+              <a class="text-decoration-none" href="#">info@company.com</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4 pt-5">
+          <h2 class="h2 text-light border-bottom pb-3 border-light">
+            Products
+          </h2>
+          <ul class="list-unstyled text-light footer-link-list">
+            <li><a class="text-decoration-none" href="#">Luxury</a></li>
+            <li><a class="text-decoration-none" href="#">Sport Wear</a></li>
+            <li><a class="text-decoration-none" href="#">Men's Shoes</a></li>
+            <li><a class="text-decoration-none" href="#">Women's Shoes</a></li>
+            <li><a class="text-decoration-none" href="#">Popular Dress</a></li>
+            <li>
+              <a class="text-decoration-none" href="#">Gym Accessories</a>
+            </li>
+            <li><a class="text-decoration-none" href="#">Sport Shoes</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 pt-5">
+          <h2 class="h2 text-light border-bottom pb-3 border-light">
+            Further Info
+          </h2>
+          <ul class="list-unstyled text-light footer-link-list">
+            <li><a class="text-decoration-none" href="#">Home</a></li>
+            <li><a class="text-decoration-none" href="#">About Us</a></li>
+            <li><a class="text-decoration-none" href="#">Shop Locations</a></li>
+            <li><a class="text-decoration-none" href="#">FAQs</a></li>
+            <li><a class="text-decoration-none" href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row text-light mb-4">
+        <div class="col-12 mb-3">
+          <div class="w-100 my-3 border-top border-light"></div>
+        </div>
+        <div class="col-auto me-auto">
+          <ul class="list-inline text-left footer-icons">
+            <li
+              class="list-inline-item border border-light rounded-circle text-center"
+            >
+              <a
+                class="text-light text-decoration-none"
+                target="_blank"
+                href="#"
+                ><i class="fab fa-facebook-f fa-lg fa-fw"></i
+              ></a>
+            </li>
+            <li
+              class="list-inline-item border border-light rounded-circle text-center"
+            >
+              <a
+                class="text-light text-decoration-none"
+                target="_blank"
+                href="#"
+                ><i class="fab fa-instagram fa-lg fa-fw"></i
+              ></a>
+            </li>
+            <li
+              class="list-inline-item border border-light rounded-circle text-center"
+            >
+              <a
+                class="text-light text-decoration-none"
+                target="_blank"
+                href="#"
+                ><i class="fab fa-twitter fa-lg fa-fw"></i
+              ></a>
+            </li>
+            <li
+              class="list-inline-item border border-light rounded-circle text-center"
+            >
+              <a
+                class="text-light text-decoration-none"
+                target="_blank"
+                href="#"
+                ><i class="fab fa-linkedin fa-lg fa-fw"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-auto">
+          <label class="sr-only" for="subscribeEmail">Email address</label>
+          <div class="input-group mb-2">
+            <input
+              type="text"
+              class="form-control bg-dark border-light"
+              id="subscribeEmail"
+              placeholder="Email address"
+            />
+            <div class="input-group-text btn-success text-light">Subscribe</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w-100 bg-black py-3">
       <div class="container">
-          <div class="row">
-              <div class="col-md-4 pt-5">
-                  <h2 class="h2 text-success border-bottom pb-3 border-light logo">Jassa Shop</h2>
-                  <ul class="list-unstyled text-light footer-link-list">
-                      <li>
-                          <i class="fas fa-map-marker-alt fa-fw"></i>
-                          India
-                      </li>
-                      <li>
-                          <i class="fa fa-phone fa-fw"></i>
-                          <a class="text-decoration-none" href="#">000-000-0000</a>
-                      </li>
-                      <li>
-                          <i class="fa fa-envelope fa-fw"></i>
-                          <a class="text-decoration-none" href="#">info@company.com</a>
-                      </li>
-                  </ul>
-              </div>
-              <div class="col-md-4 pt-5">
-                  <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
-                  <ul class="list-unstyled text-light footer-link-list">
-                      <li><a class="text-decoration-none" href="#">Luxury</a></li>
-                      <li><a class="text-decoration-none" href="#">Sport Wear</a></li>
-                      <li><a class="text-decoration-none" href="#">Men's Shoes</a></li>
-                      <li><a class="text-decoration-none" href="#">Women's Shoes</a></li>
-                      <li><a class="text-decoration-none" href="#">Popular Dress</a></li>
-                      <li><a class="text-decoration-none" href="#">Gym Accessories</a></li>
-                      <li><a class="text-decoration-none" href="#">Sport Shoes</a></li>
-                  </ul>
-              </div>
-              <div class="col-md-4 pt-5">
-                  <h2 class="h2 text-light border-bottom pb-3 border-light">Further Info</h2>
-                  <ul class="list-unstyled text-light footer-link-list">
-                      <li><a class="text-decoration-none" href="#">Home</a></li>
-                      <li><a class="text-decoration-none" href="#">About Us</a></li>
-                      <li><a class="text-decoration-none" href="#">Shop Locations</a></li>
-                      <li><a class="text-decoration-none" href="#">FAQs</a></li>
-                      <li><a class="text-decoration-none" href="#">Contact</a></li>
-                  </ul>
-              </div>
+        <div class="row pt-2">
+          <div class="col-12">
+            <p class="text-left text-light">
+              <!-- Copyright &copy; 2021 Company Name  -->
+              | Designed by
+              <a rel="sponsored" href="#" target="_blank">Jassa</a>
+            </p>
           </div>
-          <div class="row text-light mb-4">
-              <div class="col-12 mb-3">
-                  <div class="w-100 my-3 border-top border-light"></div>
-              </div>
-              <div class="col-auto me-auto">
-                  <ul class="list-inline text-left footer-icons">
-                      <li class="list-inline-item border border-light rounded-circle text-center">
-                          <a class="text-light text-decoration-none" target="_blank" href="#"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
-                      </li>
-                      <li class="list-inline-item border border-light rounded-circle text-center">
-                          <a class="text-light text-decoration-none" target="_blank" href="#"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
-                      </li>
-                      <li class="list-inline-item border border-light rounded-circle text-center">
-                          <a class="text-light text-decoration-none" target="_blank" href="#"><i class="fab fa-twitter fa-lg fa-fw"></i></a>
-                      </li>
-                      <li class="list-inline-item border border-light rounded-circle text-center">
-                          <a class="text-light text-decoration-none" target="_blank" href="#"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
-                      </li>
-                  </ul>
-              </div>
-              <div class="col-auto">
-                  <label class="sr-only" for="subscribeEmail">Email address</label>
-                  <div class="input-group mb-2">
-                      <input type="text" class="form-control bg-dark border-light" id="subscribeEmail" placeholder="Email address" />
-                      <div class="input-group-text btn-success text-light">Subscribe</div>
-                  </div>
-              </div>
-          </div>
+        </div>
       </div>
-      <div class="w-100 bg-black py-3">
-          <div class="container">
-              <div class="row pt-2">
-                  <div class="col-12">
-                      <p class="text-left text-light">
-                          <!-- Copyright &copy; 2021 Company Name  -->
-                          | Designed by <a rel="sponsored" href="#" target="_blank">Jassa</a>
-                      </p>
-                  </div>
-              </div>
-          </div>
-      </div>
-    </footer> */}
+    </div>
+  </footer>
+  */}
 </div>
