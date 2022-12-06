@@ -464,15 +464,23 @@ body {
 .wedding-img {
   height: 600px;
   width: 1100px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
+.pic-font {
+  font-size: xx-large;
+  margin-top: 220px;
+}
 
 /* about us container */
 
 .about-us-profile-img {
   height: 300px;
   width: 525px;
+}
+
+.vision-statement {
+  margin-bottom: 35px;
 }
 
 /* for main page styling */
@@ -521,14 +529,15 @@ body {
 }
 
 .top-rdmap {
-  margin-top: 75px;
+  margin-top: 69px;
 }
 
 .meet-the-team-container {
   background-color: white;
 }
 .team-p {
-  margin-bottom: 18px;
+  margin-top: 69px;
+  margin-bottom: 45px;
   border-style: double;
   border-color: rgb(144, 193, 201);
   background-color: white;

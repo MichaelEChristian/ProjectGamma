@@ -20,15 +20,17 @@ function Main() {
     <div className="main-pg-container">
       <section className="header-img-container">
         <div class="text-white" className="header-img">
-          <img src="https://cdn3.i-scmp.com/sites/default/files/images/methode/2018/09/10/3d80613c-af33-11e8-b224-884456d4cde1_image_hires_170017.jpg" className="wedding-img" alt="..." />
-          <p></p>
+          {/* <img src="https://cdn3.i-scmp.com/sites/default/files/images/methode/2018/09/10/3d80613c-af33-11e8-b224-884456d4cde1_image_hires_170017.jpg" className="wedding-img" alt="..." /> */}
+          <img src="https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/305933382_194078206349814_3703546288574644125_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=OyQNGqCiUBQAX_SQIsG&_nc_ht=scontent-dfw5-2.xx&oh=00_AfApIsuLejQPcxLz6sPbtc5LUos8tnPmxMyXM9H5Sj2OmA&oe=6394EE8F" className="wedding-img" alt="..." />
         </div>
       </section>
       <main>
         <div className="welcome-pg-container">
           <div class="text-center">
             <h2 class="section-heading text-uppercase">About Us</h2>
-            <h3 className="vision-statement" class="section-subheading text-muted">What we envisioned when creating our website</h3>
+            <div className="vision-statement" >
+              <h3 class="section-subheading text-muted">What we envisioned when creating our website</h3>
+            </div>
           </div>
           <div class="row text-center">
             <div class="col-md-4">
@@ -59,6 +61,12 @@ function Main() {
             </div>
           )}
         </div> */}
+        <section className="header-img-container">
+        <div class="text-white" className="header-img">
+          <p className='pic-font'>Creating what seems impossible, possible!</p>
+          <img src="https://cdn3.i-scmp.com/sites/default/files/images/methode/2018/09/10/3d80613c-af33-11e8-b224-884456d4cde1_image_hires_170017.jpg" className="wedding-img" alt="..." />
+        </div>
+      </section>
         <section class="page-section" className="roadmap">
             <div class="container">
                 <div class="text-center">
