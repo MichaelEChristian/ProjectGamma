@@ -31,6 +31,7 @@ function Catering(props) {
       if (foodNameResponse.ok) {
         const data = await foodNameResponse.json();
         setFoodItems(data.results);
+        console.log(data.results);
       }
     }
     getFoodItemNames();
@@ -49,8 +50,8 @@ function Catering(props) {
                   <input className="form-check-input" type="checkbox" key={cuisine.id} value={cuisine}
                     onChange={e => {
                       if (!selectedCuisines.includes(cuisine)) {
-                        console.log("state--->", selectedCuisines)
-                        console.log("e---->", e.target.value)
+                        // console.log("state--->", selectedCuisines)
+                        // console.log("e---->", e.target.value)
                         setSelectedCuisines([...selectedCuisines, e.target.value])
                       }
                       else {
