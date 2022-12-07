@@ -18,22 +18,6 @@ function LoginInput({ type, placeholder, value, onChange }) {
 }
 
 function LoginModal() {
-<<<<<<< HEAD
-    const [show, setShow] = useState(false);
-    const [username, setUsername] = useState();
-    const [password, setPassword] = useState();
-    // const [showError, setShowError] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-    const handleSubmit = async () => {
-    const token = login_token({username, password})
-    handleClose()
-    setUsername(null)
-    setPassword(null)
-            // .catch(()=> setShowError(true))
-    const user_data = validate_token(token["token"]);
-    }
-=======
   const [show, setShow] = useState(false)
   const [username, setUsername] = useState()
   const [password, setPassword] = useState()
@@ -49,7 +33,6 @@ function LoginModal() {
       window.location.href = '/profile/'
     } catch {}
   }
->>>>>>> 52c7f5f464b525f040cea2948b4768b31b0f36a3
 
   return (
     <>
