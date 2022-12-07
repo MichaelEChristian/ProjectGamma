@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 function Catering(props) {
   const [foodItems, setFoodItems] = useState([]);
-  const [selectedCuisines, setSelectedCuisines] = useState(["American"]);
+  const [selectedCuisines, setSelectedCuisines] = useState([]);
   const [newSelectedCuisines, setNewSelectedCuisines] = useState([]);
 
   const cuisineOptions = [
