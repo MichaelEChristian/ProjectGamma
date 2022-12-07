@@ -42,15 +42,15 @@
   font-size: x-large;
   padding-right: 80px;
 }
-/* .navbar {
+.navbar {
   display: flex;
   justify-content: space-between;
-  background-color: rgb(130, 185, 194) !important;
-  color: black;
+  background-color: pink!important;
+  color: white;
   font-weight: bold;
   font-style: italic;
   border: solid 5px hotpink;
-} */
+}
 .slide img {
   width: 100%;
   height: 50%;
