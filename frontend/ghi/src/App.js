@@ -10,7 +10,6 @@ import Login from './Form Components/Login'
 import Text from './Demo/Text'
 import Destination from './Page Bodies/Destination'
 import Dashboard from './Page Bodies/Dashboard'
-import MenuAll from './Page Bodies/MenuAll'
 import Catering from './Page Bodies/Catering'
 
 function App() {
@@ -31,7 +30,6 @@ function App() {
             <Route path="/invites/creation/" element={<ParentInvite />} />
             <Route path="/invites/test/" element={<Text />} />
             <Route path="/profile/dashboard/" element={<Dashboard />} />
-            <Route path="/menu/all/" element={<MenuAll />} />
           </Routes>
         </div>
       </BrowserRouter>

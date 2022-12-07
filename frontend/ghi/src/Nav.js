@@ -39,7 +39,7 @@ function MenuDesignDropdown() {
         Menu Design
       </div>
       <div className="dropdown-menu" aria-labelledby="menu-design-dropdown">
-        <a className="dropdown-item" href="/menu/all/">
+        <a className="dropdown-item" href="/catering/">
           All
         </a>
         <a className="dropdown-item" href="/guests/">
