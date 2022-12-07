@@ -1,70 +1,45 @@
-from db.user_db import AccountsQueries
-from fastapi import (Depends, HTTPException, status, APIRouter)
-from fastapi.security import OAuth2PasswordBearer
-from jose import jwt
-from passlib.context import CryptContext
-from pydantic import BaseModel
-import os
-
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/auth/signin", auto_error=False)
+from library.auth import LogInCredentials, UserSignUp, authenticate_user, create_access_token, hash_password
+from db.user_db import DuplicateAccount, AccountsQueries
+from fastapi import (Depends, HTTPException, status, Response, APIRouter)
 
 router = APIRouter()
 
-
-SECRET_KEY = os.environ["SECRET_KEY"]
-ALGORITHM = "HS256"
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-
-class UserSignUp(BaseModel):
-    username: str
-    password: str
-    email: str | None = None
-    firstname: str | None = None
-    lastname: str | None = None
-
-class LogInCredentials(BaseModel):
-    username: str
-    password: str
-
-def decode_token(token):
-    return jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-
-def hash_password(password):
-  return pwd_context.hash(password)
-
-def verify_password(plain_password, hashed_password):
-    return pwd_context.verify(plain_password, hashed_password)
-
-
-def authenticate_user(repo: AccountsQueries, username: str, password: str):
-    user = repo.get_user(username)
-    if not user:
-        return (False, None)
-    if not verify_password(password, user["password"]):
-        return (False, None)
-    return (True, user)
-
-
-def create_access_token(data: dict):
-   to_encode = data.copy()
-   encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
-   return encoded_jwt
-
-
-async def get_current_user(
-    token: str = Depends(oauth2_scheme),
+@router.post("/api/auth/signin")
+async def get_access_token(
+    login_credentials: LogInCredentials,
     repo: AccountsQueries = Depends(),
 ):
-    credentials_exception = HTTPException(
-        status_code=status.HTTP_401_UNAUTHORIZED,
-        detail="Invalid authentication credentials",
-        headers={"WWW-Authenticate": "Bearer"},
+    (success, user) = authenticate_user(repo, login_credentials.username, login_credentials.password)
+    if not success:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid authentication credentials",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+    access_token = create_access_token(
+        data={
+            "sub": user["password"],
+            "userid": user["id"],
+            "username": user["username"],
+            "firstname": user["firstname"],
+            "lastname": user["lastname"],
+        },
     )
+    return {"Authorization": f"Bearer {access_token}"}
+
+@router.post("/api/auth/signup")
+async def signup(
+    user: UserSignUp, response: Response, repo: AccountsQueries = Depends()
+):
     try:
-        decoded_token = decode_token(token)
-        current_user = repo.get_user(decoded_token["username"])
-        if not current_user:
-            raise
-        return current_user
-    except:
-        raise credentials_exception
+        repo.create_user(
+            user.username,
+            hash_password(user.password),
+            user.email,
+            user.firstname,
+            user.lastname,
+        )
+        return user
+    except DuplicateAccount:
+        response.status_code = status.HTTP_409_CONFLICT
+        return { "detail": "this account already exists"}

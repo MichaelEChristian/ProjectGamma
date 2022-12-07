@@ -2,11 +2,22 @@ from fastapi import APIRouter, Response, status, Depends
 from psycopg.errors import UniqueViolation
 from pydantic import BaseModel
 from jose import jwt
-from db.user_db import pool
+from db.user_db import pool, AccountsQueries
 from db.profile_db import ProfileQueries
 from library import auth
 
 router = APIRouter()
+
+class HttpError(BaseModel):
+    detail: str
+
+class User(BaseModel):
+    id: int
+    firstname: str
+    lastname: str
+    email: str
+    password: str
+    username: str
 
 class ProfileIn(BaseModel):
     budget: int
@@ -18,6 +29,11 @@ class ProfileOut(BaseModel):
     firstname: str
     lastname: str
     username: str
+
+class Username(BaseModel):
+    usernames: list
+    class Config:
+        orm_mode = True
 
 class ErrorMessage(BaseModel):
     message: str
@@ -85,10 +101,36 @@ def profile_post(
         400: {"model": ErrorMessage},
     },
 )
-def profile_list(
-    response: Response,
-    current_user = Depends(auth.get_current_user),
+
+@router.get("/api/users",
+    response_model=Username,
+    responses={
+        404: {"model": ErrorMessage},
+    }
+)
+def username_list(
+    query=Depends(AccountsQueries),
 ):
+    rows = query.get_all_usernames()
+    print(rows)
+    usernames = {"usernames": rows}
+    print(usernames)
+    return usernames
+
+@router.get("/api/users/active",
+    response_model = User,
+    responses = {
+        200: { "model": User },
+        400: { "model": HttpError},
+        401: { "model": HttpError}
+    },
+)
+
+# def profile_list(
+#     response: Response,
+#     current_user = Depends(auth.get_current_user),
+# ):
+
     # if bearer_token is None:
     #     raise auth.credentials_exception
     # payload = auth.decode_token(bearer_token)
@@ -99,8 +141,8 @@ def profile_list(
     #     response.status_code = status.HTTP_404_NOT_FOUND
     #     return {"message": "profile not found"}
     # return row
-    print(current_user)
-    return {"a": "a"}
+    # print(current_user)
+    # return {"a": "a"}
 
 # TODO: REMOVE THIS BEFORE DEPLOYMENT
 @router.get("/api/profile/test-auth")
