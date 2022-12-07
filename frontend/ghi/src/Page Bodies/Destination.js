@@ -129,4 +129,4 @@ function Destination(props) {
   );
 }
 
-export default Destination
+export default Destination;

@@ -26,7 +26,7 @@ function Catering(props) {
 
   useEffect(() => {
     async function getFoodItemNames() {
-      const foodNameUrl = `http://localhost:8000/catering?selectedCuisines=${selectedCuisines.join(',')}`;
+      const foodNameUrl = `http://localhost:8000/menu/all/?selectedCuisines=${selectedCuisines.join(',')}`;
       const foodNameResponse = await fetch(foodNameUrl);
       if (foodNameResponse.ok) {
         const data = await foodNameResponse.json();
