@@ -17,6 +17,69 @@ function Main() {
   { "profileImage": Trung, "cheeesyParagraph": "My goal when creating our application was to make the entire process of wedding planning fun. We wanted to help personalize every detail of the wedding while giving insight and transparent pricing.", "name": "Trung Nguyen"}]
 
   return (
+    <>
+    <header>
+
+  {/* <nav class="navbar navbar-expand-lg navbar-light fixed-top mask-custom shadow-0">
+    <div class="container">
+      <a class="navbar-brand" href="#!"><span>Psychologist</span></a>
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+        data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#!">Offer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#!">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#!">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#!">Reference</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#!">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#!">Team</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#!">Contact</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav d-flex flex-row">
+          <li class="nav-item me-3 me-lg-0">
+            <a class="nav-link" href="#!">
+              <i class="fas fa-shopping-cart"></i>
+            </a>
+          </li>
+          <li class="nav-item me-3 me-lg-0">
+            <a class="nav-link" href="#!">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+          <li class="nav-item me-3 me-lg-0">
+            <a class="nav-link" href="#!">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav> */}
+
+  <section>
+
+    <div id="intro" class="bg-image vh-100">
+    </div>
+
+  </section>
+
+</header>
     <div className="main-pg-container">
       <section className="header-img-container">
         <div class="text-white" className="header-img">
@@ -145,6 +208,7 @@ function Main() {
         </div>
       </footer>
     </div>
+    </>
   )
 }
 

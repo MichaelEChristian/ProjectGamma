@@ -27,7 +27,9 @@ function Logout() {
 
 function Nav() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light">
+    <nav className="navbar navbar-expand-lg navbar-light fixed-top mask-custom shadow-0">
+      <div class="container">
+      <a class="navbar-brand" href="/"><span>Forever & Always</span></a>
       <div className="collapse navbar-collapse" id="navbarNavDropdown">
         <ul className="navbar-nav">
           <NavItem href="/" text="Home" />
@@ -43,6 +45,7 @@ function Nav() {
             </>
           )}
         </ul>
+      </div>
       </div>
     </nav>
   )
