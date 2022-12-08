@@ -21,7 +21,7 @@ function LoginModal() {
   const [show, setShow] = useState(false)
   const [username, setUsername] = useState()
   const [password, setPassword] = useState()
-  // const [showError, setShowError] = useState(false);
+  const [showError, setShowError] = useState(false)
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
   const handleSubmit = async () => {
@@ -31,7 +31,9 @@ function LoginModal() {
       setUsername(null)
       setPassword(null)
       window.location.href = '/profile/dashboard'
-    } catch {}
+    } catch {
+      setShowError(true)
+    }
   }
 
   return (
@@ -63,10 +65,11 @@ function LoginModal() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              {/* {showError ?
-                        <p className='col-md-8 offset-md-2 text-danger font-weight-bold'>This email or username already exists</p>
-                        : null
-                    } */}
+              {showError ? (
+                <p className="col-md-8 offset-md-2 text-danger font-weight-bold">
+                  Incorrect username or password
+                </p>
+              ) : null}
             </div>
           </form>
         </Modal.Body>

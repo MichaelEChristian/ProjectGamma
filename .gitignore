@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-__pychache__
 ./venv
-=======
 deployment-checklist.md
-switching-heroku.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -170,4 +166,3 @@ cython_debug/
 node_modules
 
 backend/accounts/api/routers/keys.py
->>>>>>> main
