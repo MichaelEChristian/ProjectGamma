@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 import { signup } from '../library/api'
+import { login } from '../library/auth'
 
 function SignUpInput({ type, placeholder, value, onChange }) {
   return (
@@ -25,6 +26,7 @@ function SignUpModal() {
   const [firstname, setFirstName] = useState()
   const [lastname, setLastName] = useState()
   const [showError, setShowError] = useState(false)
+  const [signupSuccess, setSignupSuccess] = useState(false)
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
   const handleSubmit = () => {
@@ -35,10 +37,12 @@ function SignUpModal() {
       .then(() => setPassword(null))
       .then(() => setFirstName(null))
       .then(() => setLastName(null))
+      .then(() => setSignupSuccess(true))
       .catch(() => setShowError(true))
   }
   return (
     <>
+      {signupSuccess ? <p>Thank you for signing up. Please log in.</p> : null}
       <button
         onClick={handleShow}
         type="submit"
