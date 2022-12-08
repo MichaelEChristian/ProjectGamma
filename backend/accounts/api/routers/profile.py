@@ -1,12 +1,24 @@
-from fastapi import APIRouter, Response, status, Depends
+from fastapi import APIRouter, Response, status, Depends, HTTPException
 from psycopg.errors import UniqueViolation
 from pydantic import BaseModel
 from jose import jwt
+import os
+from fastapi.security import OAuth2PasswordBearer
 from db.user_db import pool, AccountsQueries
 from db.profile_db import ProfileQueries
 from library import auth
 
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token", auto_error=False)
+
 router = APIRouter()
+SECRET_KEY = os.environ["SECRET_KEY"]
+ALGORITHM = "HS256"
+
+credentials_exception = HTTPException(
+    status_code=status.HTTP_401_UNAUTHORIZED,
+    detail="Invalid authentication credentials",
+    headers={"WWW-Authenticate": "Bearer"},
+)
 
 class HttpError(BaseModel):
     detail: str
@@ -19,12 +31,16 @@ class User(BaseModel):
     password: str
     username: str
 
+
 class ProfileIn(BaseModel):
-    budget: int
+    userid: int
+    firstname: str
+    lastname: str
+    username: str
 
 class ProfileOut(BaseModel):
     id: int
-    budget: int
+    height: int
     userid: int
     firstname: str
     lastname: str
@@ -38,15 +54,17 @@ class Username(BaseModel):
 class ErrorMessage(BaseModel):
     message: str
 
-@router.post("/api/profile", response_model = ProfileOut, responses={500: {"model": ErrorMessage},},)
+@router.post("/api/profile/new", response_model = ProfileOut, responses={500: {"model": ErrorMessage},},)
+
 def profile_post(
     profile: ProfileIn,
     response: Response,
-    bearer_token: str = Depends(auth.oauth2_scheme),
+    bearer_token: str = Depends(oauth2_scheme),
 ):
+    print("bearer token:", bearer_token)
     if bearer_token is None:
-        raise auth.credentials_exception
-    print(bearer_token)
+        raise credentials_exception
+    print("bearer token:", bearer_token)
 
 
     ## decode returns a dictionary (ie. payload is a dictionary dictionary)
@@ -68,11 +86,11 @@ def profile_post(
             try:
                 cur.execute(
                     """
-                    INSERT INTO user_profile (budget, userid)
-                    VALUES (%s, %s)
-                    RETURNING id, budget, userid
+                    INSERT INTO user_profile (firstname, lastname, username, userid)
+                    VALUES (%s, %s, %s, %s)
+                    RETURNING id, firstname, lastname, username, userid
                     """,
-                    [profile.budget, userid],
+                    [profile.firstname, profile.lastname, profile.username, userid],
                 )
 
             except UniqueViolation:
@@ -85,7 +103,6 @@ def profile_post(
                 "firstname": firstname,
                 "lastname": lastname,
                 "username": username,
-                "budget": profile.budget,
                 "userid": userid,
             }
 
@@ -94,13 +111,28 @@ def profile_post(
             return record
 
 @router.get(
-    "/api/profile",
+    "/api/profile/",
     response_model = ProfileOut,
     responses = {
         200: {"model": ProfileOut},
         400: {"model": ErrorMessage},
     },
 )
+def profile_list(
+    response: Response,
+    query=Depends(ProfileQueries),
+    bearer_token: str = Depends(oauth2_scheme),
+):
+    if bearer_token is None:
+        raise credentials_exception
+    payload = jwt.decode(bearer_token, SECRET_KEY, algorithms=[ALGORITHM])
+    user = payload.get("username")
+    id = payload.get("userid")
+    row = query.get_profile(id)
+    if row is None:
+        response.status_code = status.HTTP_404_NOT_FOUND
+        return {"message": "profile not found"}
+    return row
 
 @router.get("/api/users",
     response_model=Username,
