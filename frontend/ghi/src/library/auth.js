@@ -7,7 +7,7 @@ export function isLoggedIn() {
 export async function login(username, password) {
   const token = await getAuthorizationToken({ username, password })
   if (token.Authorization === undefined) {
-    throw 'Invalid Credentials'
+    throw new Error('Invalid Credentials')
   }
   sessionStorage.setItem('Authorization', token.Authorization)
 }
