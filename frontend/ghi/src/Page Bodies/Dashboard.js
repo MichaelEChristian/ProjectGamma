@@ -4,7 +4,7 @@ import { isLoggedIn } from '../library/auth'
 function Dashboard() {
   return (
     <>
-      <div>
+      <div className='profile-dash'>
         {isLoggedIn() ? (
           <p>You are now logged in</p>
         ) : (
