@@ -50,8 +50,6 @@ function Catering(props) {
                   <input className="form-check-input" type="checkbox" key={cuisine.id} value={cuisine}
                     onChange={e => {
                       if (!selectedCuisines.includes(cuisine)) {
-                        // console.log("state--->", selectedCuisines)
-                        // console.log("e---->", e.target.value)
                         setSelectedCuisines([...selectedCuisines, e.target.value])
                       }
                       else {
@@ -70,16 +68,23 @@ function Catering(props) {
             <thead>
               <tr>
                 <th>Cuisine</th>
-                <th>Image</th>
               </tr>
             </thead>
             <tbody>
               {foodItems.map((foodItem) => {
                 return (
-                  <tr key={foodItem.id}>
-                    <td>{foodItem.title}</td>
-                    <td><img src={foodItem.image} alt={foodItem.title} /></td>
-                  </tr>
+                <tr key={foodItem.id}>
+                  <td>
+                    <div class="card" >
+                      <img src={foodItem.image} alt={foodItem.title} class="card-img-top"/>
+                      <div class="card-body">
+                        <h5 class="card-title">{foodItem.title}</h5>
+                        <br/>
+                        <button type="button" class="btn btn-lg btn-primary" disabled>Add to Menu +</button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
                 )
               })}
             </tbody>

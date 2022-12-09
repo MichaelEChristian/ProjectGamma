@@ -19,9 +19,9 @@ function App() {
         <Nav />
         <div>
           <Routes>
+            <Route path="/" element={<Main />} />
             <Route path="login" element={<Login />} />
             <Route path="destinations" element={<Destination />} />
-            <Route path="/" element={<Main />} />
             <Route path="/themes/" element={<Themes />} />
             <Route path="/destinations/" element={<Destination />} />
             <Route path="/invites/" element={<Invites />} />
