@@ -6,6 +6,5 @@ RUN chmod +x /wait
 WORKDIR /app
 COPY package.json package.json
 RUN npm install
-RUN npm install --save styled-components
 
 CMD npm start
