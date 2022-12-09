@@ -87,8 +87,8 @@ function Destination(props) {
 
 
   return (
-    <div>
-      <div className="bg-dark text-white">
+    <div className="nav-top-padding">
+      <div className="text-white">
         <img src={sunset_wedding_photo} id="wedding-sunset_wedding_photo" className="card-img" alt="..." width='100%' height="450px" />
         <section>
           <form>
@@ -125,7 +125,7 @@ function Destination(props) {
           </div>
         </section>
       </div>
-    </div >
+    </div>
   );
 }
 

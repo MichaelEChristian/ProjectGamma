@@ -18,7 +18,7 @@ function Main() {
   { "profileImage": Trung, "cheeesyParagraph": "My goal when creating our application was to make the entire process of wedding planning fun. We wanted to help personalize every detail of the wedding while giving insight and transparent pricing.", "name": "Trung Nguyen" }]
 
   return (
-    <>
+    <div>
       <header>
         <section>
           <div id="intro" class="bg-image vh-100"></div>
@@ -311,7 +311,7 @@ function Main() {
           </div>
         </footer>
       </div>
-    </>
+    </div>
   )
 }
 

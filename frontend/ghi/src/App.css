@@ -37,58 +37,14 @@
 .most-popular-themes{
   margin-top: 2%;
 }
-/* #home-links, #navbarDropdownMenuLink{
-  color: white;
-  font-size: x-large;
-  padding-right: 80px;
-} */
-/* .navbar {
-  display: flex;
-  justify-content: space-between;
-  background-color: pink!important;
-  color: white;
-  font-weight: bold;
-  font-style: italic;
-  border: solid 5px hotpink;
-} */
 
-/* Color of the links BEFORE scroll */
-/* .navbar-scroll .nav-link,
-.navbar-scroll .navbar-toggler-icon,
-.navbar-scroll .navbar-brand {
-  color: #fff;
-  box-shadow: 0 9px 10px -3px #999
-} */
-
-
-
-/* Color of the links AFTER scroll */
-/* .navbar-scrolled .nav-link,
-.navbar-scrolled .navbar-toggler-icon,
-.navbar-scrolled .navbar-brand {
-  color: blue;
-  box-shadow: 0 9px 10px -3px #999
-} */
-
-/* Color of the navbar AFTER scroll */
-/* .navbar-scroll,
-.navbar-scrolled {
-  background-color: red;
-} */
-
-/* header.nav-fixed {
-  width: 100%;
-  position: fixed;
-  transition: 0.3s ease-in-out;
-} */
-
-/* #nav-active {
-  background-color:#fff;
-  box-shadow: 5px -1px 12px -5px gray;
+div {
+  max-width: 100%;
 }
-.NavItem text {
-  color: red;
-} */
+.nav-top-padding {
+  padding-top:90;
+ }
+
 .header{
   position: fixed;
   height: 90px;
@@ -103,6 +59,13 @@
 }
 
 .header-bg {
+  position: fixed;
+  height: 90px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transition: 3.s ease-in;
   background-color: white;
   box-shadow: 0 6px 8px -3px #999
 }
@@ -654,7 +617,7 @@ max-width: 100px;
 }
 .timeline > li .timeline-image {
   position: absolute;
-  z-index: 100;
+  /* z-index: 100; */
   left: 0;
   width: 80px;
   height: 80px;

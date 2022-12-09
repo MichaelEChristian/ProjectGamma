@@ -2,7 +2,12 @@ import React from 'react'
 import { useState } from 'react'
 import { isLoggedIn, logout } from './library/auth'
 import Flower_logo from './images/Flower_logo.png'
+import { useLocation } from 'react-router-dom'
 
+
+// const Test = styled.div`
+//   background-color: blue;
+// `
 
 function NavItem({ href, text }) {
   return (
@@ -29,7 +34,8 @@ function Logout() {
 }
 
 function Nav() {
-
+  
+  const { pathname } = useLocation();
   const [color, setColor] = useState(false)
   const changeColor = () => {
     if (window.scrollY >= 865) {
@@ -42,7 +48,8 @@ function Nav() {
   window.addEventListener('scroll', changeColor)
   
   return (
-    <div className={color ? "header header-bg" : "header"}>
+
+    <div className={pathname === "/"? color ? "header header-bg" : "header": "header-bg"}>
       <nav className="navbar navbar-expand-lg fixed-top mask-custom" id="nav-active">
         <div className="container">
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
@@ -69,8 +76,8 @@ function Nav() {
           </div>
         </div>
       </nav>
-
     </div>
+    
 
   )
 }
