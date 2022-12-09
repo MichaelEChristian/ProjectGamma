@@ -76,11 +76,11 @@
   background-color: red;
 } */
 
-header.nav-fixed {
+/* header.nav-fixed {
   width: 100%;
   position: fixed;
   transition: 0.3s ease-in-out;
-}
+} */
 
 /* #nav-active {
   background-color:#fff;
@@ -89,12 +89,33 @@ header.nav-fixed {
 .NavItem text {
   color: red;
 } */
+.header{
+  position: fixed;
+  height: 90px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transition: 3.s ease-in;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, .15);
+  /* background-color: greenyellow; */
+}
 
-.mask-custom {
+.header-bg {
+  background-color: white;
+  box-shadow: 0 6px 8px -3px #999
+}
+.nav-link  {
+  color: black !important;
+  font-weight: 400 !important;
+}
+
+/* .mask-custom {
   backdrop-filter: blur(6px); 
   background-color: rgba(255, 255, 255, .15);
-  /* box-shadow: 0 9px 10px -3px #999 */
-}
+  box-shadow: 0 9px 10px -3px #999
+} */
 
 /* .navbar-brand {
   font-size: 1.75rem;
