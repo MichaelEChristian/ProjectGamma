@@ -11,7 +11,6 @@ CREATE TABLE IF NOT EXISTS invitations (
     extra VARCHAR(100) NULL
 );
 
-
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(100) NOT NULL UNIQUE,
@@ -23,4 +22,12 @@ CREATE TABLE IF NOT EXISTS users (
     CONSTRAINT fk_invitation
         FOREIGN KEY(invitation_id)
             REFERENCES invitations(id)
+);
+
+CREATE TABLE IF NOT EXISTS profiles (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(100) NOT NULL UNIQUE,
+    spouse VARCHAR(200),
+    budget INTEGER,
+    state VARCHAR(50)
 );

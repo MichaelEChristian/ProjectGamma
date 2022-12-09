@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import os
 
-from api.routers import profile, catering, destination, auth
+from api.routers import profiles, users, auth, catering, destination
 
 app = FastAPI()
 
@@ -20,8 +20,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(profile.router)
-app.include_router(catering.router)
-app.include_router(destination.router)
-app.include_router(profile.router)
+app.include_router(profiles.router)
+app.include_router(users.router)
 app.include_router(auth.router)
+app.include_router(destination.router)
+app.include_router(catering.router)

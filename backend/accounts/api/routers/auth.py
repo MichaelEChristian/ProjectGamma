@@ -1,5 +1,5 @@
 from library.auth import LogInCredentials, UserSignUp, authenticate_user, create_access_token, hash_password
-from db.user_db import DuplicateAccount, AccountsQueries
+from dbqueries.users_db import DuplicateAccount, AccountsQueries
 from fastapi import (Depends, HTTPException, status, Response, APIRouter)
 
 router = APIRouter()

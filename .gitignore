@@ -1,7 +1,8 @@
-<<<<<<< HEAD
 __pychache__
 ./venv
-=======
+venv
+./backend2
+backend2
 deployment-checklist.md
 switching-heroku.txt
 
@@ -170,4 +171,3 @@ cython_debug/
 node_modules
 
 backend/accounts/api/routers/keys.py
->>>>>>> main
