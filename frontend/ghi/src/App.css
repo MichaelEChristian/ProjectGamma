@@ -489,7 +489,7 @@ body {
   flex: 1 0 21%; /* explanation below */
   margin: 5px;
 
-  background-color: coral;
+  background-color: pink;
 }
 
 .about-team-img{
@@ -509,7 +509,7 @@ max-width: 100px;
   background-color: white;
   font: white;
 }
-/* 
+/*
 .member-cards-container {
   background-color: white;
   display: flex;
