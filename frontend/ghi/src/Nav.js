@@ -25,37 +25,6 @@ function Logout() {
   )
 }
 
-function MenuDesignDropdown() {
-  return (
-    <li className="nav-item dropdown">
-      <div
-        className="nav-link dropdown-toggle"
-        style={{ cursor: 'pointer' }}
-        id="menu-design-dropdown"
-        data-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded="false"
-      >
-        Menu Design
-      </div>
-      <div className="dropdown-menu" aria-labelledby="menu-design-dropdown">
-        <a className="dropdown-item" href="/menu/all/">
-          All
-        </a>
-        <a className="dropdown-item" href="/guests/">
-          Vegan
-        </a>
-        <a className="dropdown-item" href="/billing/">
-          Vegetarian
-        </a>
-        <a className="dropdown-item" href="/registry/">
-          Dairy
-        </a>
-      </div>
-    </li>
-  )
-}
-
 function Nav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
@@ -65,8 +34,7 @@ function Nav() {
           <NavItem text="Destinations" href="/destinations" />
           <NavItem text="Themes" href="/themes" />
           <NavItem text="Invitations" href="/invites/creation" />
-          <NavItem text="Venues" href="/venues" />
-          <MenuDesignDropdown />
+          <NavItem text="Menu Design" href="/menu/all/" />
           {!isLoggedIn() && <NavItem text="Login" href="/login" />}
           {isLoggedIn() && (
             <>

@@ -3,8 +3,8 @@ __pychache__
 venv
 ./backend2
 backend2
+./venv
 deployment-checklist.md
-switching-heroku.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
