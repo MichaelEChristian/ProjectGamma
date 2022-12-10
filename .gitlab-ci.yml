@@ -43,7 +43,7 @@ build-front-end-job:
     - cp build/index.html build/404.html
   artifacts:
     paths:
-      - ghi/build/
+      - frontend/ghi/build/
 
 pages:
   stage: deploy
@@ -54,7 +54,7 @@ pages:
   needs:
     - build-front-end-job
   script:
-    - mv ghi/build public
+    - mv frontend/ghi/build public
   artifacts:
     paths:
       - public
