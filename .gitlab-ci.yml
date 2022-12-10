@@ -7,8 +7,9 @@ backend-accounts-unit-test-job:
   image: python:3-bullseye
   stage: test
   script:
-    - cd backend/accounts/api
+    - cd backend/accounts
     - pip install -r requirements.txt
+    - cd api/tests
     - python -m pytest
 
 lint-test-job:
@@ -22,8 +23,9 @@ backend-accounts-test:
   image: python:3-bullseye
   stage: test
   script:
-    - cd backend/accounts/tests
+    - cd backend/accounts
     - pip install -r requirements.txt
+    - cd tests
     - python -m pytest
 
 build-front-end-job:
