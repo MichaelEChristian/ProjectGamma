@@ -27,8 +27,6 @@ backend-accounts-test:
     - python -m pytest
 
 build-front-end-job:
-  rules:
-    -if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   stage: build
   image: node:lts-bullseye
   needs:
