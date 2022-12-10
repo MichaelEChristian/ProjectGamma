@@ -25,6 +25,7 @@ function SignUpModal() {
   const [firstname, setFirstName] = useState()
   const [lastname, setLastName] = useState()
   const [showError, setShowError] = useState(false)
+  const [signupSuccess, setSignupSuccess] = useState(false)
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
   const handleSubmit = () => {
@@ -35,10 +36,12 @@ function SignUpModal() {
       .then(() => setPassword(null))
       .then(() => setFirstName(null))
       .then(() => setLastName(null))
+      .then(() => setSignupSuccess(true))
       .catch(() => setShowError(true))
   }
   return (
     <>
+      {signupSuccess ? <p>Thank you for signing up. Please log in.</p> : null}
       <button
         onClick={handleShow}
         type="submit"

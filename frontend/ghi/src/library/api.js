@@ -12,7 +12,7 @@ export async function signup({
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ username, password, email, firstname, lastname }),
   })
-  if (response.status !== 200) throw 'Invalid Credentials'
+  if (response.status !== 200) throw new Error('Invalid Credentials')
   return response
 }
 
