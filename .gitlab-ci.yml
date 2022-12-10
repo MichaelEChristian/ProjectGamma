@@ -51,6 +51,8 @@ build-front-end-job:
     - backend-accounts-unit-test-job
     - backend-accounts-test
     # - any other tests that need to past
+  variables:
+    PUBLIC_URL: http://bossmode.gitlab.io/forever-and-always
   script:
     - cd frontend/ghi
     # - npm install -D tailwindcss

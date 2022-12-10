@@ -12,10 +12,15 @@ import Destination from './Page Bodies/Destination'
 import Dashboard from './Page Bodies/Dashboard'
 import Catering from './Page Bodies/Catering'
 
+
+const domain = /https:\/\/[^/]+/;
+const basename = process.env.PUBLIC_URL.replace(domain, '');
+
+
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename={basename}>
         <Nav />
         <div>
           <Routes>
