@@ -32,7 +32,7 @@ typing_extensions==4.4.0
 uvicorn==0.20.0
 watchfiles==0.18.1
 websockets==10.4
-psycopg[binary,pool]==3.0.14
+psycopg[binary,pool]
 python-jose[cryptography]==3.3.0
 passlib[bcrypt]==1.7.4
 python-multipart==0.0.5
