@@ -3,35 +3,20 @@ stages:
  - build # run build e.g. npm install and start, etc. after tests
  - deploy # run deploy after build finishes
 
-services:
- - postgres:14.2-bullseye
-
- variables:
-  POSTGRES_PASSWORD: bossmode
-  DARABASE_URL: postgresql://bossmode:bossmode@postgres:5432/accounts
-  SECRET_KEY: db0a49ab25db171089e1a3950f31f3288df643c7c33ede3f38d6bf7788569e24
-
-build-job:
-  stage: build
-  script:
-    - echo "Hello, $GITLAB_USER_LOGIN!
-
 backend-accounts-unit-test-job:
   image: python:3-bullseye
   stage: test
   script:
     - cd backend/accounts/api
     - pip install -r requirements.txt
-    - python m pytest
+    - python -m pytest
 
 lint-test-job:
   image: python:3-bullseye
   stage: test
   script:
     - pip install flake8
-    - flake8 backend data frontend
-    # - flake8 data
-    # - flake8 frontend
+    - flake8 backend
 
 backend-accounts-test:
   image: python:3-bullseye
@@ -39,7 +24,7 @@ backend-accounts-test:
   script:
     - cd backend/accounts/tests
     - pip install -r requirements.txt
-    - python m pytest
+    - python -m pytest
 
 build-front-end-job:
   rules:
@@ -51,45 +36,15 @@ build-front-end-job:
     - backend-accounts-unit-test-job
     - backend-accounts-test
     # - any other tests that need to past
-  variables:
-    PUBLIC_URL: http://bossmode.gitlab.io/forever-and-always
   script:
     - cd frontend/ghi
     # - npm install -D tailwindcss
     - npm install --legacy-peer-deps --save
     - npm run build
-
-build-back-end-job:
-  rules:
-  # only run if pushing to main branch
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  stage: build
-  image: docker:20.10.16-dind
-  script:
-  # do this for each service you need to build a dockerfile image for
-    - cd backend/accounts
-    - docker build -t ${CI_REGISTRY_IMAGE}/app:latest .
-    - docker tag ${CI_REGISTRY_IMAGE}/app:latest ${CI_REGISTRY_NAME}/app:$CI_JOB_ID
-  # Authenticates with the GitLab image registry
-    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
-    # Stores your image in the GitLab image registry with two different tags, the version from the tag
-    # and the name "latest"
-    - docker push ${CI_REGISTRY_IMAGE}/app:$CI_JOB_ID
-    - docker push ${CI_REGISTRY_IMAGE}/app:latest
-
-deploy-backend-job-render:
-  rules:
-  # only run if pushing to the main branch
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  stage: deploy
-  needs:
-    - build-back-end-job
-  image: docker:20.10.16
-  services:
-    - docker:20.10.16-dind
-  script:
-    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
-    - docker pull $CI_REGISTRY_IMAGE:latest
+    - cp build/index.html build/404.html
+  artifacts:
+    paths:
+      - ghi/build/
 
 pages:
   stage: deploy
@@ -103,4 +58,4 @@ pages:
     - mv ghi/build public
   artifacts:
     paths:
-      public
+      - public
