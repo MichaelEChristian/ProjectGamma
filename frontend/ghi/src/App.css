@@ -449,7 +449,7 @@ body {
 .purpose-container {
   display: flex;
   margin-bottom: 20px;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 .purpose-container:nth-child(2) {

@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 function Catering(props) {
   const [foodItems, setFoodItems] = useState([]);
   const [selectedCuisines, setSelectedCuisines] = useState([]);
-  const [newSelectedCuisines, setNewSelectedCuisines] = useState([]);
+  const [newSelectedCuisines] = useState([]);
 
   const cuisineOptions = [
     'American',
@@ -26,7 +26,7 @@ function Catering(props) {
 
   useEffect(() => {
     async function getFoodItemNames() {
-      const foodNameUrl = `http://localhost:8000/menu/all/?selectedCuisines=${selectedCuisines.join(',')}`;
+      const foodNameUrl = `${process.env.REACT_APP_API_HOST}/menu/all/?selectedCuisines=${selectedCuisines.join(',')}`;
       const foodNameResponse = await fetch(foodNameUrl);
       if (foodNameResponse.ok) {
         const data = await foodNameResponse.json();

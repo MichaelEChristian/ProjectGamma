@@ -5,8 +5,10 @@ from psycopg.errors import UniqueViolation
 conninfo = os.environ["DATABASE_URL"]
 pool = ConnectionPool(conninfo=conninfo)
 
+
 class DuplicateAccount(RuntimeError):
     pass
+
 
 class AccountsQueries:
     def create_user(
@@ -20,12 +22,12 @@ class AccountsQueries:
         with pool.connection() as conn:
             with conn.cursor() as cur:
                 try:
-                    cur.execute(
+                    cur.execute(  # noqa: E501
                         """
                         INSERT INTO users (username, password, email, firstname, lastname)
                         VALUES (%s, %s, %s, %s, %s)
                         RETURNING username, password, email, firstname, lastname
-                        """,
+                        """,  # noqa: E501
                         [
                             username,
                             firstname,
@@ -65,6 +67,6 @@ class AccountsQueries:
                             "email": user[2],
                             "firstname": user[3],
                             "lastname": user[4],
-                            "password": user[5]
+                            "password": user[5],
                         }
                         return user_dict

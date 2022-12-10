@@ -66,7 +66,7 @@ function Destination(props) {
   useEffect(() => {
 
     async function getYelpWeddingVenuesData() {
-      const weddingVenuesUrl = `http://localhost:8000/destination/?selctedStates=${selectedState}`
+      const weddingVenuesUrl = `${process.env.REACT_APP_API_HOST}/destination/?selctedStates=${selectedState}`
       const yelpResponse = await fetch(weddingVenuesUrl);
       if (yelpResponse.ok) {
         const yelpData = await yelpResponse.json();

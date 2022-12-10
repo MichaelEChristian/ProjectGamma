@@ -19,8 +19,6 @@ services:
       NODE_ENV: development
       HOST: "0.0.0.0"
       REACT_APP_ACCOUNTS_HOST: http://localhost:8000
-      SPOONACULAR_API_KEY: ${SPOONACULAR_API_KEY}
-      YELP_API_KEY: ${YELP_API_KEY}
       WATCHPACK_POLLING: true
   pg-admin:
     image: dpage/pgadmin4
@@ -59,3 +57,5 @@ services:
       PGDATABASE: accounts
       PGUSER: bossmode
       PGPASSWORD: bossmode
+      SPOONACULAR_API_KEY: ${SPOONACULAR_API_KEY}
+      YELP_API_KEY: ${YELP_API_KEY}

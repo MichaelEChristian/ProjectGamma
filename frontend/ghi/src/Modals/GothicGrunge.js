@@ -15,9 +15,9 @@ function GothicGrunge() {
         from the 12th through 16th centuries.
       </p>
       <div className="themes-img-container">
-        <img className="winter-theme-imgs" src={Goth}></img>
-        <img className="winter-theme-imgs" src={Goth2}></img>
-        <img className="winter-theme-imgs" src={Goth3}></img>
+        <img className="winter-theme-imgs" src={Goth} alt={"hi"} ></img>
+        <img className="winter-theme-imgs" src={Goth2} alt={"hi"}></img>
+        <img className="winter-theme-imgs" src={Goth3} alt={"hi"}></img>
       </div>
     </div>
   )

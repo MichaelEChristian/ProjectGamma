@@ -13,9 +13,9 @@ function BohoBeach() {
         with laid-back elements to create a casual, easygoing, boho aesthetic
       </p>
       <div className="themes-img-container">
-        <img className="winter-theme-imgs" src={Beach}></img>
-        <img className="winter-theme-imgs" src={Beach2}></img>
-        <img className="winter-theme-imgs" src={Beach3}></img>
+        <img className="winter-theme-imgs" src={Beach} alt={"hi"}></img>
+        <img className="winter-theme-imgs" src={Beach2} alt={"hi"}></img>
+        <img className="winter-theme-imgs" src={Beach3} alt={"hi"}></img>
       </div>
     </div>
   )

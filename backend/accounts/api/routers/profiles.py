@@ -1,5 +1,4 @@
-from fastapi import APIRouter, Response, status, Depends, HTTPException
-from jose import jwt
+from fastapi import APIRouter, Depends
 import os
 from fastapi.security import OAuth2PasswordBearer
 from dbqueries.profiles_db import ProfileQueries
@@ -13,19 +12,16 @@ router = APIRouter()
 SECRET_KEY = os.environ["SECRET_KEY"]
 ALGORITHM = "HS256"
 
+
 class ErrorMessage(BaseModel):
     message: str
 
+
 @router.get(
     "/api/user/profile/",
-    response_model = Profile,
-    responses = {
-        200: {"model": Profile},
-        400: {"model": ErrorMessage}
-    }
+    response_model=Profile,
+    responses={200: {"model": Profile}, 400: {"model": ErrorMessage}},
 )
-def get_profile(
-    query=Depends(ProfileQueries)
-    ):
+def get_profile(query=Depends(ProfileQueries)):
     rows = query.get_profile()
     return rows

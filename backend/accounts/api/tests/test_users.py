@@ -6,6 +6,7 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 def verify_password(plain_password, hashed_password):
     return pwd_context.verify(plain_password, hashed_password)
 
+
 def test_verify_password():
 
     input = "password"
@@ -13,4 +14,4 @@ def test_verify_password():
     result = verify_password(input, input2)
     print(input, input2, result)
 
-    assert result == True
+    assert result == True  # noqa: E712

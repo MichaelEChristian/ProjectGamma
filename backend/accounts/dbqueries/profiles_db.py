@@ -2,13 +2,7 @@ from dbqueries.users_db import pool
 
 
 class ProfileQueries:
-    def create_profile(
-        self,
-        username: str,
-        spouse: str,
-        budget: int,
-        state: str
-    ):
+    def create_profile(self, username: str, spouse: str, budget: int, state: str):  # noqa: E501
         with pool.connection() as conn:
             with conn.cursor() as cur:
                 cur.execute(
@@ -17,12 +11,7 @@ class ProfileQueries:
                     VALUES (%s, %s, %s, %s)
                     RETURNING username, spouse, budget, state
                     """,
-                    [
-                        username,
-                        spouse,
-                        budget,
-                        state
-                    ]
+                    [username, spouse, budget, state],
                 )
 
             row = cur.fetchone()
@@ -45,8 +34,6 @@ class ProfileQueries:
                     """
                 )
                 row = cur.fetchone()
-                print("rowwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww:", row)
-                print("row at 0 0 zerooooooooooooooooooooooooooooooooooooo", row[0])
                 user_dict = {
                     "username": row[0],
                     "spouse": row[1],

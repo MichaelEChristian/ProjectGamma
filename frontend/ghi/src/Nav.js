@@ -34,7 +34,7 @@ function Logout() {
 }
 
 function Nav() {
-  
+
   const { pathname } = useLocation();
   const [color, setColor] = useState(false)
   const changeColor = () => {
@@ -46,7 +46,7 @@ function Nav() {
   }
 
   window.addEventListener('scroll', changeColor)
-  
+
   return (
 
     <div className={pathname === "/"? color ? "header header-bg" : "header": "header-bg"}>
@@ -54,7 +54,7 @@ function Nav() {
         <div className="container">
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav mb-lg-2">
-              <a className="navbar-brand" href="/"><span><img src={Flower_logo} height="45px" />Forever & Always</span></a>
+              <a className="navbar-brand" href="/"><span><img src={Flower_logo} alt={"hello"} height="45px" />Forever & Always</span></a>
 
             </ul>
             <ul className="navbar-nav ms-auto mb-1 mb-lg-0">
@@ -77,7 +77,7 @@ function Nav() {
         </div>
       </nav>
     </div>
-    
+
 
   )
 }

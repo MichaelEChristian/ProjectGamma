@@ -13,9 +13,8 @@ function GardenGlades() {
         beauty serves as the ambiance for the wedding.
       </p>
       <div className="themes-img-container">
-        <img className="winter-theme-imgs" src={Garden}></img>
-        <img className="winter-theme-imgs" src={Garden2}></img>
-        {/* <img className="winter-theme-imgs" src={Goth3}></img> */}
+        <img className="winter-theme-imgs" src={Garden} alt={"hi"}></img>
+        <img className="winter-theme-imgs" src={Garden2} alt={"hi"}></img>
       </div>
     </div>
   )

@@ -17,21 +17,21 @@ import Beach3 from '../images/Beach3.jpg'
 const themes = [Winter, Winter2, Winter3, Goth, Goth2, Goth3, Garden, Garden2, Beach, Beach2, Beach3]
 
 function ThemeCards() {
-  {themes.map(img => {
+  themes.map(img => {
     return (
       <Card className="carousel-card" style={{ width: '18rem' }}>
-        <Card.Img variant="top" src={img} />
-        <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and talk about key
-            features of the theme e.g. Winter Wonderland, etc.
-          </Card.Text>
-          <Button variant="primary">Learn More</Button>
-        </Card.Body>
+      <Card.Img variant="top" src={img} />
+      <Card.Body>
+      <Card.Title>Card Title</Card.Title>
+      <Card.Text>
+        Some quick example text to build on the card title and talk about key
+        features of the theme e.g. Winter Wonderland, etc.
+      </Card.Text>
+      <Button variant="primary">Learn More</Button>
+      </Card.Body>
       </Card>
     );
-  })}
+  })
 }
 
 export default ThemeCards

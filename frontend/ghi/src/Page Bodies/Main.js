@@ -3,58 +3,10 @@ import Trung from '../images/Trung.jpeg'
 import Jenny from '../images/Jenny.jpg'
 import Elijah from '../images/Elijah.jpg'
 import hehehehe from '../images/hehehehe.jpeg'
-import sunset_wedding_photo from '../images/sunset_wedding_photo.jpg'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 function Main() {
-  const weddingInfo = [
-    {
-      image:
-        'https://www.theknot.com/tk-media/images/a3b7219c-ab2a-415a-a260-f6541e68af92',
-      title: 'Build your dream wedding',
-      p: 'Our goal is to create a platform where couples can create their dream wedding without hiring a wedding planner. By doing so, our vision was to make the planning as seamless as possible through various features on the website. So you and your forever partner can enjoy the whole process without dealing with external pressure.',
-    },
-    {
-      image:
-        'https://www.millersguild.com/wp-content/uploads/2022/01/dream-of-wedding.jpg',
-      title: 'Guidance through the unknown',
-      p: 'Our team understands the idea to create and plan a wedding from scratch seems daunting. In order to remove the stress, we provide resources that guide the soon-to-be bride/groom into managing budget, food, venues/destinations, and other elements to make a wedding magical.',
-    },
-    {
-      image:
-        'https://media2.insideweddings.com/images/YiLBjcRh1C0Uif7ZWdeW.original.jpg',
-      title: 'Everlasting Memories with loved ones',
-      p: "You're one step away from living out your fairy tale wedding. We recommend creating a personal profile by signing up by pressing the button below. Afterwards, decide on what your personal budget should be and move onwards to your preferred destination. You'll be able to search and filter through different venues.",
-    },
-  ]
-
-  const teamIntro = [
-    {
-      profileImage: Elijah,
-      cheeesyParagraph:
-        'My goal when creating our application was to make the entire process of wedding planning fun. We wanted to help personalize every detail of the wedding while giving insight and transparent pricing.',
-      name: 'Elijah Gilead',
-    },
-    {
-      profileImage: Jenny,
-      cheeesyParagraph:
-        'My goal when creating our application was to make the entire process of wedding planning fun. We wanted to help personalize every detail of the wedding while giving insight and transparent pricing.',
-      name: 'Jenny Zhang',
-    },
-    {
-      profileImage: hehehehe,
-      cheeesyParagraph:
-        'My goal when creating our application was to make the entire process of wedding planning fun. We wanted to help personalize every detail of the wedding while giving insight and transparent pricing.',
-      name: 'Michael Christian',
-    },
-    {
-      profileImage: Trung,
-      cheeesyParagraph:
-        'My goal when creating our application was to make the entire process of wedding planning fun. We wanted to help personalize every detail of the wedding while giving insight and transparent pricing.',
-      name: 'Trung Nguyen',
-    },
-  ]
 
   return (
     <div>
@@ -97,6 +49,7 @@ function Main() {
                     <img
                       className="about-us-profile-img"
                       src="https://www.theknot.com/tk-media/images/a3b7219c-ab2a-415a-a260-f6541e68af92"
+                      alt={"hello"}
                     />
                   </span>
                   <h4 class="my-3">Build your dream wedding</h4>
@@ -114,6 +67,7 @@ function Main() {
                     <img
                       className="about-us-profile-img"
                       src="https://www.millersguild.com/wp-content/uploads/2022/01/dream-of-wedding.jpg"
+                      alt={"hello"}
                     />
                   </span>
                   <h4 class="my-3">Guidance through the unknown</h4>
@@ -130,6 +84,7 @@ function Main() {
                     <img
                       className="about-us-profile-img"
                       src="https://media2.insideweddings.com/images/YiLBjcRh1C0Uif7ZWdeW.original.jpg"
+                      alt={"hello"}
                     />
                   </span>
                   <h4 class="my-3">Everlasting memories with loved ones</h4>
@@ -280,6 +235,7 @@ function Main() {
                   <img
                     class="img-main-pg"
                     src="https://images.cvent.com/ws/images/venues/17401/Beachcomber-Cafe---Crystal-Cove-Newport-Beach-CA-12e5cb20-bb92-426e-88a3-7b6251035f0d.1646351631.jpeg?unique=true&d=900x450&f=webp"
+                    alt={"hello"}
                   />
                 </div>
               </div>
@@ -291,7 +247,7 @@ function Main() {
                 <div class="col-sm">
                   <img
                     class="img-main-pg"
-                    src="https://images.cvent.com/ws/images/venues/4108/Sleepy-Ridge-Weddings-Orem-UT-6ec3af93-c5c2-463c-a3e5-a7d16d947b2c.1580848420.jpg?unique=true&d=900x450&f=webp"
+                    src="https://images.cvent.com/ws/images/venues/4108/Sleepy-Ridge-Weddings-Orem-UT-6ec3af93-c5c2-463c-a3e5-a7d16d947b2c.1580848420.jpg?unique=true&d=900x450&f=webp" alt={"hello"}
                   />
                 </div>
                 <div class="col-sm text-main-1">
@@ -315,7 +271,8 @@ function Main() {
             <div class="parent">
               <div class="child">
                 <br />
-                <img src={Jenny} class="about-team-img" />
+                <img src={Jenny} alt={"hello"} class="about-team-img" />
+
                 <div>
                   <h4>Jenny Zheng</h4>
                   <p class="card-text">Write message</p>
@@ -326,7 +283,7 @@ function Main() {
               </div>
               <div class="child">
                 <br />
-                <img src={Elijah} class="about-team-img" />
+                <img src={Elijah} alt={"hello"} class="about-team-img" />
                 <div>
                   <h4>Elijah Gilead</h4>
                   <p class="card-text">Write message</p>
@@ -337,7 +294,7 @@ function Main() {
               </div>
               <div class="child">
                 <br />
-                <img src={hehehehe} class="about-team-img" />
+                <img src={hehehehe} alt={"hello"} class="about-team-img" />
                 <div>
                   <h4>Michael Christian</h4>
                   <p class="card-text">Write message</p>
@@ -347,7 +304,7 @@ function Main() {
                 </footer>
               </div>
               <div class="child">
-                <img src={Trung} class="about-team-img" />
+                <img src={Trung} alt={"hello"} class="about-team-img" />
                 <div>
                   <h4>Trung Nguyen</h4>
                   <p class="card-text">Write message</p>

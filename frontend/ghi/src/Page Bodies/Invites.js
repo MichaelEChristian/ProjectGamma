@@ -8,7 +8,6 @@ import card3 from '../images/Card3.jpg'
 import card4 from '../images/Card4.jpg'
 import card5 from '../images/Card5.jpg'
 import CardText from '../Form Components/CardText'
-import Text from '../Demo/Text'
 
 const images = [
   card1,
@@ -21,14 +20,6 @@ const images = [
   card3,
   card5,
   card5,
-]
-const fonts = [
-  'Ardella',
-  'Peacock',
-  'Relax',
-  'Milkshake',
-  'Corporation',
-  'Modern Sans',
 ]
 
 function Invites(props) {
@@ -87,7 +78,6 @@ function Invites(props) {
       <div>
         <CardText inputText={inputText} setInputText={setInputText} />
       </div>
-      <Text text={inputText} />
     </div>
   )
 }
