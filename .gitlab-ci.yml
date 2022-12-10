@@ -29,17 +29,17 @@ lint-test-job:
   stage: test
   script:
     - pip install flake8
-    - flake8 backend
-    - flake8 data
-    - flake8 frontend
+    - flake8 backend data frontend
+    # - flake8 data
+    # - flake8 frontend
 
-# test-job2: someone else write scripts for their tests wherever they are located e.g. destinations
-#   stage: test
-#   script:
-#     - echo "This job tests something, but takes more time than test-job1."
-#     - echo "After the echo commands complete, it runs the sleep command for 20 seconds"
-#     - echo "which simulates a test that runs 20 seconds longer than test-job1"
-#     - sleep 20
+backend-accounts-test:
+  image: python:3-bullseye
+  stage: test
+  script:
+    - cd backend/accounts/tests
+    - pip install -r requirements.txt
+    - python m pytest
 
 build-front-end-job:
   rules:
@@ -49,6 +49,7 @@ build-front-end-job:
   needs:
     - lint-test-job
     - backend-accounts-unit-test-job
+    - backend-accounts-test
     # - any other tests that need to past
   script:
     - cd frontend/ghi
@@ -56,12 +57,48 @@ build-front-end-job:
     - npm install --legacy-peer-deps --save
     - npm run build
 
-artifacts:
-  paths:
-    - frontend/ghi/build
-
-deploy-prod:
-  stage: deploy
+build-back-end-job:
+  rules:
+  # only run if pushing to main branch
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  stage: build
+  image: docker:20.10.16-dind
   script:
-    - echo "This job deploys something from the $CI_COMMIT_BRANCH branch."
-  environment: production
+  # do this for each service you need to build a dockerfile image for
+    - cd backend/accounts
+    - docker build -t ${CI_REGISTRY_IMAGE}/app:latest .
+    - docker tag ${CI_REGISTRY_IMAGE}/app:latest ${CI_REGISTRY_NAME}/app:$CI_JOB_ID
+  # Authenticates with the GitLab image registry
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+    # Stores your image in the GitLab image registry with two different tags, the version from the tag
+    # and the name "latest"
+    - docker push ${CI_REGISTRY_IMAGE}/app:$CI_JOB_ID
+    - docker push ${CI_REGISTRY_IMAGE}/app:latest
+
+deploy-backend-job-render:
+  rules:
+  # only run if pushing to the main branch
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  stage: deploy
+  needs:
+    - build-back-end-job
+  image: docker:20.10.16
+  services:
+    - docker:20.10.16-dind
+  script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+    - docker pull $CI_REGISTRY_IMAGE:latest
+
+pages:
+  stage: deploy
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  dependencies:
+    - build-front-end-job
+  needs:
+    - build-front-end-job
+  script:
+    - mv ghi/build public
+  artifacts:
+    paths:
+      public

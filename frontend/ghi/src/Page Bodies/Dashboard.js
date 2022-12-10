@@ -10,8 +10,7 @@ function Dashboard() {
         ) : (
           <div>
             <p>
-              You are not logged in. Please click <a href="/login">here </a>
-              to login
+              Goal: Display the profile information of the user who is logged in.
             </p>
           </div>
         )}
