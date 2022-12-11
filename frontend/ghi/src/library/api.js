@@ -1,5 +1,8 @@
-const apiURL = `${process.env.REACT_APP_API_HOST}/api`
+const apiURL = process.env.REACT_APP_API_HOST
+  ? `${process.env.REACT_APP_API_HOST}/api`
+  : 'http://localhost:8000/api'
 
+console.log(process.env.REACT_APP_API_HOST)
 export async function signup({
   username,
   password,
@@ -28,11 +31,11 @@ export function getAuthorizationToken({ username, password }) {
 }
 
 export function getUserProfile() {
-  return fetch(apiURL + '/profile', {
+  return fetch(apiURL + '/user/profile', {
     method: 'GET',
     headers: {
       accept: 'application/json',
       Authorization: sessionStorage.getItem('Authorization'),
     },
-  })
+  }).then((response) => response.json())
 }

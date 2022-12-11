@@ -1,21 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { isLoggedIn } from '../library/auth'
+import { getUserProfile } from '../library/api'
 
-function Dashboard() {
+function BasicInfosection({ name, value }) {
   return (
     <>
-      <div className='profile-dash'>
-        {isLoggedIn() ? (
-          <p>You are now logged in</p>
-        ) : (
-          <div>
-            <p>
-              Goal: Display the profile information of the user who is logged in.
-            </p>
-          </div>
-        )}
-      </div>
+      <h2>{name}</h2>
+      <p>{value || 'You must be logged in'}</p>
     </>
+  )
+}
+
+function BasicInfo(profile) {
+  return (
+    <div>
+      <h1>Basic Info</h1>
+      <BasicInfosection name="Username" value={profile?.username} />
+      <BasicInfosection name="Spouse" value={profile?.spouse} />
+      <BasicInfosection name="Budget" value={profile?.budget} />
+      <BasicInfosection name="State" value={profile?.state} />
+    </div>
+  )
+}
+
+function Dashboard() {
+  const [profile, setProfile] = useState()
+  return (
+    <div className="profile-dash">
+      <BasicInfo {...profile} />
+    </div>
   )
 }
 
