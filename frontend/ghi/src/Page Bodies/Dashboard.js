@@ -1,46 +1,73 @@
 import React, { useState, useEffect } from 'react'
-import { getUserProfile } from '../library/api'
+import { getUserProfile, updateUserProfile } from '../library/api'
 
-function BasicInfosection({ name, value, type, onChange, immutable }) {
+function BasicInfoSection({ name, value, type, onChange, immutable }) {
   return (
     <>
       <h2>{name}</h2>
       {immutable ? (
         <p>{value}</p>
       ) : (
-        <input type={type} onChange={onChange} value={value}></input>
+        <input type={type} onChange={onChange} value={value || ''}></input>
       )}
     </>
   )
 }
 
-function BasicInfo(profile) {
-  return (
-    <div>
-      <h1>Basic Info</h1>
-      <BasicInfosection
-        name="Username"
-        type="text"
-        immutable={true}
-        value={profile?.username}
-      />
-      <BasicInfosection name="Spouse" type="text" value={profile?.spouse} />
-      <BasicInfosection name="Budget" type="number" value={profile?.budget} />
-      <BasicInfosection name="State" type="text" value={profile?.state} />
-    </div>
-  )
-}
-
 function Dashboard() {
-  const [profile, setProfile] = useState()
+  const [id, setId] = useState()
+  const [username, setUsername] = useState()
+  const [spouse, setSpouse] = useState()
+  const [budget, setBudget] = useState()
+  const [state, setState] = useState()
 
   useEffect(() => {
-    getUserProfile().then((result) => setProfile(result))
+    getUserProfile().then((result) => {
+      setId(result.id)
+      setUsername(result.username)
+      setSpouse(result.spouse)
+      setBudget(result.budget)
+      setState(result.state)
+      console.log(result)
+    })
   }, [])
 
   return (
     <div className="profile-dash">
-      <BasicInfo {...profile} />
+      <h1>Basic Info</h1>
+      <BasicInfoSection
+        name="Username"
+        type="text"
+        immutable={true}
+        value={username}
+      />
+      <BasicInfoSection
+        name="Spouse"
+        type="text"
+        value={spouse}
+        onChange={(e) => setSpouse(e.target.value)}
+      />
+      <BasicInfoSection
+        name="Budget"
+        type="number"
+        value={budget}
+        onChange={(e) => setBudget(e.target.value)}
+      />
+      <BasicInfoSection
+        name="State"
+        type="text"
+        value={state}
+        onChange={(e) => setState(e.target.value)}
+      />
+      <div>
+        <button
+          onClick={(e) =>
+            updateUserProfile({ id, username, spouse, budget, state })
+          }
+        >
+          Save
+        </button>
+      </div>
     </div>
   )
 }

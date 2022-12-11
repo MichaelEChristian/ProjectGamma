@@ -25,19 +25,34 @@ class ProfileQueries:
             with conn.cursor() as cur:
                 cur.execute(
                     """
-                    select p.username
-                    , p.spouse
-                    , p.budget
-                    , p.state
+                    SELECT p.id
+                        , p.username
+                        , p.spouse
+                        , p.budget
+                        , p.state
                     FROM profiles p
                     INNER JOIN users ON (users.username = p.username)
                     """
                 )
                 row = cur.fetchone()
                 user_dict = {
-                    "username": row[0],
-                    "spouse": row[1],
-                    "budget": row[2],
-                    "state": row[3],
+                    "id": row[0],
+                    "username": row[1],
+                    "spouse": row[2],
+                    "budget": row[3],
+                    "state": row[4],
                 }
                 return user_dict
+
+    def update_profile(self, spouse, budget, state, id):
+        with pool.connection() as conn:
+            with conn.cursor() as cur:
+                cur.execute(
+                    """
+                    UPDATE profiles
+                    SET spouse = (%s)
+                      , budget = (%s)
+                      , state = (%s)
+                    WHERE id = (%s)
+                    """, [spouse, budget, state, id]
+                    )

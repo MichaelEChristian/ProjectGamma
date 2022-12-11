@@ -11,6 +11,7 @@ ALGORITHM = "HS256"
 
 
 class Profile(BaseModel):
+    id: int
     username: str
     spouse: str
     budget: int

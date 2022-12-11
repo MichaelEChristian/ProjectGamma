@@ -4,7 +4,7 @@ from fastapi.security import OAuth2PasswordBearer
 from dbqueries.profiles_db import ProfileQueries
 from schemas.profiles import Profile
 from pydantic import BaseModel
-
+from schemas.profiles import Profile
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token", auto_error=False)
 
@@ -18,10 +18,14 @@ class ErrorMessage(BaseModel):
 
 
 @router.get(
-    "/api/user/profile/",
+    "/api/user/profile",
     response_model=Profile,
     responses={200: {"model": Profile}, 400: {"model": ErrorMessage}},
 )
 def get_profile(query=Depends(ProfileQueries)):
     rows = query.get_profile()
     return rows
+
+@router.put("/api/user/profile")
+def update_profile(profile: Profile, query=Depends(ProfileQueries)):
+    query.update_profile(profile.spouse, profile.budget, profile.state, profile.id)
