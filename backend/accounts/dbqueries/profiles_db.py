@@ -14,13 +14,13 @@ class ProfileQueries:
                     [username, spouse, budget, state],
                 )
 
-            row = cur.fetchone()
-            record = {}
-            for i, column in enumerate(cur.description):
-                record[column.name] = row[i]
-            return record
+                row = cur.fetchone()
+                record = {}
+                for i, column in enumerate(cur.description):
+                    record[column.name] = row[i]
+                return record
 
-    def get_profile(self):
+    def get_profile(self, username):
         with pool.connection() as conn:
             with conn.cursor() as cur:
                 cur.execute(
@@ -31,8 +31,9 @@ class ProfileQueries:
                         , p.budget
                         , p.state
                     FROM profiles p
-                    INNER JOIN users ON (users.username = p.username)
-                    """
+                    WHERE p.username = (%s)
+                    """,
+                    [username]
                 )
                 row = cur.fetchone()
                 user_dict = {
@@ -54,5 +55,6 @@ class ProfileQueries:
                       , budget = (%s)
                       , state = (%s)
                     WHERE id = (%s)
-                    """, [spouse, budget, state, id]
+                    """,
+                    [spouse, budget, state, id]
                     )

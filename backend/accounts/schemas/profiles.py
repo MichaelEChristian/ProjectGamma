@@ -16,3 +16,9 @@ class Profile(BaseModel):
     spouse: str
     budget: int
     state: str
+
+class ProfileUpdate(BaseModel):
+    id: int
+    spouse: str
+    budget: int
+    state: str
