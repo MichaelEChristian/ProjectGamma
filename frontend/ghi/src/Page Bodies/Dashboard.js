@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { isLoggedIn } from '../library/auth'
 import { getUserProfile } from '../library/api'
 
@@ -25,6 +25,11 @@ function BasicInfo(profile) {
 
 function Dashboard() {
   const [profile, setProfile] = useState()
+
+  useEffect(() => {
+    getUserProfile().then((result) => setProfile(result))
+  }, [])
+
   return (
     <div className="profile-dash">
       <BasicInfo {...profile} />
