@@ -7,12 +7,7 @@ from pydantic import BaseModel
 from schemas.profiles import Profile, ProfileUpdate
 from library.auth import get_current_user
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token", auto_error=False)
-
 router = APIRouter()
-SECRET_KEY = os.environ["SECRET_KEY"]
-ALGORITHM = "HS256"
-
 
 class ErrorMessage(BaseModel):
     message: str
@@ -28,5 +23,5 @@ def get_profile(current_user = Depends(get_current_user), query=Depends(ProfileQ
     return rows
 
 @router.put("/api/user/profile")
-def update_profile(profile: ProfileUpdate, query=Depends(ProfileQueries)):
-    query.update_profile(profile.spouse, profile.budget, profile.state, profile.id)
+def update_profile(profile: ProfileUpdate, query=Depends(ProfileQueries), current_user = Depends(get_current_user)):
+    query.update_profile(profile.spouse, profile.budget, profile.state, profile.id, current_user["username"])

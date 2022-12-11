@@ -45,7 +45,7 @@ class ProfileQueries:
                 }
                 return user_dict
 
-    def update_profile(self, spouse, budget, state, id):
+    def update_profile(self, spouse, budget, state, id, username):
         with pool.connection() as conn:
             with conn.cursor() as cur:
                 cur.execute(
@@ -55,6 +55,7 @@ class ProfileQueries:
                       , budget = (%s)
                       , state = (%s)
                     WHERE id = (%s)
+                    AND username = (%s)
                     """,
-                    [spouse, budget, state, id]
+                    [spouse, budget, state, id, username]
                     )
