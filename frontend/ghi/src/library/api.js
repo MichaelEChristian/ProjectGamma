@@ -50,3 +50,20 @@ export function updateUserProfile({ id, username, spouse, budget, state }) {
     body: JSON.stringify({ id, username, spouse, budget, state }),
   })
 }
+
+export async function getDestinations(selectedState) {
+  const yelpResponse = await fetch(
+    `${apiURL}/destination/?selctedStates=${selectedState}`
+  )
+  if (yelpResponse.ok) return await yelpResponse.json()
+}
+
+export async function getFoodItems(selectedCuisines) {
+  const foodNameResponse = await fetch(
+    `${apiURL}/menu/all/?selectedCuisines=${selectedCuisines.join(',')}`
+  )
+  if (foodNameResponse.ok) {
+    const json = await foodNameResponse.json()
+    return json.results
+  }
+}

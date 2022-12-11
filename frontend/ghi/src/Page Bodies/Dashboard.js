@@ -34,7 +34,7 @@ function Dashboard() {
 
   return (
     <div className="profile-dash">
-      <h1>Basic Info</h1>
+      <h1>Profile Information</h1>
       <BasicInfoSection
         name="Username"
         type="text"

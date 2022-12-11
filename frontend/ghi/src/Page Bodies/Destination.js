@@ -1,132 +1,80 @@
-import { useEffect, useState } from "react";
-import sunset_wedding_photo from "../images/sunset_wedding_photo.jpg"
+import { useEffect, useState } from 'react'
+import sunset_wedding_photo from '../images/sunset_wedding_photo.jpg'
+import { getDestinations } from '../library/api'
 
 function Destination(props) {
-
-  // const UsStates = [
-  //   'Alabama',
-  //   'Alaska',
-  //   'Arizona',
-  //   'Arkansas',
-  //   'California',
-  //   'Colorado',
-  //   'Connecticut',
-  //   'Delaware',
-  //   'Florida',
-  //   'Georgia',
-  //   'Hawaii',
-  //   'Idaho',
-  //   'Illinois',
-  //   'Indiana',
-  //   'Iowa',
-  //   'Kansas',
-  //   'Kentucky',
-  //   'Louisiana',
-  //   'Maine',
-  //   'Maryland',
-  //   'Massachusetts',
-  //   'Michigan',
-  //   'Minnesota',
-  //   'Mississippi',
-  //   'Missouri',
-  //   'Montana',
-  //   'Nebraska',
-  //   'Nevada',
-  //   'New Hampshire',
-  //   'New Jersey',
-  //   'New Mexico',
-  //   'New York',
-  //   'North Carolina',
-  //   'North Dakota',
-  //   'Ohio',
-  //   'Oklahoma',
-  //   'Oregon',
-  //   'Pennsylvania',
-  //   'Rhode Island',
-  //   'South Carolina',
-  //   'South Dakota',
-  //   'Tennessee',
-  //   'Texas',
-  //   'Utah',
-  //   'Vermont',
-  //   'Virginia',
-  //   'Washington',
-  //   'West Virginia',
-  //   'Wisconsin',
-  //   'Wyoming'
-  // ]
-
-  // const [images, setimages] = useState([]);
-  // const [searchInput, setSearchInput] = useState('');
-  const [selectedState, setSelectedState] = useState(["Texas"]);
-  const [weddingVenues, setWeddingVenues] = useState([]);
-  const [temporaryState, setTemporaryState] = useState('');
-
+  const [selectedState, setSelectedState] = useState(['Texas'])
+  const [weddingVenues, setWeddingVenues] = useState([])
+  const [temporaryState, setTemporaryState] = useState('')
 
   useEffect(() => {
-
     async function getYelpWeddingVenuesData() {
-      const weddingVenuesUrl = `${process.env.REACT_APP_API_HOST}/destination/?selctedStates=${selectedState}`
-      const yelpResponse = await fetch(weddingVenuesUrl);
-      if (yelpResponse.ok) {
-        const yelpData = await yelpResponse.json();
-        setWeddingVenues(yelpData.businesses)
-        console.log(yelpData)
-        console.log(" bus --->", yelpData.businesses)
-      }
+      const destinations = await getDestinations(selectedState)
+      setWeddingVenues(destinations.businesses)
     }
-    getYelpWeddingVenuesData();
+    getYelpWeddingVenuesData()
   }, [selectedState])
-
 
   const submitValue = (e) => {
     e.preventDefault()
     setSelectedState(temporaryState)
-    console.log(selectedState)
   }
 
-
   return (
-      <div>
+    <div>
       <section className="nav-top-padding">
-        <img src={sunset_wedding_photo} id="wedding-sunset_wedding_photo" className="card-img" alt="..." width='100%' height="450px" />
+        <img
+          src={sunset_wedding_photo}
+          id="wedding-sunset_wedding_photo"
+          className="card-img"
+          alt="..."
+          width="100%"
+          height="450px"
+        />
         <section>
           <form>
             <div>
-              <input type="text" placeholder="Please enter a State" onChange={e => setTemporaryState(e.target.value)} />
+              <input
+                type="text"
+                placeholder="Please enter a State"
+                onChange={(e) => setTemporaryState(e.target.value)}
+              />
               <button onClick={submitValue}>Submit</button>
             </div>
           </form>
+        </section>
+      </section>
 
-        </section>
-        </section>
-
-        <section>
-          <div className="container" id="destination-container">
-            {weddingVenues.map((wedding) => {
-              if (wedding === undefined) {
-                return (
-                  <p>Not found</p>
-                )
-              } return (
-                <div>
-                  <header>
-                    <h2 className="destination-headings">{wedding.name}</h2>
-                    <h4 className="destination-headings">{wedding.location.city}, {wedding.location.state}</h4>
-                  </header>
-                  <img id="destination-img" src={wedding.image_url} alt="stuff" />
-                  <footer className="destination-border">
-                    <h4>{wedding.location.display_address[0]} {wedding.location.display_address[1]}</h4>
-                    <h5>{wedding.display_phone}</h5>
-                  </footer>
-                  <br />
-                </div>
-              )
-            })}
-          </div>
-        </section>
+      <section>
+        <div className="container" id="destination-container">
+          {weddingVenues.map((wedding) => {
+            if (wedding === undefined) {
+              return <p>Not found</p>
+            }
+            return (
+              <div>
+                <header>
+                  <h2 className="destination-headings">{wedding.name}</h2>
+                  <h4 className="destination-headings">
+                    {wedding.location.city}, {wedding.location.state}
+                  </h4>
+                </header>
+                <img id="destination-img" src={wedding.image_url} alt="stuff" />
+                <footer className="destination-border">
+                  <h4>
+                    {wedding.location.display_address[0]}{' '}
+                    {wedding.location.display_address[1]}
+                  </h4>
+                  <h5>{wedding.display_phone}</h5>
+                </footer>
+                <br />
+              </div>
+            )
+          })}
         </div>
-  );
+      </section>
+    </div>
+  )
 }
 
-export default Destination;
+export default Destination
