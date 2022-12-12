@@ -1,10 +1,29 @@
 # Forever and Always
 
-## Getting started
+Forever and Always is a wedding planning application that brings clarity, enjoyment to couples looking to create their wedding from scratch without the assistance from a wedding planner or external party. This app is intended to create a seamless experience for the user and designated as a one stop shop for all things wedding related. The application calls upon API’s that will give the user autonomy on where they want their wedding to be held at and help design a wedding menu for all dietary preferences.
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+## Contributers
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+[Jenny Zheng]()
+Project Manager/ Fullstack Engineer
+
+[Micheal Christian]()
+Fullstack Engineer
+
+[Trung Nguyen](https://www.linkedin.com/in/trungnguyenuh/)
+Fullstack Engineer
+
+[Elijah Gilead](https://www.linkedin.com/in/eli-gilead/)
+Fullstack Engineer
+
+## Front-End
+JavaScript, React, React Router, Redux, Babel, HTML5, CSS3, Bootstrap 5
+
+## Back-end
+FASTapi, Docker, PostgreSQL
+
+## Testing
+PyTest
 
 ## Add your files
 
