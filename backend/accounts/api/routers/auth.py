@@ -50,7 +50,7 @@ async def signup(
             user.firstname,
             user.lastname,
         )
-        profile.create_profile(user.username, "", 0, "")
+        print(profile.create_profile(user.username, "", 0, ""))
         return user
     except DuplicateAccount:
         response.status_code = status.HTTP_409_CONFLICT
