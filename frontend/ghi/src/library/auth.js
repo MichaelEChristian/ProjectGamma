@@ -14,5 +14,5 @@ export async function login(username, password) {
 
 export function logout() {
   sessionStorage.removeItem('Authorization')
-  window.location.href = '/forever-and-always/login/'
+  window.location.href = '/login/'
 }

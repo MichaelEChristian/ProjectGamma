@@ -30,7 +30,7 @@ function LoginModal() {
       handleClose()
       setUsername(null)
       setPassword(null)
-      window.location.href = '/forever-and-always/profile/dashboard'
+      window.location.href = '/profile/dashboard'
     } catch {
       setShowError(true)
     }

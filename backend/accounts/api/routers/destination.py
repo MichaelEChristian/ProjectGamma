@@ -8,7 +8,7 @@ YELP_API_KEY = os.environ["YELP_API_KEY"]
 router = APIRouter()
 
 
-@router.get("/api/destination/")
+@router.get("/destination/")
 async def get_all_destinations(selctedStates: str):
     headers = {
         "Authorization": f"Bearer {YELP_API_KEY}",

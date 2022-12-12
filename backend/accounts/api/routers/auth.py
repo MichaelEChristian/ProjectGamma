@@ -6,7 +6,6 @@ from library.auth import (
     hash_password,
 )  # noqa: E501
 from dbqueries.users_db import DuplicateAccount, AccountsQueries
-from dbqueries.profiles_db import ProfileQueries
 from fastapi import Depends, HTTPException, status, Response, APIRouter
 
 router = APIRouter()
@@ -40,10 +39,7 @@ async def get_access_token(
 
 @router.post("/api/auth/signup")
 async def signup(
-    user: UserSignUp,
-    response: Response,
-    repo: AccountsQueries = Depends(),
-    profile: ProfileQueries = Depends()
+    user: UserSignUp, response: Response, repo: AccountsQueries = Depends()
 ):
     try:
         repo.create_user(
@@ -53,7 +49,6 @@ async def signup(
             user.firstname,
             user.lastname,
         )
-        profile.create_profile(user.username, "", 0, "")
         return user
     except DuplicateAccount:
         response.status_code = status.HTTP_409_CONFLICT

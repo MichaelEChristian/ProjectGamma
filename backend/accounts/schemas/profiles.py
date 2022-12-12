@@ -11,15 +11,7 @@ ALGORITHM = "HS256"
 
 
 class Profile(BaseModel):
-    id: int
     username: str
-    spouse: str
-    budget: int
-    state: str
-
-
-class ProfileUpdate(BaseModel):
-    id: int
     spouse: str
     budget: int
     state: str

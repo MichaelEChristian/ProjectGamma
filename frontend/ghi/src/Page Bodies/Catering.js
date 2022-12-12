@@ -1,10 +1,9 @@
-import { useState, useEffect } from 'react'
-import { getFoodItems } from '../library/api'
+import { useState, useEffect } from 'react';
 
 function Catering(props) {
-  const [foodItems, setFoodItems] = useState([])
-  const [selectedCuisines, setSelectedCuisines] = useState([])
-  const [newSelectedCuisines] = useState([])
+  const [foodItems, setFoodItems] = useState([]);
+  const [selectedCuisines, setSelectedCuisines] = useState([]);
+  const [newSelectedCuisines] = useState([]);
 
   const cuisineOptions = [
     'American',
@@ -24,46 +23,40 @@ function Catering(props) {
     'Vietnamese',
   ]
 
+
   useEffect(() => {
-    getFoodItems(selectedCuisines).then((response) => setFoodItems(response))
-  }, [selectedCuisines])
+    async function getFoodItemNames() {
+      const foodNameUrl = `${process.env.REACT_APP_API_HOST}/menu/all/?selectedCuisines=${selectedCuisines.join(',')}`;
+      const foodNameResponse = await fetch(foodNameUrl);
+      if (foodNameResponse.ok) {
+        const data = await foodNameResponse.json();
+        setFoodItems(data.results);
+        console.log(data.results);
+      }
+    }
+    getFoodItemNames();
+  }, [selectedCuisines]
+  )
+
 
   return (
     <div>
       <div className="cuisine-flexbox">
-        <div id="choice-container">
+        <div id='choice-container'>
           <div id="cuisine-container">
             {cuisineOptions.map((cuisine) => {
               return (
                 <div className="indiv-options">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    key={cuisine.id}
-                    value={cuisine}
-                    onChange={(e) => {
+                  <input className="form-check-input" type="checkbox" key={cuisine.id} value={cuisine}
+                    onChange={e => {
                       if (!selectedCuisines.includes(cuisine)) {
-                        setSelectedCuisines([
-                          ...selectedCuisines,
-                          e.target.value,
-                        ])
-                      } else {
-                        setSelectedCuisines(
-                          newSelectedCuisines.filter(
-                            (selectedCuisine) => cuisine !== selectedCuisine
-                          )
-                        )
+                        setSelectedCuisines([...selectedCuisines, e.target.value])
                       }
-                    }}
-                    id="flexCheckDefault"
-                  />
-                  <label
-                    className="form-check-label"
-                    htmlFor="flexCheckDefault"
-                  >
-                    {' '}
-                    {cuisine}{' '}
-                  </label>
+                      else {
+                        setSelectedCuisines(newSelectedCuisines.filter((selectedCuisine) => cuisine !== selectedCuisine))
+                      }
+                    }} id="flexCheckDefault" />
+                  <label className="form-check-label" htmlFor="flexCheckDefault"> {cuisine} </label>
                 </div>
               )
             })}
@@ -80,28 +73,18 @@ function Catering(props) {
             <tbody>
               {foodItems.map((foodItem) => {
                 return (
-                  <tr key={foodItem.id}>
-                    <td>
-                      <div class="card">
-                        <img
-                          src={foodItem.image}
-                          alt={foodItem.title}
-                          class="card-img-top"
-                        />
-                        <div class="card-body">
-                          <h5 class="card-title">{foodItem.title}</h5>
-                          <br />
-                          <button
-                            type="button"
-                            class="btn btn-lg btn-primary"
-                            disabled
-                          >
-                            Add to Menu +
-                          </button>
-                        </div>
+                <tr key={foodItem.id}>
+                  <td>
+                    <div class="card" >
+                      <img src={foodItem.image} alt={foodItem.title} class="card-img-top"/>
+                      <div class="card-body">
+                        <h5 class="card-title">{foodItem.title}</h5>
+                        <br/>
+                        <button type="button" class="btn btn-lg btn-primary" disabled>Add to Menu +</button>
                       </div>
-                    </td>
-                  </tr>
+                    </div>
+                  </td>
+                </tr>
                 )
               })}
             </tbody>
@@ -110,6 +93,6 @@ function Catering(props) {
       </div>
     </div>
   )
-}
+};
 
 export default Catering
