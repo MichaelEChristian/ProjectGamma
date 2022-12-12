@@ -60,4 +60,4 @@ class ProfileQueries:
                     AND username = (%s)
                     """,
                     [spouse, budget, state, id, username]
-                    )
+                )
