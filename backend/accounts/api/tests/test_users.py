@@ -1,16 +1,19 @@
-from passlib.context import CryptContext
-
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+from library.auth import verify_password
 
 
-def verify_password(plain_password, hashed_password):
-    return pwd_context.verify(plain_password, hashed_password)
-
-
-def test_verify_password():
+def test_verify_password_valid():
 
     input = "password"
     input2 = "$2b$12$lS57fBpYGs5sNZrUJkMtCuwiNfDZyxjpDT5sUP7kvLJfNTJUAwkxq"
     result = verify_password(input, input2)
 
-    assert result == True  # noqa: E712
+    assert result
+
+
+def test_verify_password_invalid():
+
+    input = "Password"
+    input2 = "$2b$12$lS57fBpYGs5sNZrUJkMtCuwiNfDZyxjpDT5sUP7kvLJfNTJUAwkxq"
+    result = verify_password(input, input2)
+
+    assert not result

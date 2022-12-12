@@ -2,7 +2,7 @@ import httpx
 from fastapi import APIRouter
 import os
 
-YELP_API_KEY = os.environ["YELP_API_KEY"]
+YELP_API_KEY = os.environ.get("YELP_API_KEY")
 
 
 router = APIRouter()
