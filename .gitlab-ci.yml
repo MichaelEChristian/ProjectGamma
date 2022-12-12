@@ -23,7 +23,6 @@ build-front-end-job:
   image: node:lts-bullseye
   needs:
     - lint-test-job
-    - backend-accounts-unit-test-job
     - backend-accounts-test
     # - any other tests that need to past
   script:
