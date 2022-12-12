@@ -1,7 +1,7 @@
 stages:
- - test # run tests and check for code quality
- - build # run build e.g. npm install and start, etc. after tests
- - deploy # run deploy after build finishes
+  - test # run tests and check for code quality
+  - build # run build e.g. npm install and start, etc. after tests
+  - deploy # run deploy after build finishes
 
 backend-accounts-unit-test-job:
   image: python:3-bullseye

@@ -40,7 +40,10 @@ async def get_access_token(
 
 @router.post("/api/auth/signup")
 async def signup(
-    user: UserSignUp, response: Response, repo: AccountsQueries = Depends(), profile: ProfileQueries = Depends()
+    user: UserSignUp,
+    response: Response,
+    repo: AccountsQueries = Depends(),
+    profile: ProfileQueries = Depends()
 ):
     try:
         repo.create_user(
@@ -50,7 +53,7 @@ async def signup(
             user.firstname,
             user.lastname,
         )
-        print(profile.create_profile(user.username, "", 0, ""))
+        profile.create_profile(user.username, "", 0, "")
         return user
     except DuplicateAccount:
         response.status_code = status.HTTP_409_CONFLICT

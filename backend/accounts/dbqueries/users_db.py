@@ -2,7 +2,7 @@ import os
 from psycopg_pool import ConnectionPool
 from psycopg.errors import UniqueViolation
 
-conninfo = os.environ.get("DATABASE_URL")
+conninfo = os.environ["DATABASE_URL"]
 pool = ConnectionPool(conninfo=conninfo)
 
 

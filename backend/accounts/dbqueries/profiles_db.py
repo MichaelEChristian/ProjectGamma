@@ -1,8 +1,14 @@
 from dbqueries.users_db import pool
-from dbqueries.helpers import create_record
+
 
 class ProfileQueries:
-    def create_profile(self, username: str, spouse: str, budget: int, state: str):  # noqa: E501
+    def create_profile(
+        self,
+        username: str,
+        spouse: str,
+        budget: int,
+        state: str
+    ):
         with pool.connection() as conn:
             with conn.cursor() as cur:
                 cur.execute(
@@ -13,7 +19,12 @@ class ProfileQueries:
                     """,
                     [username, spouse, budget, state],
                 )
-                return create_record(cur, cur.fetchone())
+
+                row = cur.fetchone()
+                record = {}
+                for i, column in enumerate(cur.description):
+                    record[column.name] = row[i]
+                return record
 
     def get_profile(self, username):
         with pool.connection() as conn:

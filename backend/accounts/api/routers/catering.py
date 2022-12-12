@@ -2,7 +2,7 @@ import httpx
 from fastapi import APIRouter
 import os
 
-SPOONACULAR_API_KEY = os.environ.get("SPOONACULAR_API_KEY")
+SPOONACULAR_API_KEY = os.environ["SPOONACULAR_API_KEY"]
 
 
 router = APIRouter()

@@ -1,4 +1,6 @@
-const apiURL = `${process.env.REACT_APP_API_HOST}/api`
+const apiURL = process.env.REACT_APP_API_HOST
+  ? `${process.env.REACT_APP_API_HOST}/api`
+  : 'http://localhost:8000/api'
 
 export async function signup({
   username,

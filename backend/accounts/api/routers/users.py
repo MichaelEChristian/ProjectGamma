@@ -7,7 +7,7 @@ from pydantic import BaseModel
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token", auto_error=False)
 
 router = APIRouter()
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = os.environ["SECRET_KEY"]
 ALGORITHM = "HS256"
 
 
