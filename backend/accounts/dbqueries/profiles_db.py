@@ -1,8 +1,15 @@
 from dbqueries.users_db import pool
+from dbqueries.helpers import create_record
 
 
 class ProfileQueries:
-    def create_profile(self, username: str, spouse: str, budget: int, state: str):  # noqa: E501
+    def create_profile(
+        self,
+        username: str,
+        spouse: str,
+        budget: int,
+        state: str
+    ):
         with pool.connection() as conn:
             with conn.cursor() as cur:
                 cur.execute(
@@ -13,31 +20,44 @@ class ProfileQueries:
                     """,
                     [username, spouse, budget, state],
                 )
+                return create_record(cur, cur.fetchone())
 
-            row = cur.fetchone()
-            record = {}
-            for i, column in enumerate(cur.description):
-                record[column.name] = row[i]
-            return record
-
-    def get_profile(self):
+    def get_profile(self, username):
         with pool.connection() as conn:
             with conn.cursor() as cur:
                 cur.execute(
                     """
-                    select p.username
-                    , p.spouse
-                    , p.budget
-                    , p.state
+                    SELECT p.id
+                        , p.username
+                        , p.spouse
+                        , p.budget
+                        , p.state
                     FROM profiles p
-                    INNER JOIN users ON (users.username = p.username)
-                    """
+                    WHERE p.username = (%s)
+                    """,
+                    [username]
                 )
                 row = cur.fetchone()
                 user_dict = {
-                    "username": row[0],
-                    "spouse": row[1],
-                    "budget": row[2],
-                    "state": row[3],
+                    "id": row[0],
+                    "username": row[1],
+                    "spouse": row[2],
+                    "budget": row[3],
+                    "state": row[4],
                 }
                 return user_dict
+
+    def update_profile(self, spouse, budget, state, id, username):
+        with pool.connection() as conn:
+            with conn.cursor() as cur:
+                cur.execute(
+                    """
+                    UPDATE profiles
+                    SET spouse = (%s)
+                      , budget = (%s)
+                      , state = (%s)
+                    WHERE id = (%s)
+                    AND username = (%s)
+                    """,
+                    [spouse, budget, state, id, username]
+                    )

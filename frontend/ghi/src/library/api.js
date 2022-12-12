@@ -1,4 +1,4 @@
-const apiURL = `${process.env.REACT_APP_API_HOST}/api`
+const apiURL = `${process.env.REACT_APP_ACCOUNTS_HOST}/api`
 
 export async function signup({
   username,
@@ -28,11 +28,23 @@ export function getAuthorizationToken({ username, password }) {
 }
 
 export function getUserProfile() {
-  return fetch(apiURL + '/profile', {
+  return fetch(apiURL + '/user/profile', {
     method: 'GET',
     headers: {
       accept: 'application/json',
       Authorization: sessionStorage.getItem('Authorization'),
     },
+  }).then((response) => response.json())
+}
+
+export function updateUserProfile({ id, username, spouse, budget, state }) {
+  fetch(apiURL + '/user/profile', {
+    method: 'PUT',
+    headers: {
+      accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: sessionStorage.getItem('Authorization'),
+    },
+    body: JSON.stringify({ id, username, spouse, budget, state }),
   })
 }
