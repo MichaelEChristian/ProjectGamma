@@ -3,15 +3,6 @@ stages:
   - build # run build e.g. npm install and start, etc. after tests
   - deploy # run deploy after build finishes
 
-backend-accounts-unit-test-job:
-  image: python:3-bullseye
-  stage: test
-  script:
-    - cd backend/accounts
-    - pip install -r requirements.txt
-    - cd api/tests
-    - python -m pytest
-
 lint-test-job:
   image: python:3-bullseye
   stage: test
