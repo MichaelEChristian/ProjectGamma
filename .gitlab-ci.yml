@@ -25,7 +25,7 @@ backend-accounts-test:
   script:
     - cd backend/accounts
     - pip install -r requirements.txt
-    - python -m pytest tests/
+    - python -m pytest
 
 build-front-end-job:
   stage: build
